@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications - Dr Sultan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="home.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPage = location.pathname.split("/").pop();
+      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage || (currentPage === "" && linkPage.includes("index"))) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand fw-bold" href="index.html">Dr Sultan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+        <li class="nav-item">
+          <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
+              Contact Me
+            </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="bg-dark text-white text-center d-flex align-items-center" style="min-height: 50vh;">
+  <div class="container">
+    <h1 class="fw-bold">Publications</h1>
+    <p class="lead">Explore Dr. Sultan’s peer-reviewed papers, journal articles, and scientific contributions.</p>
+  </div>
+</section>
+
+<!-- Publications List -->
+<section class="py-5 bg-light text-dark">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-3">Publications</h2>
+    <p class="text-center text-muted">Total Citations: 151 | h-index: 6 | i10-index: 5</p>
+
+    <!-- Journal Publications -->
+    <h4 class="fw-bold mt-5">Journal Publications</h4>
+    <ol class="ps-3">
+      <li>Shaikh, S. et al. (2024). <strong>Effects of temperature on biofilm formation...</strong> <em>JCTB</em>. 
+        <a href="https://doi.org/10.1002/jctb.7919" target="_blank">DOI</a> – Impact Factor: 2.4</li>
+      <li>Shaikh, S. et al. (2024). <strong>Light intensity effects on bioproduct recovery...</strong> <em>Biotech Reports</em>. 
+        <a href="https://doi.org/10.1016/j.btre.2024.e00863" target="_blank">DOI</a> – Cite Score: 14.1</li>
+      <li>Shaikh, S. et al. (2024). <strong>Evaluating bioproducts production in PNSB...</strong> <em>Bioresource Tech. Reports</em>. 
+        <a href="https://doi.org/10.1016/j.biteb.2024.101945" target="_blank">DOI</a> – Cite Score: 7.2</li>
+      <li>Shaikh, S. et al. (2024). <strong>Resource recovery through bioremediation...</strong> <em>CEJ Advances</em>. 
+        <a href="https://doi.org/10.1016/j.ceja.2024.100614" target="_blank">DOI</a> – Impact Factor: 5.5</li>
+      <li>Shaikh, S. et al. (2023). <strong>Photobioreactor design for PHA production...</strong> <em>Fermentation</em>. 
+        <a href="https://doi.org/10.3390/fermentation9080778" target="_blank">DOI</a> – Impact Factor: 3.3</li>
+      <li>Shaikh, S. et al. (2022). <strong>Effect of nutrient deficiency on biofilm & SCP...</strong> <em>Biofilm</em>. 
+        <a href="https://doi.org/10.1016/j.bioflm.2022.100098" target="_blank">DOI</a> – Impact Factor: 5.9</li>
+      <li>Shaikh, S. et al. (2023). <strong>Nitrogen influence on biofilm vs. suspended growth...</strong> <em>Biochemical Eng. Journal</em>. 
+        <a href="https://doi.org/10.1016/j.bej.2022.108754" target="_blank">DOI</a> – Impact Factor: 3.7</li>
+      <li>Talpur, B. D. et al. (2022). <strong>Ecological Impact Analysis of Buildings...</strong> <em>Webology</em>. 
+        <a href="https://www.webology.org/data-cms/articles/20220519110854amwebology%2019%20(3)%20-%2063%20pdf.pdf" target="_blank">PDF</a></li>
+      <li>Shaikh, S. et al. (2021). <strong>Potable groundwater sources near Manchar Lake</strong>. <em>MUET Journal</em>. 
+        <a href="http://dx.doi.org/10.22581/muet1982.2104.11" target="_blank">DOI</a></li>
+      <li>Bheel, N. et al. (2019). <strong>Use of rice husk ash as cement substitute</strong>. <em>ETASR</em>. 
+        <a href="https://doi.org/10.48084/etasr.2746" target="_blank">DOI</a></li>
+      <li>Shaikh, K., Shaikh, S., et al. (2018). <strong>Health risk from Jamshoro emissions (AERMOD)</strong>. <em>Ind. Pollution Control</em>. 
+        <a href="https://www.researchgate.net/publication/341448038" target="_blank">PDF</a></li>
+    </ol>
+
+    <!-- Conference Papers & Abstracts -->
+    <h4 class="fw-bold mt-5">Conference Papers & Abstracts</h4>
+    <ol class="ps-3">
+      <li>Shaikh, S. et al. (2022). <strong>PNSB & vitamin effect on wastewater treatment</strong>. <em>ICSuPCET</em>, Malaysia. 
+        <a href="https://www.mrforum.com/product/9781644902516-38/" target="_blank">Link</a></li>
+      <li>Rashid, N., Shaikh, S. et al. (2022). <strong>PNSB biomass from juice wastewater</strong>. <em>ICSuPCET</em>, Malaysia. 
+        <a href="https://www.mrforum.com/product/9781644902516-39/" target="_blank">Link</a></li>
+      <li>Shaikh, S. et al. (2022). <strong>Nitrogen's role in PNSB biofilm recovery</strong>. <em>Corfu Conference</em>, Greece. 
+        <a href="http://generalchemistry.chemeng.ntua.gr/uest/corfu2022/proceedings/XXIII/1815.pdf" target="_blank">PDF</a></li>
+      <li>Rashid, N., Shaikh, S. et al. (2022). <strong>Juice wastewater & SCP synthesis</strong>. <em>Corfu Conference</em>, Greece. 
+        <a href="http://generalchemistry.chemeng.ntua.gr/uest/corfu2022/posters/..." target="_blank">PDF</a></li>
+      <li>Shaikh, S., Rajput, M. (2019). <strong>Water quality of private filter plants</strong>. <em>ICSDC, MUET</em>. 
+        <a href="https://icsdc.muet.edu.pk/proceedings" target="_blank">Link</a></li>
+      <li>Shaikh, S., Panhwar, S. (2019). <strong>Safety at construction sites</strong>. <em>ICSDC, MUET</em>. 
+        <a href="https://icsdc.muet.edu.pk/proceedings" target="_blank">Link</a></li>
+      <li>Imran, U., Shaikh, S., et al. (2017). <strong>Water quality & seasonal analysis – MUET</strong>. <em>NCWE</em>. 
+        <a href="https://www.researchgate.net/publication/338541223" target="_blank">PDF</a></li>
+      <li>Sifat, I., Shaikh, S., et al. (2017). <strong>Domestic wastewater via MFCs</strong>. <em>NCWE</em>. 
+        <a href="https://www.researchgate.net/publication/338541223" target="_blank">PDF</a></li>
+      <li>Ahmed, S., Shaikh, S., et al. (2017). <strong>Melanoidins removal using fly ash</strong>. <em>NCWE</em>. 
+        <a href="https://www.researchgate.net/publication/338541223" target="_blank">PDF</a></li>
+    </ol>
+
+    <!-- Oral Presentations -->
+    <h4 class="fw-bold mt-5">Conference Oral Presentations</h4>
+    <ul class="ps-3">
+      <li>CHISA 2022, Prague – PNSB-based biofilm wastewater treatment</li>
+      <li>CHISA 2022, Prague – Juice industry biomass recovery</li>
+      <li>WasteEng2022, Denmark – Micro-aerobic wastewater treatment using PNSB</li>
+      <li>SEE 2022, Albania – Nutrient deficiency & SCP via PNSB</li>
+    </ul>
+
+    <!-- Poster Presentations -->
+    <h4 class="fw-bold mt-5">Poster Presentations</h4>
+    <ul class="ps-3">
+      <li>Corfu, Greece – SCP synthesis using PNSB from juice industry wastewater</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-black text-white py-3 text-center">
+  <p>&copy; 2025 Dr Sultan | Tekgen Technical Institute</p>
+  <div class="social-icons">
+    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function toggleContactModal(show) {
+    const contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+    if (show) {
+      contactModal.show();
+    }
+  }
+</script>
+
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal fade" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" required></textarea>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-success px-4">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
