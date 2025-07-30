@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qualifications - Dr Sultan | Tekgen Technical Institute</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="home.css" />
+  <style>
+    .img-cert {
+      max-height: 200px;
+      object-fit: contain;
+    }
+    .section-title {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPage = location.pathname.split("/").pop();
+      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand fw-bold" href="index.html">Dr Sultan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+        <li class="nav-item">
+          <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
+              Contact Me
+            </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header Section -->
+<section class="bg-dark text-white text-center d-flex align-items-center" style="min-height: 50vh;">
+  <div class="container">
+    <h1 class="fw-bold">Qualifications</h1>
+    <p class="lead">Academic Excellence, Global Certifications, and Professional Memberships</p>
+  </div>
+</section>
+
+<!-- Intro About Qualifications -->
+<section class="py-4 bg-light text-center">
+  <div class="container">
+    <h3 class="fw-bold">About My Academic & Professional Journey</h3>
+    <p class="lead text-center">From civil engineering foundations to pioneering research in sustainable environments, my academic path has been driven by innovation and purpose. Below is a detailed overview of my qualifications and accomplishments.</p>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section class="py-5 bg-light text-dark">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Education</h2>
+    <div class="row g-4">
+      <div class="col-md-4 text-center">
+        <img src="qatar foundation.png" class="img-fluid" style="max-height: 100px;" alt="HBKU">
+        <h5 class="mt-3">PhD, Sustainable Environment</h5>
+        <p><small>(2019–2023) | Hamad Bin Khalifa University, Qatar | CGPA: 3.78/4.00</small></p>
+        <p><strong>Thesis:</strong> Production of PHAs from fuel synthesis wastewater using purple non-sulfur bacteria in biofilm photobioreactors.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="USPCAS-W.png" class="img-fluid" style="max-height: 100px;" alt="USPCAS-W">
+        <h5 class="mt-3">MS, Environmental Engineering</h5>
+        <p><small>(2015–2017) | USPCAS-W, MUET Jamshoro | CGPA: 3.89/4.00</small></p>
+        <p><strong>Thesis:</strong> Groundwater quality assessment near Manchar Lake using VES and IX1D software.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="mute1.png" class="img-fluid" style="max-height: 100px;" alt="MUET">
+        <h5 class="mt-3">BE, Civil Engineering</h5>
+        <p><small>(2011–2014) | MUET, Jamshoro | CGPA: 3.85/4.00</small></p>
+        <p><strong>Project:</strong> Coefficient of friction analysis using Pendulum Skid Resistance Tester.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Affiliations -->
+<section class="py-5 text-center text-white bg-dark">
+  <div class="container">
+    <h2 class="section-title mb-4">Professional Affiliations</h2>
+    <div class="row justify-content-center g-3">
+      <div class="col-auto"><img src="ciwem.png" style="max-height: 60px;" alt="CIWEM"><p class="mb-0 small">CIWEM - UK</p></div>
+      <div class="col-auto"><img src="iema.png" style="max-height: 60px;" alt="IEMA"><p class="mb-0 small">IEMA - UK</p></div>
+      <div class="col-auto"><img src="ies.jpg" style="max-height: 60px;" alt="IES Singapore"><p class="mb-0 small">IES - Singapore</p></div>
+      <div class="col-auto"><p class="mb-0 small">AEESP - USA</p></div>
+      <div class="col-auto"><p class="mb-0 small">IOSH - UK</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Professional Certifications</h2>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4 text-center">
+      <div class="col">LEED Green Associate (USA)</div>
+      <div class="col">NEBOSH Environmental Management Cert (UK)</div>
+      <div class="col">IRCA ISO 14001 Lead Auditor (UK)</div>
+      <div class="col">Envision Sustainability Professional (USA)</div>
+      <div class="col">AOSH Certified Master Trainer (UK)</div>
+      <div class="col">ProQual Level 3 Award (UK)</div>
+      <div class="col">IOSH Managing Safely (UK)</div>
+      <div class="col">Multiple OSHA certifications (USA)</div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Skills & Expertise</h2>
+    <div class="row text-center">
+      <div class="col-md-4">💡 Microfluidics, CAD (SolidWorks)</div>
+      <div class="col-md-4">📊 Data Analysis: MATLAB, Python, R, GIS, JASP</div>
+      <div class="col-md-4">🧪 Molecular techniques (qPCR, metagenomics)</div>
+      <div class="col-md-4">🌱 Photobioreactor Design & Operation</div>
+      <div class="col-md-4">📝 Research Writing & Journal Reviewing</div>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Achievements</h2>
+    <ul class="fs-5">
+      <li>🎓 Fully Funded PhD Scholarship – Qatar Foundation</li>
+      <li>🌍 Exchange Scholar – University of Utah, USA</li>
+      <li>💻 PM Laptop Scheme Recipient – Pakistan</li>
+      <li>🏅 Academic Excellence Award – MUET</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Teaching Experience -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Teaching & Training Experience</h2>
+    <ul class="fs-5">
+      <li>Lecturer – GCT, HCST, Preston University</li>
+      <li>Teaching Assistant – HBKU, Qatar</li>
+      <li>Trainer – IEMA, Dubai</li>
+      <li>Trainer – Shell NXplorers Pro, Qatar</li>
+      <li>YouTube Mentor – "Accelerate to Achieve"</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-3 text-center">
+  <p>&copy; 2025 Dr Sultan | Tekgen Technical Institute</p>
+  <div class="social-icons">
+    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function toggleContactModal(show) {
+    const contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+    if (show) {
+      contactModal.show();
+    }
+  }
+</script>
+
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal fade" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" required></textarea>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-success px-4">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
