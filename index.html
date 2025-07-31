@@ -15,26 +15,6 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="home.css" />
-<!-- well come -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const welcome = document.querySelector(".welcome-text");
-    if (welcome) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(welcome);
-    }
-  });
-</script>
-
-<!-- navbar -->
-
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     const currentPage = location.pathname.split("/").pop();
@@ -114,19 +94,33 @@
   </div>
 </section>
 
-<section class="welcome-section">
+<!-- Welcome Section -->
+<section class="py-5 bg-white text-dark">
   <div class="container">
-    <div class="welcome-text slide-in">
-      <h2 class="fw-bold mb-3">Welcome to My Official Website!</h2>
-      <p>
-        I am Dr. Sultan Shaikh, CEO of Tekgen Technical Institute and a Postdoctoral Researcher at Hamad Bin Khalifa University, Qatar. With a passion for advancing environmental sustainability and a commitment to fostering safer workplaces, my work spans cutting-edge research in wastewater treatment, resource recovery, and biotechnology.
-        <br><br>
-        At Tekgen Technical Institute, I lead the development of HSE training programs designed to equip professionals with the knowledge and skills necessary to ensure safety and environmental compliance across industries. Whether you’re looking for expert consultancy, advanced training programs, or the latest in environmental research — I’m here to help drive impactful change toward a more sustainable and safer future.
-      </p>
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-10">
+        <h2 class="fw-bold mb-3">Welcome to My Official Website</h2>
+        <p class="fs-5">
+          I am Dr. Sultan Shaikh, CEO of Tekgen Technical Institute and a Postdoctoral Researcher at 
+          Hamad Bin Khalifa University, Qatar.
+        </p>
+        <p>
+          With a passion for advancing environmental sustainability and a commitment to fostering safer workplaces, 
+          my work spans cutting-edge research in wastewater treatment, resource recovery, and biotechnology. 
+          At Tekgen Technical Institute, I lead the development of HSE training programs designed to equip 
+          professionals with the knowledge and skills necessary to ensure safety and environmental compliance 
+          across industries.
+        </p>
+        <p>
+          This site offers a glimpse into my academic and professional journey, my research contributions 
+          to sustainable development, and the services I provide. Whether you’re looking for expert consultancy, 
+          advanced training programs, or the latest in environmental research, I’m here to help drive impactful 
+          change toward a more sustainable and safer future.
+        </p>
+      </div>
     </div>
   </div>
 </section>
-
 
 
 
