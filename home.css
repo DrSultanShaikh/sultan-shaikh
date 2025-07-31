@@ -378,3 +378,7 @@
   transform: translateX(0);
 }
 
+.card-body img {
+  border-radius: 50%;
+}
+
