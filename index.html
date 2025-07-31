@@ -15,6 +15,20 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="home.css" />
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+      if (linkPage === currentPage || (currentPage === "" && linkPage.includes("index"))) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  });
+</script>
+
 </head>
 
 <body class="loading">
@@ -38,17 +52,20 @@
         <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
         <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
         <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
-        <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">Consultancy Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="tekgen.html">Tekgen Institute</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Picture Gallery</a></li>
         <li class="nav-item">
           <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Contact Me
+            Contact
           </button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
 
 <!-- Hero Section -->
 <section class="hero d-flex align-items-center bg-dark text-white" style="min-height: 100vh;">

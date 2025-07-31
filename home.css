@@ -1,10 +1,13 @@
 /* ============================
    Navbar Styles
 ============================= */
+/* ==========================
+   Navbar Link Styles
+========================== */
 .navbar-nav .nav-link {
   position: relative;
+  color: #ffffff;
   transition: color 0.3s ease;
-  color: #fff;
 }
 
 .navbar-nav .nav-link::after {
@@ -14,9 +17,9 @@
   left: 50%;
   width: 0%;
   height: 2px;
-  background: #00cc99;
-  transition: all 0.4s ease;
+  background-color: #00cc99;
   transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link:hover {
@@ -31,6 +34,7 @@
   color: #00cc99 !important;
 }
 
+/* Mobile background on toggle */
 .navbar-collapse {
   background-color: #000;
   padding: 10px 0;
