@@ -402,3 +402,14 @@
   background-color: #00cc99;
 }
 
+/* Qualification Page - Card Hover Effects */
+.card-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.card-hover:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
