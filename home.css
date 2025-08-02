@@ -429,3 +429,11 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+.collab-logo {
+  max-height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.collab-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
