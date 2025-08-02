@@ -6,7 +6,7 @@
 ========================== */
 .navbar-nav .nav-link {
   position: relative;
-  color: #ffffff;
+  color:#ffffff;
   transition: color 0.3s ease;
 }
 
@@ -461,4 +461,9 @@
   transform: translateY(-5px);
   transition: 0.3s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.text-primary {
+  --bs-text-opacity: 1;
+  color: rgb(25 135 84);
 }
