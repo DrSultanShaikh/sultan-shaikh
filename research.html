@@ -25,25 +25,10 @@
     });
   </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const currentPage = location.pathname.split("/").pop();
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-    navLinks.forEach(link => {
-      const linkPage = link.getAttribute("href");
-      if (linkPage === currentPage || (currentPage === "" && linkPage.includes("index"))) {
-        link.classList.add("active");
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  });
-</script>
-
 
 </head>
 <body>
 
-<!-- Navbar -->
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow px-3">
   <div class="container-fluid">
@@ -72,6 +57,22 @@
     </div>
   </div>
 </nav>
+
+<!-- Active link script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+      if (linkPage === currentPage || (currentPage === "" && linkPage.includes("index"))) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  });
+</script>
+
 
 <!-- Research Page Header -->
 <section class="bg-dark text-white text-center d-flex align-items-center" style="min-height: 40vh;">
