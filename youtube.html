@@ -99,7 +99,7 @@
         <!-- filled by JS -->
       </div>
       <div class="text-center mt-4">
-        <a id="openChannelBtn" class="btn btn-success" target="_blank" rel="noopener" href="https://www.youtube.com/c/acceleratetoachieve">Visit Channel & Subscribe</a>
+        <a id="openChannelBtn" class="btn btn-success" target="_blank" rel="noopener" href="https://www.youtube.com/@Acceleratetoachieve/playlists">Visit Channel & Subscribe</a>
       </div>
     </div>
   </section>
@@ -170,9 +170,9 @@
 /*******************************
  *  CONFIG - replace these
  *******************************/
-const API_KEY = 'AIzaSyAT8AkqIQWjtKEtU3--0Asrig4VZCKTsrw'; // <-- Replace with your YouTube Data API v3 key
-const CHANNEL_ID = 'UCI5CnBI0OVxdhUYMmQJXBeA'; // <-- Replace with your channel ID (UCxxxxxxxxxxx)
+const CHANNEL_ID = 'UCI5CnBI0OVxdhUYMmQJXBeA'; // Your channel ID
 const MAX_RESULTS = 12; // number of videos per page
+const CACHE_EXPIRY_HOURS = 6; // localStorage cache duration
 
 /*******************************
  *  Helpers & DOM refs
@@ -185,27 +185,86 @@ const featuredLoading = document.getElementById('featuredLoading');
 const playlistsGrid = document.getElementById('playlistsGrid');
 
 let searchNextPageToken = '';
+let apiCallsCount = 0;
+
+// Security: Never expose API keys in frontend code
+// Use a backend proxy instead (see recommendations below)
+async function fetchYouTubeData(endpoint, params) {
+  try {
+    // IMPORTANT: Replace this with your backend API endpoint
+    // Example: const response = await fetch(`/api/youtube?endpoint=${endpoint}&params=${encodeURIComponent(JSON.stringify(params))}`);
+    
+    // TEMPORARY: This is just for demonstration - remove in production
+    console.warn("Warning: Using direct YouTube API calls is insecure");
+    const url = `https://www.googleapis.com/youtube/v3/${endpoint}?${new URLSearchParams({...params, key: 'YOUR_BACKEND_SHOULD_HANDLE_KEYS'})}`;
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    console.error('YouTube API Error:', error);
+    throw error;
+  }
+}
 
 function escapeHtml(s) { return (s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 function truncate(s, n){ return s.length>n? s.slice(0,n-1)+'…': s; }
 
 /*******************************
+ *  Caching System
+ *******************************/
+async function loadWithCache(endpoint, params, cacheKey) {
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    const { data, timestamp } = JSON.parse(cached);
+    if (Date.now() - timestamp < CACHE_EXPIRY_HOURS * 60 * 60 * 1000) {
+      return data;
+    }
+  }
+
+  const freshData = await fetchYouTubeData(endpoint, params);
+  localStorage.setItem(cacheKey, JSON.stringify({
+    data: freshData,
+    timestamp: Date.now()
+  }));
+  return freshData;
+}
+
+/*******************************
+ *  Error Handling
+ *******************************/
+function showError(element, message, retryFn = null) {
+  element.innerHTML = `
+    <div class="alert alert-danger d-flex align-items-center">
+      <i class="fas fa-exclamation-circle me-2"></i>
+      <div>${message}</div>
+      ${retryFn ? `<button class="btn btn-sm btn-outline-danger ms-2" onclick="${retryFn}">Retry</button>` : ''}
+    </div>
+  `;
+}
+
+/*******************************
  *  Video Card
  *******************************/
 function createVideoCard(video) {
-  const col = document.createElement('div'); col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+  const col = document.createElement('div'); 
+  col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+  
   const thumb = video.snippet?.thumbnails?.medium?.url || '';
   const title = video.snippet?.title || '';
   const vid = video.id?.videoId || video.contentDetails?.videoId || video.id;
+  
   col.innerHTML = `
     <div class="card h-100 border-0 shadow-sm">
-      <img loading="lazy" src="${thumb}" alt="${escapeHtml(title)}" class="card-img-top video-thumb" data-video-id="${vid}">
+      <div class="ratio ratio-16x9 bg-light">
+        <img loading="lazy" src="${thumb}" alt="${escapeHtml(title)}" 
+             class="card-img-top video-thumb object-fit-cover" data-video-id="${vid}">
+      </div>
       <div class="card-body">
         <h6 class="card-title mb-1">${escapeHtml(truncate(title, 70))}</h6>
         <p class="small text-muted mb-0">${video.snippet?.channelTitle || ''}</p>
       </div>
     </div>
   `;
+  
   col.querySelector('.video-thumb').addEventListener('click', () => openVideoModal(vid, title));
   return col;
 }
@@ -215,98 +274,144 @@ function createVideoCard(video) {
  *******************************/
 async function loadFeatured() {
   try {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1&type=video`;
-    const r = await fetch(url);
-    const j = await r.json();
-    if (j.items && j.items.length) {
-      const it = j.items[0];
+    const data = await loadWithCache(
+      'search',
+      {
+        channelId: CHANNEL_ID,
+        part: 'snippet,id',
+        order: 'date',
+        maxResults: 1,
+        type: 'video'
+      },
+      'yt_featured'
+    );
+
+    if (data.items?.length) {
+      const it = data.items[0];
       renderFeatured(it.id.videoId, it.snippet);
     } else {
       featuredWrapper.innerHTML = '<div class="text-center p-4 text-white">No featured video available.</div>';
     }
   } catch (e) {
-    featuredWrapper.innerHTML = '<div class="text-center p-4 text-white">Failed to load featured video.</div>';
-    console.error(e);
+    showError(featuredWrapper, 'Failed to load featured video. ' + e.message, 'loadFeatured()');
   } finally {
     featuredLoading.style.display = 'none';
   }
 }
+
 function renderFeatured(videoId, snippet) {
-  featuredWrapper.innerHTML = `<iframe class="w-100 h-100" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
-  featuredMeta.innerHTML = `<h4 class="mt-3">${escapeHtml(snippet.title)}</h4><p class="text-muted mb-0">${escapeHtml(snippet.channelTitle)} • ${new Date(snippet.publishedAt).toLocaleDateString()}</p><p class="mt-2">${escapeHtml(snippet.description.slice(0,300))}</p>`;
+  // Lazy-load iframe only when needed
+  featuredWrapper.innerHTML = `
+    <div class="ratio ratio-16x9">
+      <iframe class="w-100 h-100" 
+              data-src="https://www.youtube.com/embed/${videoId}?autoplay=0" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              loading="lazy"></iframe>
+    </div>
+  `;
+  
+  // Load iframe only when visible
+  const iframe = featuredWrapper.querySelector('iframe');
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      iframe.src = iframe.dataset.src;
+      observer.unobserve(iframe);
+    }
+  });
+  observer.observe(iframe);
+
+  featuredMeta.innerHTML = `
+    <h4 class="mt-3">${escapeHtml(snippet.title)}</h4>
+    <p class="text-muted mb-0">${escapeHtml(snippet.channelTitle)} • ${new Date(snippet.publishedAt).toLocaleDateString()}</p>
+    <p class="mt-2">${escapeHtml(truncate(snippet.description, 300))}</p>
+  `;
 }
 
 /*******************************
  *  Latest uploads
  *******************************/
-async function loadLatest(pageToken='') {
+async function loadLatest(pageToken = '') {
   loadMoreBtn.disabled = true;
-  loadMoreBtn.innerHTML = '<span class="loader-inline"></span> Loading';
+  loadMoreBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Loading';
+  
   try {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}&type=video${pageToken?('&pageToken='+pageToken):''}`;
-    const r = await fetch(url);
-    const j = await r.json();
-    if (j.items && j.items.length) {
-      j.items.forEach(item => {
+    const data = await fetchYouTubeData('search', {
+      channelId: CHANNEL_ID,
+      part: 'snippet,id',
+      order: 'date',
+      maxResults: MAX_RESULTS,
+      type: 'video',
+      pageToken: pageToken || undefined
+    });
+
+    if (data.items?.length) {
+      data.items.forEach(item => {
         videosGrid.appendChild(createVideoCard(item));
       });
-      searchNextPageToken = j.nextPageToken || '';
+      
+      searchNextPageToken = data.nextPageToken || '';
       loadMoreBtn.dataset.nextPageToken = searchNextPageToken;
       loadMoreBtn.style.display = searchNextPageToken ? 'inline-block' : 'none';
-    } else {
-      if (!videosGrid.children.length) videosGrid.innerHTML = '<div class="col-12 text-muted">No videos found.</div>';
+    } else if (!videosGrid.children.length) {
+      videosGrid.innerHTML = '<div class="col-12 text-muted">No videos found.</div>';
     }
   } catch (e) {
-    console.error(e);
-    if (!videosGrid.children.length) videosGrid.innerHTML = '<div class="col-12 text-danger">Failed to load videos.</div>';
+    showError(videosGrid, 'Failed to load videos. ' + e.message, `loadLatest('${pageToken}')`);
   } finally {
     loadMoreBtn.disabled = false;
     loadMoreBtn.innerHTML = 'Load more';
   }
 }
-loadMoreBtn.addEventListener('click', () => {
-  loadLatest(loadMoreBtn.dataset.nextPageToken || '');
-});
 
 /*******************************
  *  Playlists
  *******************************/
 async function loadPlaylists() {
   try {
-    let pageToken = '';
-    do {
-      const url = `https://www.googleapis.com/youtube/v3/playlists?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,contentDetails&maxResults=50${pageToken?('&pageToken='+pageToken):''}`;
-      const r = await fetch(url);
-      const j = await r.json();
-      if (j.items) {
-        j.items.forEach(pl => {
-          const col = document.createElement('div');
-          col.className = 'col-12 col-md-6 col-lg-4';
-          const thumb = pl.snippet.thumbnails?.medium?.url || '';
-          col.innerHTML = `
-            <div class="card playlist-card h-100 border-0 shadow-sm">
-              <div class="row g-0 align-items-center">
-                <div class="col-4">
-                  <img loading="lazy" src="${thumb}" class="img-fluid rounded-start" alt="${escapeHtml(pl.snippet.title)}">
-                </div>
-                <div class="col-8">
-                  <div class="card-body">
-                    <h6 class="card-title mb-1">${escapeHtml(pl.snippet.title)}</h6>
-                    <p class="small text-muted mb-0">${pl.contentDetails.itemCount} videos</p>
-                  </div>
+    const data = await loadWithCache(
+      'playlists',
+      {
+        channelId: CHANNEL_ID,
+        part: 'snippet,contentDetails',
+        maxResults: 50
+      },
+      'yt_playlists'
+    );
+
+    if (data.items?.length) {
+      playlistsGrid.innerHTML = ''; // Clear loading state
+      data.items.forEach(pl => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-6 col-lg-4';
+        const thumb = pl.snippet.thumbnails?.medium?.url || '';
+        
+        col.innerHTML = `
+          <div class="card playlist-card h-100 border-0 shadow-sm">
+            <div class="row g-0 align-items-center">
+              <div class="col-4">
+                <img loading="lazy" src="${thumb}" class="img-fluid rounded-start" alt="${escapeHtml(pl.snippet.title)}">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h6 class="card-title mb-1">${escapeHtml(pl.snippet.title)}</h6>
+                  <p class="small text-muted mb-0">${pl.contentDetails.itemCount} videos</p>
                 </div>
               </div>
             </div>
-          `;
-          col.querySelector('.playlist-card').addEventListener('click', () => openPlaylistModal(pl.id, pl.snippet.title));
-          playlistsGrid.appendChild(col);
-        });
-      }
-      pageToken = j.nextPageToken || '';
-    } while (pageToken);
+          </div>
+        `;
+        
+        col.querySelector('.playlist-card').addEventListener('click', 
+          () => openPlaylistModal(pl.id, pl.snippet.title));
+        playlistsGrid.appendChild(col);
+      });
+    } else {
+      playlistsGrid.innerHTML = '<div class="col-12 text-muted">No playlists found.</div>';
+    }
   } catch (e) {
-    console.error(e);
-    playlistsGrid.innerHTML = '<div class="col-12 text-danger">Failed to load playlists.</div>';
+    showError(playlistsGrid, 'Failed to load playlists. ' + e.message, 'loadPlaylists()');
   }
 }
 
@@ -315,25 +420,62 @@ async function loadPlaylists() {
  *******************************/
 function openVideoModal(videoId, title) {
   const wrapper = document.getElementById('modalPlayerWrapper');
-  wrapper.innerHTML = `<iframe class="position-absolute top-0 start-0 w-100 h-100" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+  wrapper.innerHTML = `
+    <div class="ratio ratio-16x9">
+      <iframe class="position-absolute top-0 start-0 w-100 h-100" 
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe>
+    </div>
+  `;
+  
   document.getElementById('modalMeta').innerHTML = `<strong>${escapeHtml(title)}</strong>`;
   document.getElementById('watchOnYT').href = `https://youtube.com/watch?v=${videoId}`;
-  new bootstrap.Modal(document.getElementById('videoModal')).show();
+  
+  const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+  modal.show();
+  
+  // Cleanup on modal close
+  document.getElementById('videoModal').addEventListener('hidden.bs.modal', () => {
+    wrapper.innerHTML = '';
+  }, { once: true });
 }
-document.getElementById('videoModal').addEventListener('hidden.bs.modal', () => {
-  document.getElementById('modalPlayerWrapper').innerHTML = '';
-});
+
+/*******************************
+ *  Playlist Modal (placeholder - implement similarly to video modal)
+ *******************************/
+function openPlaylistModal(playlistId, title) {
+  // Implement similar to video modal with playlist items
+  console.log("Open playlist:", playlistId, title);
+  // You would fetch playlist items here and display them
+}
 
 /*******************************
  *  Init
  *******************************/
 (async function init() {
-  if (!API_KEY || !CHANNEL_ID) {
-    videosGrid.innerHTML = '<div class="col-12 text-center text-danger py-4">API key or Channel ID missing.</div>';
+  if (!CHANNEL_ID) {
+    showError(videosGrid, 'YouTube channel configuration missing');
     return;
   }
-  await Promise.all([ loadFeatured(), loadLatest(), loadPlaylists() ]);
+
+  // Load content in priority order
+  try {
+    await loadFeatured();
+    await loadLatest();
+    
+    // Delay less critical content
+    setTimeout(loadPlaylists, 500);
+  } catch (e) {
+    console.error('Initialization error:', e);
+  }
 })();
+
+// Event listeners
+loadMoreBtn.addEventListener('click', () => {
+  loadLatest(loadMoreBtn.dataset.nextPageToken || '');
+});
 </script>
 
 </body>
