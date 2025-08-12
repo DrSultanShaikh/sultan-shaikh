@@ -170,33 +170,17 @@
 /*******************************
  *  CONFIG - replace these
  *******************************/
-const CHANNEL_ID = 'UCI5CnBI0OVxdhUYMmQJXBeA'; // Your channel ID
-const MAX_RESULTS = 12; // number of videos per page
-const CACHE_EXPIRY_HOURS = 6; // localStorage cache duration
-
 /*******************************
- *  Helpers & DOM refs
+ *  CONFIG - replace these
  *******************************/
-const videosGrid = document.getElementById('videosGrid');
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-const featuredWrapper = document.getElementById('featuredWrapper');
-const featuredMeta = document.getElementById('featuredMeta');
-const featuredLoading = document.getElementById('featuredLoading');
-const playlistsGrid = document.getElementById('playlistsGrid');
+const API_KEY = 'AIzaSyAT8AkqIQWjtKEtU3--0Asrig4VZCKTsrw'; // Your YouTube Data API v3 key
+const CHANNEL_ID = 'UCI5CnBI0OVxdhUYMmQJXBeA'; 
+const MAX_RESULTS = 12;
+const CACHE_EXPIRY_HOURS = 6;
 
-let searchNextPageToken = '';
-let apiCallsCount = 0;
-
-// Security: Never expose API keys in frontend code
-// Use a backend proxy instead (see recommendations below)
 async function fetchYouTubeData(endpoint, params) {
   try {
-    // IMPORTANT: Replace this with your backend API endpoint
-    // Example: const response = await fetch(`/api/youtube?endpoint=${endpoint}&params=${encodeURIComponent(JSON.stringify(params))}`);
-    
-    // TEMPORARY: This is just for demonstration - remove in production
-    console.warn("Warning: Using direct YouTube API calls is insecure");
-    const url = `https://www.googleapis.com/youtube/v3/${endpoint}?${new URLSearchParams({...params, key: 'YOUR_BACKEND_SHOULD_HANDLE_KEYS'})}`;
+    const url = `https://www.googleapis.com/youtube/v3/${endpoint}?${new URLSearchParams({...params, key: API_KEY})}`;
     const response = await fetch(url);
     return response.json();
   } catch (error) {
@@ -204,6 +188,7 @@ async function fetchYouTubeData(endpoint, params) {
     throw error;
   }
 }
+
 
 function escapeHtml(s) { return (s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 function truncate(s, n){ return s.length>n? s.slice(0,n-1)+'…': s; }
