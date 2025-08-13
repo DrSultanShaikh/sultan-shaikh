@@ -476,3 +476,28 @@
   object-fit: contain;
   height: 550px; /* adjust for your layout */
 }
+
+/* Change section headings to black */
+.page-section h3,
+.page-section h2,
+.page-section h4 {
+  color: #000 !important;
+}
+
+/* Remove extra bottom space */
+body {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+footer {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* If an empty section is creating space after footer */
+section:last-of-type {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
