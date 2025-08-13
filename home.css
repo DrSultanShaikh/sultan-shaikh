@@ -471,3 +471,8 @@
   --bs-text-opacity: 1;
   color: rgb(25 135 84);
 }
+
+.carousel-item img {
+  object-fit: contain;
+  height: 550px; /* adjust for your layout */
+}
