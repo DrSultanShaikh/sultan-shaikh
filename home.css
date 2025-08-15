@@ -80,7 +80,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 204, 153, 0.85);
+  background: #198754;
   color: white;
   text-align: center;
   padding: 10px;
@@ -102,26 +102,26 @@
 ============================= */
 .btn-outline-light {
   color: #fff;
-  border: 2px solid #00cc99;
+  border: 2px solid #198754;
   background-color: transparent;
   transition: 0.3s ease-in-out;
 }
 
 .btn-outline-light:hover {
-  background-color: #00cc99;
+  background-color: #198754;
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.4);
 }
 
 .btn-outline-success {
-  border: 2px solid #00cc99;
-  color: #00cc99;
+  border: 2px solid #198754;
+  color: #198754;
   background-color: transparent;
   transition: all 0.3s ease-in-out;
 }
 
 .btn-outline-success:hover {
-  background-color: #00cc99;
+  background-color: #198754;
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 204, 153, 0.4);
 }
@@ -471,6 +471,7 @@
   --bs-text-opacity: 1;
   color: rgb(25 135 84);
 }
+
 
 .carousel-item img {
   object-fit: contain;
