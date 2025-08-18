@@ -305,19 +305,27 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- Playlist Slider Section -->
 <section class="py-5 bg-light">
   <div class="container">
-    <h2 class="fw-bold text-center mb-4">Our Playlists</h2>
-
+    <h2 class="fw-bold text-center text-dark mb-4">Our Playlists</h2>
     <div id="playlistSlider" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
 
-        <!-- Playlist Item -->
-        <div class="carousel-item active">
-          <div class="text-center">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=DGw3EKy0cB2-ZMFt&amp;list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd&si=DGw3EKy0cB2-ZMFt" target="_blank" 
-               class="btn btn-success mt-3">View More on YouTube</a>
-          </div>
-        </div>
+      <!-- Playlist Item -->
+<div class="carousel-item active">
+  <div class="text-center">
+    <!-- Responsive Wrapper -->
+    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=IbvZQ9mj6zob_hqi&amp;list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Button -->
+    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd&si=IbvZQ9mj6zob_hqi" 
+       target="_blank" 
+       class="btn btn-success mt-3">
+      View More on YouTube
+    </a>
+  </div>
+</div>
+
 
        <!-- Playlist Item -->
 <div class="carousel-item">
