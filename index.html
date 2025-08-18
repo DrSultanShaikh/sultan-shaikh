@@ -44,6 +44,7 @@
       line-height: 1.7;
       background-color: var(--lighter);
       overflow-x: hidden;
+      padding-top: 80px; /* For fixed navbar */
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -448,6 +449,23 @@
         padding: 10px 20px;
       }
     }
+
+    /* Container adjustments */
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+    }
   </style>
 </head>
 
@@ -505,446 +523,365 @@
   </div>
 </nav>
 
-<style>
-/* Custom Navbar Styling */
-.navbar {
-  padding: 15px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-item.mx-2 {
-    margin-right: 0.5rem !important;
-    margin-left: 0.5rem !important;
-}
-
-.nav-link {
-  font-weight: 500;
-  color: #333 !important;
-  position: relative;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #2a7f62 !important;
-}
-
-/* Active Link Indicator */
-.nav-link.active:after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #2a7f62;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .navbar-collapse {
-    background: white;
-    padding: 20px;
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
-  .nav-item {
-    margin: 5px 0;
-  }
-  
-  .nav-item.mx-2 {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  
-  .navbar-brand.me-5 {
-    margin-right: 1rem !important;
-  }
-}
-
-/* Ensure toggle button is visible */
-.navbar-toggler {
-  border: none;
-  padding: 0.25rem 0.5rem;
-}
-
-.navbar-toggler:focus {
-  box-shadow: none;
-  outline: none;
-}
-</style>
-<script>
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
-</script>
-
-
-<!-- Hero Section -->
-<section class="hero">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Text Content -->
-      <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="800">
-        <h1 class="fw-bold mb-4">Dr. Sultan Shaikh</h1>
-        <p class="lead mb-4">CEO, Researcher & Sustainability Consultant with a decade of experience in sustainability, research, and education.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="Sultan Shaikh - CV.pdf" class="btn btn-primary" target="_blank">
-            <i class="fas fa-download me-2"></i> Download Resume
-          </a>
-          <a href="#contact" class="btn btn-outline-primary">
-            <i class="fas fa-envelope me-2"></i> Contact Me
-          </a>
-        </div>
-      </div>
-
-      <!-- Image -->
-      <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-        <div class="hero-img">
-          <img src="1.jpeg" alt="Dr Sultan - CEO" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Welcome Section -->
-<section>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 text-center" data-aos="fade-up">
-        <h2 class="fw-bold mb-4 section-title center">Welcome to My Official Website</h2>
-        <p class="fs-5">
-          I am Dr. Sultan Shaikh, CEO of Tekgen Technical Institute and a Postdoctoral Researcher at 
-          Hamad Bin Khalifa University, Qatar.
-        </p>
-        <p>
-          With a passion for advancing environmental sustainability and a commitment to fostering safer workplaces, 
-          my work spans cutting-edge research in wastewater treatment, resource recovery, and biotechnology. 
-          At Tekgen Technical Institute, I lead the development of HSE training programs designed to equip 
-          professionals with the knowledge and skills necessary to ensure safety and environmental compliance 
-          across industries.
-        </p>
-        <p>
-          This site offers a glimpse into my academic and professional journey, my research contributions 
-          to sustainable development, and the services I provide. Whether you're looking for expert consultancy, 
-          advanced training programs, or the latest in environmental research, I'm here to help drive impactful 
-          change toward a more sustainable and safer future.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section class="bg-primary-light">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-        <div class="hover-effect">
-          <img src="2.jpeg" alt="Dr Sultan" class="img-fluid">
-        </div>
-      </div>
-      <div class="col-lg-6 order-lg-1 pe-lg-5" data-aos="fade-right">
-        <h2 class="fw-bold mb-4 section-title">About Me</h2>
-        <p class="lead">
-          I'm Dr. Sultan Shaikh, a Postdoctoral Researcher at Hamad Bin Khalifa University in Qatar and Founder of Tekgen Technical Institute in Pakistan.
-        </p>
-        <p>
-          With a Ph.D. in Sustainable Environment, my work focuses on pioneering solutions in environmental engineering, wastewater treatment, and sustainable development. I have led several international research projects and published in top-tier journals.
-        </p>
-        <p>
-          Through Tekgen, I am committed to equipping professionals with cutting-edge knowledge in Health, Safety & Environmental (HSE) training, empowering industries with sustainable and safe practices.
-        </p>
-        <a href="about.html" class="btn btn-outline-primary mt-3">Learn More About Me</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education Section -->
-<section>
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title center">Education</h2>
-      <p class="lead">Academic excellence across prestigious institutions worldwide</p>
-    </div>
-    
-    <div class="row g-4 justify-content-center">
-      <!-- Education 1 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-        <div class="feature-box">
-          <div class="icon">
-            <img src="qatar foundation.png" alt="PhD - HBKU" class="img-fluid" style="max-height: 40px;">
-          </div>
-          <h5 class="fw-bold">Ph.D. in Sustainable Environment</h5>
-          <p class="mb-1">Hamad Bin Khalifa University, Qatar Foundation</p>
-          <small class="text-primary fw-bold">CGPA: 3.96 / 4.00</small>
-        </div>
-      </div>
-
-      <!-- Education 2 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="feature-box">
-          <div class="icon">
-            <img src="USPCAS-W.png" alt="MS - USPCAS-W" class="img-fluid" style="max-height: 40px;">
-          </div>
-          <h5 class="fw-bold">M.S. in Environmental Engineering</h5>
-          <p class="mb-1">U.S.-Pakistan Center for Advanced Studies in Water, MUET</p>
-          <small class="text-primary fw-bold">CGPA: 3.91 / 4.00</small>
-        </div>
-      </div>
-
-      <!-- Education 3 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="feature-box">
-          <div class="icon">
-            <img src="mute1.png" alt="BSc - MUET" class="img-fluid" style="max-height: 40px;">
-          </div>
-          <h5 class="fw-bold">B.E. in Civil Engineering</h5>
-          <p class="mb-1">Mehran University of Engineering & Technology</p>
-          <small class="text-primary fw-bold">CGPA: 3.80 / 4.00</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Research Section -->
-<section class="bg-primary-light">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title center">Research & Projects</h2>
-      <p class="lead">Advancing sustainability through cutting-edge research in biotechnology, wastewater treatment, and environmental systems.</p>
-    </div>
-
-    <div class="row g-4">
-      <!-- Research 1 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-        <div class="card">
-          <div class="card-body p-4">
-            <div class="card-icon">
-              <i class="fas fa-seedling"></i>
-            </div>
-            <h5 class="card-title fw-bold">Sustainable Aquaculture Feed</h5>
-            <p class="card-text">Using microbial protein from wastewater (PNSB) to produce high-protein feed for aquaculture, enhancing food security.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Research 2 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="card">
-          <div class="card-body p-4">
-            <div class="card-icon">
-              <i class="fas fa-microscope"></i>
-            </div>
-            <h5 class="card-title fw-bold">3D Microfluidics</h5>
-            <p class="card-text">Studying fluid flow and contaminant transport using microfluidic models to optimize resource recovery in groundwater systems.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Research 3 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card">
-          <div class="card-body p-4">
-            <div class="card-icon">
-              <i class="fas fa-recycle"></i>
-            </div>
-            <h5 class="card-title fw-bold">Bioplastics & Resource Recovery</h5>
-            <p class="card-text">Recovering PHAs and other valuable bioproducts from industrial waste using photobioreactor systems and LCA evaluation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
-      <a href="research.html" class="btn btn-primary px-4">
-        <i class="fas fa-arrow-right me-2"></i> Explore All Research
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Publications Section -->
-<section>
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title center">Research Publications</h2>
-      <p class="lead mb-1">Contributions to environmental sustainability, wastewater treatment, and circular economy.</p>
-      <p class="text-muted">151+ citations | h-index: 6 | i10-index: 5</p>
-    </div>
-
-    <div class="row g-4">
-      <!-- Publication 1 -->
-      <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
-        <div class="card">
-          <div class="card-body p-4">
-            <h5 class="fw-bold">Effects of Temperature on Biofilm Formation</h5>
-            <p class="mb-3 text-muted"><i class="fas fa-book-open text-primary me-2"></i><strong>Journal:</strong> J. Chem. Tech. & Biotech (2024)</p>
-            <a href="https://doi.org/10.1002/jctb.7919" class="btn btn-sm btn-outline-primary" target="_blank">
-              <i class="fas fa-external-link-alt me-2"></i> Read Publication
+<!-- Main Content Container -->
+<main class="main-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Text Content -->
+        <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="800">
+          <h1 class="fw-bold mb-4">Dr. Sultan Shaikh</h1>
+          <p class="lead mb-4">CEO, Researcher & Sustainability Consultant with a decade of experience in sustainability, research, and education.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="Sultan Shaikh - CV.pdf" class="btn btn-primary" target="_blank">
+              <i class="fas fa-download me-2"></i> Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline-primary">
+              <i class="fas fa-envelope me-2"></i> Contact Me
             </a>
           </div>
         </div>
-      </div>
 
-      <!-- Publication 2 -->
-      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card">
-          <div class="card-body p-4">
-            <h5 class="fw-bold">Bioplastics from Fuel Synthesis Wastewater</h5>
-            <p class="mb-3 text-muted"><i class="fas fa-book-open text-primary me-2"></i><strong>Journal:</strong> Fermentation (2023)</p>
-            <a href="https://doi.org/10.3390/fermentation9080778" class="btn btn-sm btn-outline-primary" target="_blank">
-              <i class="fas fa-external-link-alt me-2"></i> Read Publication
-            </a>
+        <!-- Image -->
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+          <div class="hero-img">
+            <img src="1.jpeg" alt="Dr Sultan - CEO" class="img-fluid">
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="200">
-      <a href="publication.html" class="btn btn-primary px-4">
-        <i class="fas fa-list me-2"></i> View Full Publication List
-      </a>
+  <!-- Welcome Section -->
+  <section>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center" data-aos="fade-up">
+          <h2 class="fw-bold mb-4 section-title center">Welcome to My Official Website</h2>
+          <p class="fs-5">
+            I am Dr. Sultan Shaikh, CEO of Tekgen Technical Institute and a Postdoctoral Researcher at 
+            Hamad Bin Khalifa University, Qatar.
+          </p>
+          <p>
+            With a passion for advancing environmental sustainability and a commitment to fostering safer workplaces, 
+            my work spans cutting-edge research in wastewater treatment, resource recovery, and biotechnology. 
+            At Tekgen Technical Institute, I lead the development of HSE training programs designed to equip 
+            professionals with the knowledge and skills necessary to ensure safety and environmental compliance 
+            across industries.
+          </p>
+          <p>
+            This site offers a glimpse into my academic and professional journey, my research contributions 
+            to sustainable development, and the services I provide. Whether you're looking for expert consultancy, 
+            advanced training programs, or the latest in environmental research, I'm here to help drive impactful 
+            change toward a more sustainable and safer future.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Services Section -->
-<section class="bg-primary-light">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title center">Professional Services</h2>
-      <p class="lead text-muted">Empowering industries and individuals through expert consultation and technical training.</p>
+  <!-- About Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+          <div class="hover-effect">
+            <img src="2.jpeg" alt="Dr Sultan" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1 pe-lg-5" data-aos="fade-right">
+          <h2 class="fw-bold mb-4 section-title">About Me</h2>
+          <p class="lead">
+            I'm Dr. Sultan Shaikh, a Postdoctoral Researcher at Hamad Bin Khalifa University in Qatar and Founder of Tekgen Technical Institute in Pakistan.
+          </p>
+          <p>
+            With a Ph.D. in Sustainable Environment, my work focuses on pioneering solutions in environmental engineering, wastewater treatment, and sustainable development. I have led several international research projects and published in top-tier journals.
+          </p>
+          <p>
+            Through Tekgen, I am committed to equipping professionals with cutting-edge knowledge in Health, Safety & Environmental (HSE) training, empowering industries with sustainable and safe practices.
+          </p>
+          <a href="about.html" class="btn btn-outline-primary mt-3">Learn More About Me</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="row g-4">
-      <!-- Service 1 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-        <div class="card">
-          <div class="card-body p-4 text-center">
-            <div class="card-icon">
-              <i class="fas fa-shield-alt"></i>
+  <!-- Education Section -->
+  <section>
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold section-title center">Education</h2>
+        <p class="lead">Academic excellence across prestigious institutions worldwide</p>
+      </div>
+      
+      <div class="row g-4 justify-content-center">
+        <!-- Education 1 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="feature-box">
+            <div class="icon">
+              <img src="qatar foundation.png" alt="PhD - HBKU" class="img-fluid" style="max-height: 40px;">
             </div>
-            <h5 class="fw-bold">Safety Training</h5>
-            <p class="text-muted">Globally accredited certifications (NEBOSH, IOSH, OSHA, IASP) and fire safety programs.</p>
+            <h5 class="fw-bold">Ph.D. in Sustainable Environment</h5>
+            <p class="mb-1">Hamad Bin Khalifa University, Qatar Foundation</p>
+            <small class="text-primary fw-bold">CGPA: 3.96 / 4.00</small>
           </div>
         </div>
-      </div>
 
-      <!-- Service 2 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="card">
-          <div class="card-body p-4 text-center">
-            <div class="card-icon">
-              <i class="fas fa-leaf"></i>
+        <!-- Education 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-box">
+            <div class="icon">
+              <img src="USPCAS-W.png" alt="MS - USPCAS-W" class="img-fluid" style="max-height: 40px;">
             </div>
-            <h5 class="fw-bold">Environmental Consulting</h5>
-            <p class="text-muted">ISO 14001, LEED & GSAS guidance, audits, policy development, and sustainability reports.</p>
+            <h5 class="fw-bold">M.S. in Environmental Engineering</h5>
+            <p class="mb-1">U.S.-Pakistan Center for Advanced Studies in Water, MUET</p>
+            <small class="text-primary fw-bold">CGPA: 3.91 / 4.00</small>
           </div>
         </div>
-      </div>
 
-      <!-- Service 3 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card">
-          <div class="card-body p-4 text-center">
-            <div class="card-icon">
-              <i class="fas fa-user-graduate"></i>
+        <!-- Education 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-box">
+            <div class="icon">
+              <img src="mute1.png" alt="BSc - MUET" class="img-fluid" style="max-height: 40px;">
             </div>
-            <h5 class="fw-bold">Academic & Research Mentoring</h5>
-            <p class="text-muted">Support for MS/PhD students, thesis development, publications, and proposal writing.</p>
+            <h5 class="fw-bold">B.E. in Civil Engineering</h5>
+            <p class="mb-1">Mehran University of Engineering & Technology</p>
+            <small class="text-primary fw-bold">CGPA: 3.80 / 4.00</small>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
-      <a href="service.html" class="btn btn-primary px-4">
-        <i class="fas fa-arrow-right me-2"></i> Discover All Services
-      </a>
-    </div>
-  </div>
-</section>
+  <!-- Research Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold section-title center">Research & Projects</h2>
+        <p class="lead">Advancing sustainability through cutting-edge research in biotechnology, wastewater treatment, and environmental systems.</p>
+      </div>
 
-<!-- Tekgen Section -->
-<section>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6" data-aos="fade-right">
-        <div class="hover-effect">
-          <img src="tekgen-building.jpg" alt="Tekgen Institute" class="img-fluid">
+      <div class="row g-4">
+        <!-- Research 1 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="card-icon">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <h5 class="card-title fw-bold">Sustainable Aquaculture Feed</h5>
+              <p class="card-text">Using microbial protein from wastewater (PNSB) to produce high-protein feed for aquaculture, enhancing food security.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="card-icon">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <h5 class="card-title fw-bold">3D Microfluidics</h5>
+              <p class="card-text">Studying fluid flow and contaminant transport using microfluidic models to optimize resource recovery in groundwater systems.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="card-icon">
+                <i class="fas fa-recycle"></i>
+              </div>
+              <h5 class="card-title fw-bold">Bioplastics & Resource Recovery</h5>
+              <p class="card-text">Recovering PHAs and other valuable bioproducts from industrial waste using photobioreactor systems and LCA evaluation.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
-        <h2 class="fw-bold mb-4 section-title">Tekgen Technical Institute</h2>
-        <p class="lead">
-          Based in Hyderabad, Sindh, Pakistan, Tekgen is a specialized training institute led by Dr. Sultan Shaikh, offering globally recognized certifications in Health, Safety & Environmental (HSE) practices.
-        </p>
-        <ul class="list-unstyled mb-4">
-          <li class="mb-2"><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Location:</strong> Office #511, Floor 10, Dawood Center, Auto Bahn Road, Hyderabad, Sindh, Pakistan</li>
-          <li class="mb-2"><i class="fas fa-globe text-primary me-2"></i> <strong>Website:</strong> <a href="https://tekgenti.com/" target="_blank" class="underline-animation">tekgenti.com</a></li>
-        </ul>
-        <a href="tekgen.html" class="btn btn-primary">Learn More About Tekgen</a>
+
+      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+        <a href="research.html" class="btn btn-primary px-4">
+          <i class="fas fa-arrow-right me-2"></i> Explore All Research
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section class="bg-primary text-white" id="contact">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center" data-aos="fade-up">
-        <h2 class="fw-bold mb-3">Let's Connect</h2>
-        <p class="lead mb-5">
-          Whether you're looking for collaboration, consultation, training, or mentorship — I'm here to help.
-        </p>
-        
-        <div class="row g-4">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="p-4 bg-white text-dark rounded" style="height: 100%;">
-              <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
-              <h5 class="fw-bold">Email</h5>
-              <a href="mailto:contact@drsultan.com" class="text-decoration-none text-dark">contact@drsultan.com</a>
+  <!-- Publications Section -->
+  <section>
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold section-title center">Research Publications</h2>
+        <p class="lead mb-1">Contributions to environmental sustainability, wastewater treatment, and circular economy.</p>
+        <p class="text-muted">151+ citations | h-index: 6 | i10-index: 5</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Publication 1 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="card">
+            <div class="card-body p-4">
+              <h5 class="fw-bold">Effects of Temperature on Biofilm Formation</h5>
+              <p class="mb-3 text-muted"><i class="fas fa-book-open text-primary me-2"></i><strong>Journal:</strong> J. Chem. Tech. & Biotech (2024)</p>
+              <a href="https://doi.org/10.1002/jctb.7919" class="btn btn-sm btn-outline-primary" target="_blank">
+                <i class="fas fa-external-link-alt me-2"></i> Read Publication
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publication 2 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <div class="card-body p-4">
+              <h5 class="fw-bold">Bioplastics from Fuel Synthesis Wastewater</h5>
+              <p class="mb-3 text-muted"><i class="fas fa-book-open text-primary me-2"></i><strong>Journal:</strong> Fermentation (2023)</p>
+              <a href="https://doi.org/10.3390/fermentation9080778" class="btn btn-sm btn-outline-primary" target="_blank">
+                <i class="fas fa-external-link-alt me-2"></i> Read Publication
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="200">
+        <a href="publication.html" class="btn btn-primary px-4">
+          <i class="fas fa-list me-2"></i> View Full Publication List
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold section-title center">Professional Services</h2>
+        <p class="lead text-muted">Empowering industries and individuals through expert consultation and technical training.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Service 1 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="card">
+            <div class="card-body p-4 text-center">
+              <div class="card-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h5 class="fw-bold">Safety Training</h5>
+              <p class="text-muted">Globally accredited certifications (NEBOSH, IOSH, OSHA, IASP) and fire safety programs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <div class="card-body p-4 text-center">
+              <div class="card-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h5 class="fw-bold">Environmental Consulting</h5>
+              <p class="text-muted">ISO 14001, LEED & GSAS guidance, audits, policy development, and sustainability reports.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <div class="card-body p-4 text-center">
+              <div class="card-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h5 class="fw-bold">Academic & Research Mentoring</h5>
+              <p class="text-muted">Support for MS/PhD students, thesis development, publications, and proposal writing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+        <a href="service.html" class="btn btn-primary px-4">
+          <i class="fas fa-arrow-right me-2"></i> Discover All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tekgen Section -->
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="hover-effect">
+            <img src="tekgen-building.jpg" alt="Tekgen Institute" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+          <h2 class="fw-bold mb-4 section-title">Tekgen Technical Institute</h2>
+          <p class="lead">
+            Based in Hyderabad, Sindh, Pakistan, Tekgen is a specialized training institute led by Dr. Sultan Shaikh, offering globally recognized certifications in Health, Safety & Environmental (HSE) practices.
+          </p>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="fas fa-map-marker-alt text-primary me-2"></i> <strong>Location:</strong> Office #511, Floor 10, Dawood Center, Auto Bahn Road, Hyderabad, Sindh, Pakistan</li>
+            <li class="mb-2"><i class="fas fa-globe text-primary me-2"></i> <strong>Website:</strong> <a href="https://tekgenti.com/" target="_blank" class="underline-animation">tekgenti.com</a></li>
+          </ul>
+          <a href="tekgen.html" class="btn btn-primary">Learn More About Tekgen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-primary text-white" id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" data-aos="fade-up">
+          <h2 class="fw-bold mb-3">Let's Connect</h2>
+          <p class="lead mb-5">
+            Whether you're looking for collaboration, consultation, training, or mentorship — I'm here to help.
+          </p>
+          
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="p-4 bg-white text-dark rounded" style="height: 100%;">
+                <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                <h5 class="fw-bold">Email</h5>
+                <a href="mailto:contact@drsultan.com" class="text-decoration-none text-dark">contact@drsultan.com</a>
+              </div>
+            </div>
+            
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="p-4 bg-white text-dark rounded" style="height: 100%;">
+                <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                <h5 class="fw-bold">Phone</h5>
+                <a href="tel:+1234567890" class="text-decoration-none text-dark">+123 456 7890</a>
+              </div>
+            </div>
+            
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="p-4 bg-white text-dark rounded" style="height: 100%;">
+                <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                <h5 class="fw-bold">Location</h5>
+                <p class="mb-0">Hyderabad, Pakistan</p>
+              </div>
             </div>
           </div>
           
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="p-4 bg-white text-dark rounded" style="height: 100%;">
-              <i class="fas fa-phone fa-2x text-primary mb-3"></i>
-              <h5 class="fw-bold">Phone</h5>
-              <a href="tel:+1234567890" class="text-decoration-none text-dark">+123 456 7890</a>
-            </div>
-          </div>
-          
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="p-4 bg-white text-dark rounded" style="height: 100%;">
-              <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
-              <h5 class="fw-bold">Location</h5>
-              <p class="mb-0">Hyderabad, Pakistan</p>
-            </div>
-          </div>
+          <button class="btn btn-light btn-lg mt-5 px-5" data-bs-toggle="modal" data-bs-target="#contactModal" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-paper-plane me-2"></i> Send Message
+          </button>
         </div>
-        
-        <button class="btn btn-light btn-lg mt-5 px-5" data-bs-toggle="modal" data-bs-target="#contactModal" data-aos="fade-up" data-aos-delay="400">
-          <i class="fas fa-paper-plane me-2"></i> Send Message
-        </button>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
+</main>
 
 <!-- Footer -->
 <footer>
