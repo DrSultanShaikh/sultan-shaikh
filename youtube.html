@@ -302,95 +302,115 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-<!-- Featured Playlists -->
-<section class="page-section py-5 bg-light">
+<!-- Playlist Slider Section -->
+<section class="py-5 bg-light">
   <div class="container">
-    <div class="d-flex align-items-center justify-content-between mb-3">
-      <h3 class="mb-0 fw-bold" style="color: black;">Playlists</h3>
-      <!-- <div class="text-muted small">8 recent uploads</div> -->
+    <h2 class="fw-bold text-center mb-4">Our Playlists</h2>
+
+    <div id="playlistSlider" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Playlist Item -->
+        <div class="carousel-item active">
+          <div class="text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=DGw3EKy0cB2-ZMFt&amp;list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd&si=DGw3EKy0cB2-ZMFt" target="_blank" 
+               class="btn btn-success mt-3">View More on YouTube</a>
+          </div>
+        </div>
+
+       <!-- Playlist Item -->
+<div class="carousel-item">
+  <div class="text-center">
+    <!-- Responsive Wrapper -->
+    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
+      <iframe 
+        src="https://www.youtube.com/embed/videoseries?si=F_aayh4VvDaU-qso&amp;list=PLyHWJsKQGO5YQOxriMh4IUJ2TqwJVvSuZ" 
+        title="YouTube Playlist"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <div class="row g-4">
-      <!-- Playlist 1 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card playlist-card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
-          <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ZaEnBv-euXRbGPnyZrtpeO&si=8L1-B8mz30UoXCGl" target="_blank">
-            <img src="videos thumbnails/playlist.jpg" class="card-img-top" alt="Scholarship Opportunities">
-          </a>
-          <div class="card-body">
-            <h6 class="fw-bold text-dark">Scholarship Opportunities</h6>
-            <p class="text-muted small">Explore our curated playlist on international scholarships for Bachelor's, Master's, and Ph.D. programs.</p>
-          </div>
-        </div>
+    <!-- Button -->
+    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YQOxriMh4IUJ2TqwJVvSuZ&si=F_aayh4VvDaU-qso" 
+       target="_blank" 
+       class="btn btn-success mt-3">
+      View More on YouTube
+    </a>
+  </div>
+</div>
+
+
+       <!-- Playlist Item -->
+<div class="carousel-item">
+  <div class="text-center">
+    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
+      <iframe 
+        src="https://www.youtube.com/embed/videoseries?si=RA4dTgxpn6Bu4NVY&amp;list=PLyHWJsKQGO5ZmO9II0kQ12WWzbVS_MNvl" 
+        title="YouTube playlist"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ZmO9II0kQ12WWzbVS_MNvl&si=RA4dTgxpn6Bu4NVY" 
+       target="_blank" 
+       class="btn btn-success mt-3">
+      View More on YouTube
+    </a>
+  </div>
+</div>
+
+
+        <!-- Playlist Item -->
+<div class="carousel-item">
+  <div class="text-center">
+    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
+      <iframe 
+        src="https://www.youtube.com/embed/videoseries?si=YsSMQ1VdAqgZ2Q-y&amp;list=PLyHWJsKQGO5YEIaqpLu41HN1Ic8anhHdI" 
+        title="YouTube playlist"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YEIaqpLu41HN1Ic8anhHdI&si=1bTCtyN1Gb90EGtd" 
+       target="_blank"
+       class="btn btn-success mt-3">
+      View More on YouTube
+    </a>
+  </div>
+</div>
+
+
       </div>
 
-      <!-- Playlist 2 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card playlist-card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
-          <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YOc__fagk-bhv9KoECGzpR&si=SOBxshDIxU7twPhK" target="_blank">
-            <img src="videos thumbnails/playlist1.jpg" class="card-img-top" alt="Career Guidance">
-          </a>
-          <div class="card-body">
-            <h6 class="fw-bold text-dark">Career Guidance</h6>
-            <p class="text-muted small">Guidance videos to help you make the right career choices and achieve your goals.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Playlist 3 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card playlist-card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
-          <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YCQnvYfch0pAE1FDtkGkK7&si=yJy96gijlX2Y6zhk" target="_blank">
-            <img src="videos thumbnails/playlist2.jpg" class="card-img-top" alt="Study Abroad Tips">
-          </a>
-          <div class="card-body">
-            <h6 class="fw-bold text-dark">Study Abroad Tips</h6>
-            <p class="text-muted small">Learn how to prepare and succeed in studying abroad with our expert advice.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Playlist 4 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card playlist-card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
-          <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5a1hkmEzaTr1CrbcYDHggwJ&si=cITM1jUxpdzDvWU0" target="_blank">
-            <img src="videos thumbnails/playlist3.jpg" class="card-img-top" alt="Research & Technology">
-          </a>
-          <div class="card-body">
-            <h6 class="fw-bold text-dark">Research & Technology</h6>
-            <p class="text-muted small">Dive into the world of research, innovations, and emerging technologies.</p>
-          </div>
-        </div>
-      </div>
-       <div class="text-center mt-4">
-        <a id="openChannelBtn" class="btn btn-success" target="_blank" rel="noopener" href="https://www.youtube.com/@Acceleratetoachieve/playlists">Visit Channel & Subscribe</a>
-      </div>
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#playlistSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#playlistSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- Styles -->
-<style>
-.playlist-card img {
-  height: 180px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.playlist-card:hover img {
-  transform: scale(1.05);
-}
-.playlist-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.playlist-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-.card-text:last-child {
-    margin-bottom: 0;
-    text-align: left;
-}
-</style>
+<!-- Auto Slide Speed -->
+<script>
+  var myCarousel = document.querySelector('#playlistSlider');
+  var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 3000, // 3 seconds per slide
+    ride: 'carousel',
+    wrap: true // continuous loop
+  });
+</script>
+
 
 <!-- Font Awesome (for icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
