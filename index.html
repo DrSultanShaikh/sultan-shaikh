@@ -61,143 +61,128 @@
     .bg-primary { background-color: var(--primary) !important; }
     .bg-primary-light { background-color: var(--primary-light) !important; }
     
-    /* Base Navbar Styles */
-.navbar {
-  background-color: white !important;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  padding: 20px 0;
-  transition: var(--transition);
-}
+    /* Navbar Styles */
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 20px 0;
+      transition: var(--transition);
+    }
 
-.navbar.scrolled {
-  padding: 15px 0;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-}
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
 
-.navbar-brand {
-  font-weight: 800;
-  color: var(--primary) !important;
-  font-size: 1.8rem;
-  letter-spacing: -0.5px;
-}
+    .navbar-brand {
+      font-weight: 800;
+      color: var(--primary) !important;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
 
-.nav-link {
-  color: var(--secondary) !important;
-  font-weight: 600;
-  margin: 0 10px;
-  padding: 8px 12px !important;
-  transition: var(--transition);
-  position: relative;
-}
+    .nav-link {
+      color: var(--secondary) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 8px 12px !important;
+      transition: var(--transition);
+      position: relative;
+    }
 
-.nav-link:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: var(--transition);
-}
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
 
-.nav-link:hover:before,
-.nav-link.active:before {
-  width: 100%;
-}
+    .nav-link:hover:before,
+    .nav-link.active:before {
+      width: 100%;
+    }
 
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary) !important;
-}
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
 
-/* Mobile Menu Styling */
-.navbar-toggler {
-  border: none;
-  padding: 0.5rem;
-}
+    /* Mobile Menu Styling */
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
 
-.navbar-toggler:focus {
-  box-shadow: none;
-}
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
 
-.navbar-toggler-icon {
-  background-image: none;
-  position: relative;
-  height: 2px;
-  width: 24px;
-  background-color: var(--primary);
-  display: block;
-}
+    .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      display: block;
+      transition: var(--transition);
+    }
 
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 24px;
-  background-color: var(--primary);
-  left: 0;
-}
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      left: 0;
+      transition: var(--transition);
+    }
 
-.navbar-toggler-icon::before {
-  top: -6px;
-}
+    .navbar-toggler-icon::before {
+      top: -6px;
+    }
 
-.navbar-toggler-icon::after {
-  top: 6px;
-}
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
 
-/* Responsive Adjustments */
-@media (max-width: 575.98px) {
-  /* Extra small devices (portrait phones) */
-  .navbar {
-    padding: 15px 0;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5rem;
-  }
-  
-  .nav-link {
-    margin: 5px 0;
-    padding: 10px 15px !important;
-  }
-  
-  .navbar-collapse {
-    background-color: white;
-    padding: 15px;
-    margin-top: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  }
-}
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-color: transparent;
+    }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-  /* Small devices (landscape phones) */
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
-  
-  .nav-link {
-    margin: 0 8px;
-    padding: 8px 10px !important;
-  }
-}
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-  /* Medium devices (tablets) */
-  .navbar-brand {
-    font-size: 1.7rem;
-  }
-  
-  .nav-link {
-    margin: 0 8px;
-    padding: 8px 10px !important;
-    font-size: 0.95rem;
-  }
-}
-     
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+      padding: 8px 20px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
     /* Buttons */
     .btn {
       padding: 12px 28px;
@@ -486,7 +471,7 @@
     }
     
     /* Responsive adjustments */
-    @media (max-width: 992px) {
+    @media (max-width: 1199.98px) {
       :root {
         --section-padding: 80px;
       }
@@ -495,15 +480,51 @@
         padding: 150px 0 100px;
       }
       
+      .navbar-brand {
+        font-size: 1.7rem;
+      }
+      
+      .nav-link {
+        margin: 0 8px;
+        padding: 8px 10px !important;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      :root {
+        --section-padding: 70px;
+      }
+      
+      .hero {
+        padding: 140px 0 90px;
+      }
+      
       .hero:after,
       .hero:before {
         display: none;
       }
+      
+      .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+      
+      .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px !important;
+      }
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 767.98px) {
       :root {
         --section-padding: 60px;
+      }
+      
+      body {
+        padding-top: 70px;
       }
       
       .hero {
@@ -514,6 +535,9 @@
       .hero-img {
         margin-top: 50px;
         transform: perspective(1000px) rotateY(0deg);
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
       }
       
       .section-title.center:after {
@@ -524,44 +548,46 @@
       .section-title {
         margin-bottom: 40px;
       }
+      
+      .navbar-brand {
+        font-size: 1.6rem;
+      }
     }
     
-    @media (max-width: 576px) {
+    @media (max-width: 575.98px) {
       :root {
         --section-padding: 50px;
       }
       
       .btn {
         padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .feature-box,
+      .card {
+        padding: 30px 20px;
+      }
+      
+      .hero {
+        padding: 100px 0 60px;
       }
     }
 
-    /* Container adjustments */
-    @media (min-width: 992px) and (max-width: 1199.98px) {
-  /* Large devices (desktops) */
-  .nav-link {
-    margin: 0 10px;
-    padding: 8px 12px !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  /* Extra large devices (large desktops) */
-  .navbar-brand {
-    margin-right: 30px;
-  }
-  
-  .nav-item {
-    margin: 0 5px;
-  }
-}
-
-/* Navbar items spacing for wide screens */
-@media (min-width: 1400px) {
-  .nav-item {
-    margin: 0 8px;
-  }
-}
+    @media (max-width: 400px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
 
@@ -576,7 +602,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
     <!-- Logo with right spacing -->
-    <a class="navbar-brand me-5" href="index.html">Dr Sultan</a>
+    <a class="navbar-brand me-lg-5" href="index.html">Dr Sultan</a>
     
     <!-- Mobile Toggle Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -586,15 +612,12 @@
     <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav me-auto">
-        <!-- Spaced Nav Items -->
+        <!-- Main Navigation Items -->
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">AboutMe</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="qualification.html">Qualifications</a>
+          <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="research.html">Research</a>
@@ -602,34 +625,24 @@
         <li class="nav-item">
           <a class="nav-link" href="publication.html">Publications</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="service.html">Consultancy Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="tekgen.html">Tekgen Institute</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="youtube.html">YouTube</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="gallery.html">Picture Gallery</a>
+        
+        <!-- Dropdown for additional items -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+            <li><a class="dropdown-item" href="qualification.html">Qualifications</a></li>
+            <li><a class="dropdown-item" href="service.html">Services</a></li>
+            <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
+            <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+          </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<!-- JavaScript for Scrolled Effect -->
-<script>
-  window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-</script>
 
 <!-- Main Content Container -->
 <main class="main-container">
