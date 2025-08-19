@@ -588,6 +588,18 @@
         font-size: 0.85rem;
       }
     }
+
+    /* Fix navbar spacing */
+.navbar {
+  padding: 10px 15px !important;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
   </style>
 </head>
 
@@ -601,8 +613,8 @@
 <!-- Navbar with Mobile Toggle -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
-    <!-- Logo with right spacing -->
-    <a class="navbar-brand me-lg-5" href="index.html">Dr Sultan</a>
+    <!-- Logo on left -->
+    <a class="navbar-brand" href="index.html">Dr Sultan</a>
     
     <!-- Mobile Toggle Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -610,9 +622,8 @@
     </button>
     
     <!-- Navigation Links -->
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav me-auto">
-        <!-- Main Navigation Items -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
@@ -625,8 +636,8 @@
         <li class="nav-item">
           <a class="nav-link" href="publication.html">Publications</a>
         </li>
-        
-        <!-- Dropdown for additional items -->
+
+        <!-- Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
