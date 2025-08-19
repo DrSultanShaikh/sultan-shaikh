@@ -67,6 +67,11 @@
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
       padding: 20px 0;
       transition: var(--transition);
+      position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
     }
 
     .navbar.scrolled {
@@ -588,6 +593,12 @@
         font-size: 0.85rem;
       }
     }
+
+    @media (max-width: 767.98px) {
+  body {
+    padding-top: 70px;
+  }
+}
 
     /* Fix navbar spacing */
 .navbar {
@@ -1119,6 +1130,18 @@
       setTimeout(() => loader.remove(), 400);
     }
   });
+
+  // Prevent unwanted zooming and ensure proper viewport behavior
+document.addEventListener('DOMContentLoaded', function() {
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, false);
+});
 </script>
 </body>
 </html>
