@@ -3,324 +3,840 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tekgen Technical Institute – Internationally Accredited Training Provider in HSE and Technical Education.">
+  <meta name="description" content="Tekgen Technical Institute - Internationally Accredited Training Provider in HSE and Technical Education">
   <meta name="keywords" content="Tekgen, Safety Institute, Training, Environmental, IOSH, NEBOSH, Dr Sultan Shaikh">
   <meta name="author" content="Dr. Sultan Shaikh">
+
   <title>Tekgen Institute | Dr Sultan</title>
-
+  
+  <!-- Google Fonts - Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="home.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-<body>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary: #2a7f62;
+      --primary-light: rgba(42, 127, 98, 0.1);
+      --secondary: #3a5169;
+      --light: #f8f9fa;
+      --lighter: #fcfcfc;
+      --dark: #212529;
+      --text: #4a4a4a;
+      --text-light: #6c757d;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --section-padding: 100px;
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--lighter);
+      overflow-x: hidden;
+      padding-top: 80px; /* For fixed navbar */
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+    
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    
+    .text-primary { color: var(--primary) !important; }
+    .bg-primary { background-color: var(--primary) !important; }
+    .bg-primary-light { background-color: var(--primary-light) !important; }
+    
+    /* Navbar Styles */
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 10px 15px;
+      transition: var(--transition);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      display: flex;
+      align-items: center;
+    }
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow px-3">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">Dr Sultan</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      color: var(--primary) !important;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: var(--secondary) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 8px 12px !important;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover:before,
+    .nav-link.active:before {
+      width: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    /* Mobile Menu Styling */
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      display: block;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      left: 0;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before {
+      top: -6px;
+    }
+
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-color: transparent;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .main-container {
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+      padding: 8px 20px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      border-width: 2px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    .btn-outline-primary {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    /* Hero Section */
+    .tekgen-hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    /* Section Styling */
+    section {
+      padding: var(--section-padding) 0;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Info Cards */
+    .info-card {
+      padding: 30px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .info-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    /* Course Cards */
+    .course-card {
+      padding: 25px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+    }
+    
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    /* Accreditation Cards */
+    .accreditation-card {
+      padding: 25px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+    }
+    
+    .accreditation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .accreditation-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    /* Loader */
+    #site-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--primary-light);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Animated Underline */
+    .underline-animation {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .underline-animation:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .underline-animation:hover:after {
+      width: 100%;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1199.98px) {
+      :root {
+        --section-padding: 80px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.7rem;
+      }
+      
+      .nav-link {
+        margin: 0 8px;
+        padding: 8px 10px !important;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      :root {
+        --section-padding: 70px;
+      }
+      
+      .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+      
+      .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px !important;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      :root {
+        --section-padding: 60px;
+      }
+      
+      body {
+        padding-top: 70px;
+      }
+      
+      .section-title.center:after {
+        left: 0;
+        transform: none;
+      }
+      
+      .section-title {
+        margin-bottom: 40px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 575.98px) {
+      :root {
+        --section-padding: 50px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .info-card,
+      .course-card,
+      .accreditation-card {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="loading">
+
+<!-- Loader -->
+<div id="site-loader">
+  <div class="loader"></div>
+</div>
+
+<!-- Navbar with Mobile Toggle -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <!-- Logo on left -->
+    <a class="navbar-brand" href="index.html">Dr Sultan</a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
-        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
-        <li class="nav-item"><a class="nav-link" href="service.html">Consultancy Services</a></li>
-        <li class="nav-item"><a class="nav-link active" href="tekgen.html">Tekgen Institute</a></li>
-        <li class="nav-item"><a class="nav-link" href="youtube.html">YouTube</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Picture Gallery</a></li>
+    
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Contact
-          </button>
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="research.html">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="publication.html">Publications</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+            <li><a class="dropdown-item" href="qualification.html">Qualifications</a></li>
+            <li><a class="dropdown-item" href="service.html">Services</a></li>
+            <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
+            <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+          </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Tekgen Header Section (Half-Screen) -->
-<section class="d-flex align-items-center text-white" style="background-color: rgb(33,37,41); min-height: 50vh;">
-  <div class="container text-center">
-    <h1 class="fw-bold display-4 text-success">Tekgen Technical Institute</h1>
-    <p class="lead text-white mt-3">Internationally Certified HSE & Technical Training Provider | Empowering Futures Since 2023</p>
-  </div>
-</section>
-
-<!-- About Tekgen -->
-<section class="py-5 bg-light text-dark">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <h2 class="fw-bold">Who We Are</h2>
-        <p class="lead">Tekgen is a certified and SECP-registered institute headquartered in Hyderabad, Pakistan. Since 2023, we’ve been committed to delivering internationally accredited training in Health, Safety, and Technical fields.</p>
-        <p>Our certifications are recognized by awarding bodies such as IOSH (UK), AOSH (UK), IQ-OHS (USA), HSI (USA), and ProQual UK Centres. Our mission is to empower professionals with the practical skills and confidence to succeed globally.</p>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="dr sultan shaikh.jpeg" class="img-fluid rounded shadow" style="max-width: 350px;" alt="Tekgen Founder Image">
+<!-- Main Content Container -->
+<main class="main-container">
+  <!-- Tekgen Hero Section -->
+  <section class="tekgen-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h1 class="fw-bold mb-4">Tekgen Technical Institute</h1>
+          <p class="lead">Internationally Certified HSE & Technical Training Provider | Empowering Futures Since 2023</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Tekgen Courses Section -->
-<section class="py-5 bg-light text-dark">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5">Our Courses & Certifications</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-      <!-- ESC Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-graduation-cap text-success me-2"></i>ESC Courses</h5>
-          <p class="small text-muted mb-0">Specialized safety and compliance training programs.</p>
+  <!-- About Tekgen Section -->
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="fw-bold mb-4 section-title">Who We Are</h2>
+          <p class="lead">Tekgen is a certified and SECP-registered institute headquartered in Hyderabad, Pakistan.</p>
+          <p>Since 2023, we've been committed to delivering internationally accredited training in Health, Safety, and Technical fields. Our certifications are recognized by awarding bodies such as IOSH (UK), AOSH (UK), IQ-OHS (USA), HSI (USA), and ProQual UK Centres.</p>
+          <p>Our mission is to empower professionals with the practical skills and confidence to succeed globally.</p>
         </div>
-      </div>
-
-      <!-- ProQual Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-certificate text-primary me-2"></i>ProQual Courses</h5>
-          <p class="small text-muted mb-0">Globally recognized certification in occupational standards.</p>
+        <div class="col-lg-6 text-center" data-aos="fade-left">
+          <img src="dr sultan shaikh.jpeg" alt="Tekgen Founder" class="img-fluid rounded shadow" style="max-width: 350px;">
         </div>
-      </div>
-
-      <!-- IOSH Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-shield-alt text-warning me-2"></i>IOSH Courses</h5>
-          <p class="small text-muted mb-0">International health & safety management programs.</p>
-        </div>
-      </div>
-
-      <!-- IQ-OHS Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-user-check text-danger me-2"></i>IQ-OHS Courses</h5>
-          <p class="small text-muted mb-0">Occupational health & safety qualifications for professionals.</p>
-        </div>
-      </div>
-
-      <!-- AOSH Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-tools text-info me-2"></i>AOSH Courses</h5>
-          <p class="small text-muted mb-0">Advanced training in workplace safety and leadership.</p>
-        </div>
-      </div>
-
-      <!-- HSI Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-hard-hat text-success me-2"></i>HSI Courses</h5>
-          <p class="small text-muted mb-0">Industrial safety programs for workforce development.</p>
-        </div>
-      </div>
-
-      <!-- SafQual Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-home text-primary me-2"></i>SafQual Courses</h5>
-          <p class="small text-muted mb-0">Sector-specific safety qualification modules.</p>
-        </div>
-      </div>
-
-      <!-- LEED Courses -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-leaf text-success me-2"></i>LEED Courses</h5>
-          <p class="small text-muted mb-0">Green building certification & sustainability training.</p>
-        </div>
-      </div>
-
-      <!-- Professional Development -->
-      <div class="col">
-        <div class="bg-white rounded shadow-sm p-4 h-100">
-          <h5 class="fw-semibold"><i class="fas fa-chalkboard-teacher text-secondary me-2"></i>Professional Development Courses</h5>
-          <p class="small text-muted mb-0">Continuing education in HSE, sustainability, and safety culture.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Vision & Mission -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="row text-center text-md-start">
-      <div class="col-md-6 mb-4">
-        <h3 class="fw-bold text-primary">Our Vision</h3>
-        <p class="fs-5">To be Pakistan’s leading technical and safety institute with global recognition — raising industry standards through innovation, education, and excellence in HSE training.</p>
-      </div>
-      <div class="col-md-6">
-        <h3 class="fw-bold text-success">Our Mission</h3>
-        <p class="fs-5">To offer internationally recognized programs that equip learners with job-ready skills, ensuring safety, sustainability, and success across multiple industries and disciplines.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Accreditation Section -->
-<section class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-4">Globally Accredited & Recognized</h2>
-    <p class="text-muted mb-5">
-      Tekgen Technical Institute is officially certified and affiliated with internationally recognized organizations in health, safety, and vocational training.
-    </p>
-
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-
-      <!-- IOSH -->
-      <div class="col">
-        <div class="bg-white shadow-sm p-4 rounded h-100 accreditation-card">
-          <i class="fas fa-award fa-2x text-success mb-3"></i>
-          <h6 class="fw-bold">IOSH (UK)</h6>
-          <p class="small text-muted mb-0">
-            Institution of Occupational Safety and Health – UK’s leading chartered safety body.
-          </p>
+  <!-- Courses Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Our Courses & Certifications</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="course-card">
+            <i class="fas fa-graduation-cap text-primary mb-3"></i>
+            <h5 class="fw-bold">ESC Courses</h5>
+            <p class="text-muted">Specialized safety and compliance training programs.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="course-card">
+            <i class="fas fa-certificate text-primary mb-3"></i>
+            <h5 class="fw-bold">ProQual Courses</h5>
+            <p class="text-muted">Globally recognized certification in occupational standards.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="course-card">
+            <i class="fas fa-shield-alt text-primary mb-3"></i>
+            <h5 class="fw-bold">IOSH Courses</h5>
+            <p class="text-muted">International health & safety management programs.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="course-card">
+            <i class="fas fa-user-check text-primary mb-3"></i>
+            <h5 class="fw-bold">IQ-OHS Courses</h5>
+            <p class="text-muted">Occupational health & safety qualifications for professionals.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="course-card">
+            <i class="fas fa-tools text-primary mb-3"></i>
+            <h5 class="fw-bold">AOSH Courses</h5>
+            <p class="text-muted">Advanced training in workplace safety and leadership.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="course-card">
+            <i class="fas fa-hard-hat text-primary mb-3"></i>
+            <h5 class="fw-bold">HSI Courses</h5>
+            <p class="text-muted">Industrial safety programs for workforce development.</p>
+          </div>
         </div>
       </div>
-
-      <!-- AOSH -->
-      <div class="col">
-        <div class="bg-white shadow-sm p-4 rounded h-100 accreditation-card">
-          <i class="fas fa-globe-europe fa-2x text-success mb-3"></i>
-          <h6 class="fw-bold">AOSH (UK)</h6>
-          <p class="small text-muted mb-0">
-            Awarding Organisation for Compliance and Safety Training worldwide.
-          </p>
-        </div>
-      </div>
-
-      <!-- IQ-OHS -->
-      <div class="col">
-        <div class="bg-white shadow-sm p-4 rounded h-100 accreditation-card">
-          <i class="fas fa-certificate fa-2x text-success mb-3"></i>
-          <h6 class="fw-bold">IQ-OHS (USA)</h6>
-          <p class="small text-muted mb-0">
-            International Quality Occupational Health & Safety Certification body – USA.
-          </p>
-        </div>
-      </div>
-
-      <!-- HSI -->
-      <div class="col">
-        <div class="bg-white shadow-sm p-4 rounded h-100 accreditation-card">
-          <i class="fas fa-user-shield fa-2x text-success mb-3"></i>
-          <h6 class="fw-bold">HSI (USA)</h6>
-          <p class="small text-muted mb-0">
-            Health & Safety Institute – providing emergency care training certifications in the US.
-          </p>
-        </div>
-      </div>
-
-      <!-- ProQual -->
-      <div class="col">
-        <div class="bg-white shadow-sm p-4 rounded h-100 accreditation-card">
-          <i class="fas fa-shield-alt fa-2x text-success mb-3"></i>
-          <h6 class="fw-bold">ProQual UK Centres</h6>
-          <p class="small text-muted mb-0">
-            Authorized Centres – Safeel & SHEC for ProQual certifications across the UK and GCC.
-          </p>
-        </div>
-      </div>
-
-      <!-- Safqual -->
-      <div class="col">
-        <div class="bg-white shadow-sm p-4 rounded h-100 accreditation-card">
-          <i class="fas fa-university fa-2x text-success mb-3"></i>
-          <h6 class="fw-bold">Safqual (UK)</h6>
-          <p class="small text-muted mb-0">
-            UK Accredited Centre providing modern compliance & vocational qualifications.
-          </p>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Extra Style -->
-<style>
-  .accreditation-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .accreditation-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  }
-</style>
-
-
-<!-- About Founder -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h3 class="fw-bold"><i class="fas fa-user-tie me-2 text-danger"></i>Founder’s Message</h3>
+  <!-- Vision & Mission Section -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+          <div class="info-card">
+            <i class="fas fa-eye"></i>
+            <h3 class="fw-bold mb-3">Our Vision</h3>
+            <p>To be Pakistan's leading technical and safety institute with global recognition — raising industry standards through innovation, education, and excellence in HSE training.</p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="info-card">
+            <i class="fas fa-bullseye"></i>
+            <h3 class="fw-bold mb-3">Our Mission</h3>
+            <p>To offer internationally recognized programs that equip learners with job-ready skills, ensuring safety, sustainability, and success across multiple industries and disciplines.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="lead text-center mx-auto" style="max-width: 850px;">
-      <strong>Dr. Sultan Shaikh</strong>, the founder and CEO of Tekgen, is a globally recognized environmental engineer, academic, and certified safety trainer. With postdoctoral research experience and global exposure, he leads Tekgen with a vision to make international-standard training accessible in Pakistan. His commitment to education, industry relevance, and sustainable development drives the institute’s core mission.
-    </p>
-  </div>
-</section>
+  </section>
 
-<!-- Call to Action -->
-<section class="py-5 bg-success text-white text-center">
-  <div class="container">
-    <h4 class="mb-3">Ready to Upskill?</h4>
-    <p class="mb-4">Join Tekgen today and earn globally recognized certifications from accredited trainers and institutions.</p>
-    <a href="https://tekgenti.com/" class="btn btn-light px-4">Explore Courses</a>
-  </div>
-</section>
+  <!-- Accreditation Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Globally Accredited & Recognized</h2>
+      <p class="text-center lead mb-5">Tekgen Technical Institute is officially certified and affiliated with internationally recognized organizations</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="accreditation-card">
+            <i class="fas fa-award"></i>
+            <h5 class="fw-bold">IOSH (UK)</h5>
+            <p class="text-muted small">Institution of Occupational Safety and Health – UK's leading chartered safety body.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="accreditation-card">
+            <i class="fas fa-globe-europe"></i>
+            <h5 class="fw-bold">AOSH (UK)</h5>
+            <p class="text-muted small">Awarding Organisation for Compliance and Safety Training worldwide.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="accreditation-card">
+            <i class="fas fa-certificate"></i>
+            <h5 class="fw-bold">IQ-OHS (USA)</h5>
+            <p class="text-muted small">International Quality Occupational Health & Safety Certification body – USA.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="accreditation-card">
+            <i class="fas fa-user-shield"></i>
+            <h5 class="fw-bold">HSI (USA)</h5>
+            <p class="text-muted small">Health & Safety Institute – providing emergency care training certifications in the US.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="accreditation-card">
+            <i class="fas fa-shield-alt"></i>
+            <h5 class="fw-bold">ProQual UK Centres</h5>
+            <p class="text-muted small">Authorized Centres – Safeel & SHEC for ProQual certifications across the UK and GCC.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="accreditation-card">
+            <i class="fas fa-university"></i>
+            <h5 class="fw-bold">Safqual (UK)</h5>
+            <p class="text-muted small">UK Accredited Centre providing modern compliance & vocational qualifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center" data-aos="fade-up">
+          <h2 class="fw-bold mb-4 section-title center">Founder's Message</h2>
+          <p class="lead">
+            <strong>Dr. Sultan Shaikh</strong>, the founder and CEO of Tekgen, is a globally recognized environmental engineer, academic, and certified safety trainer. With postdoctoral research experience and global exposure, he leads Tekgen with a vision to make international-standard training accessible in Pakistan.
+          </p>
+          <p>
+            His commitment to education, industry relevance, and sustainable development drives the institute's core mission.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary text-white">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="fw-bold mb-4">Ready to Upskill?</h2>
+          <p class="lead mb-4">Join Tekgen today and earn globally recognized certifications from accredited trainers and institutions.</p>
+          <a href="https://tekgenti.com/" class="btn btn-light px-4 py-2">
+            <i class="fas fa-external-link-alt me-2"></i> Explore Courses
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <!-- Footer -->
-<footer class="bg-black text-white text-center py-3">
-  <p>&copy; 2025 Dr Sultan | Tekgen Technical Institute</p>
-  <div>
-    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h4 class="text-white mb-4">Dr. Sultan Shaikh</h4>
+        <p>Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute, dedicated to advancing sustainability and safety through research and education.</p>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Quick Links</h5>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="qualification.html">Qualifications</a>
+          <a href="research.html">Research</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Resources</h5>
+        <div class="footer-links">
+          <a href="publication.html">Publications</a>
+          <a href="service.html">Services</a>
+          <a href="tekgen.html">Tekgen</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-4">
+        <h5 class="text-white mb-4">Connect</h5>
+        <div class="social-icons mb-4">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mb-0">© 2025 Dr Sultan. All rights reserved.</p>
+      </div>
+    </div>
   </div>
 </footer>
 
-<!-- Contact Modal -->
-<div id="contactModal" class="modal fade" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4 shadow-lg">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form class="modal-body">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" required />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required />
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <div class="text-end">
-          <button type="submit" class="btn btn-success px-4">Send</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- Bootstrap JS -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize AOS animation
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Loader
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("site-loader");
+    if (loader) {
+      loader.style.transition = "opacity 0.4s ease";
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 400);
+    }
+  });
+
+  // Active link highlighting
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+      if (linkPage === currentPage || (currentPage === "" && linkPage.includes("index"))) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  });
+</script>
 </body>
 </html>
