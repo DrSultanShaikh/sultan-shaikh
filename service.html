@@ -3,185 +3,817 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official website of Dr. Sultan Shaikh - Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute.">
-  <meta name="keywords" content="Dr Sultan, Environmental Engineer, Tekgen, Sustainability, Research, Civil Engineering">
+  <meta name="description" content="Professional Services by Dr. Sultan Shaikh - Foreign Admission Consultancy, Safety Training, and Environmental Consulting">
+  <meta name="keywords" content="Dr Sultan, Services, Consultancy, Admission, Safety Training, Environmental Consulting">
   <meta name="author" content="Dr. Sultan Shaikh">
-  <title>Services - Dr Sultan | Tekgen Technical Institute</title>
-  <link rel="stylesheet" href="home.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <title>Services | Dr Sultan</title>
+  
+  <!-- Google Fonts - Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
   <style>
-    .card-hover:hover {
+    :root {
+      --primary: #2a7f62;
+      --primary-light: rgba(42, 127, 98, 0.1);
+      --secondary: #3a5169;
+      --light: #f8f9fa;
+      --lighter: #fcfcfc;
+      --dark: #212529;
+      --text: #4a4a4a;
+      --text-light: #6c757d;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --section-padding: 100px;
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--lighter);
+      overflow-x: hidden;
+      padding-top: 80px; /* For fixed navbar */
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+    
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    
+    .text-primary { color: var(--primary) !important; }
+    .bg-primary { background-color: var(--primary) !important; }
+    .bg-primary-light { background-color: var(--primary-light) !important; }
+    
+    /* Navbar Styles */
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 10px 15px;
+      transition: var(--transition);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      color: var(--primary) !important;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: var(--secondary) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 8px 12px !important;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover:before,
+    .nav-link.active:before {
+      width: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    /* Mobile Menu Styling */
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      display: block;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      left: 0;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before {
+      top: -6px;
+    }
+
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-color: transparent;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .main-container {
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+      padding: 8px 20px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      border-width: 2px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    .btn-outline-primary {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    /* Hero Section */
+    .services-hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    /* Section Styling */
+    section {
+      padding: var(--section-padding) 0;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Service Cards */
+    .service-card {
+      padding: 30px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+    }
+    
+    .service-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      box-shadow: var(--box-shadow-hover);
     }
-    .industry-icon {
-      font-size: 1.2rem;
+    
+    .service-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
     }
-    .industry-row p {
+    
+    /* Package Cards */
+    .package-card {
+      padding: 30px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .package-card .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 15px 0;
+    }
+    
+    .package-card .popular {
+      position: absolute;
+      top: 15px;
+      right: -30px;
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 30px;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    /* Feature List */
+    .feature-list {
+      list-style: none;
+      padding: 0;
       margin: 0;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--primary-light);
+    }
+    
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .feature-list i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    /* Loader */
+    #site-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--primary-light);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Animated Underline */
+    .underline-animation {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .underline-animation:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .underline-animation:hover:after {
+      width: 100%;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1199.98px) {
+      :root {
+        --section-padding: 80px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.7rem;
+      }
+      
+      .nav-link {
+        margin: 0 8px;
+        padding: 8px 10px !important;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      :root {
+        --section-padding: 70px;
+      }
+      
+      .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+      
+      .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px !important;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      :root {
+        --section-padding: 60px;
+      }
+      
+      body {
+        padding-top: 70px;
+      }
+      
+      .section-title.center:after {
+        left: 0;
+        transform: none;
+      }
+      
+      .section-title {
+        margin-bottom: 40px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 575.98px) {
+      :root {
+        --section-padding: 50px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .service-card,
+      .package-card {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
-<body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow px-3">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">Dr Sultan</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<body class="loading">
+
+<!-- Loader -->
+<div id="site-loader">
+  <div class="loader"></div>
+</div>
+
+<!-- Navbar with Mobile Toggle -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <!-- Logo on left -->
+    <a class="navbar-brand" href="index.html">Dr Sultan</a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
-        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
-        <li class="nav-item"><a class="nav-link active" href="service.html">Consultancy Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="tekgen.html">Tekgen Institute</a></li>
-        <li class="nav-item"><a class="nav-link" href="youtube.html">YouTube</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Picture Gallery</a></li>
+    
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Contact
-          </button>
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="research.html">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="publication.html">Publications</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+            <li><a class="dropdown-item" href="qualification.html">Qualifications</a></li>
+            <li><a class="dropdown-item" href="service.html">Services</a></li>
+            <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
+            <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+          </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Header -->
-<section class="bg-dark text-white text-center d-flex align-items-center" style="min-height: 45vh;">
-  <div class="container">
-    <h1 class="fw-bold display-5">Professional Services</h1>
-    <p class="lead mt-2">Delivered by Dr. Sultan Shaikh – Sustainability Expert, Safety Trainer & Technical Consultant</p>
-  </div>
-</section>
-
-
-
-<!-- Foreign Admission & Scholarship Consultancy -->
-<section class="py-5 bg-light text-dark">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-4">Foreign Admission & Scholarship Consultancy Services</h2>
-    <p class="lead text-center mb-5">Bachelor's | Master's | PhD</p>
-
-    <div class="row mb-5">
-      <div class="col-md-6">
-        <p>At <strong>Tekgen Technical Institute</strong>, we offer professional consultancy services for students aspiring to study abroad. Our team, led by <strong>Dr. Sultan Shaikh</strong> (Ph.D. in Sustainable Environment, Qatar), helps guide students through the complex process of admissions and scholarships for Bachelor's, Master's, and Ph.D. programs in top international universities.</p>
-      </div>
-      <div class="col-md-6">
-        <ul class="list-unstyled">
-          <li><i class="fas fa-user-clock text-success me-2"></i><strong>One-on-One Online Sessions:</strong> Personalized 30-minute guidance</li>
-          <li><i class="fas fa-chart-line text-success me-2"></i><strong>Profile Evaluation:</strong> Tailored review of academic background</li>
-          <li><i class="fas fa-university text-success me-2"></i><strong>Country & University Match:</strong> Help selecting best-fit options</li>
-          <li><i class="fas fa-hand-holding-usd text-success me-2"></i><strong>Scholarship Planning:</strong> Strategy to secure funding</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Packages -->
-    <div class="row text-center g-4">
-      <div class="col-md-4">
-        <div class="p-4 bg-white rounded shadow-sm h-100">
-          <h5 class="fw-bold text-success">Basic Guidance</h5>
-          <p class="fs-5">PKR 4,999</p>
-          <p class="small text-muted">Includes one-time session & overview guidance</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-white rounded shadow-sm h-100">
-          <h5 class="fw-bold text-success">Standard Review</h5>
-          <p class="fs-5">PKR 14,999</p>
-          <p class="small text-muted">Profile review, session + 1 document edit</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-white rounded shadow-sm h-100">
-          <h5 class="fw-bold text-success">Premium Package</h5>
-          <p class="fs-5">PKR 29,999</p>
-          <p class="small text-muted">Multiple document reviews + full strategy</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded shadow-sm h-100">
-          <h5 class="fw-bold text-success">Silver Package</h5>
-          <p class="fs-5">PKR 39,999</p>
-          <p class="small text-muted">Complete guidance, draft emails, SOP help</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded shadow-sm h-100">
-          <h5 class="fw-bold text-success">Gold Package</h5>
-          <p class="fs-5">PKR 49,999</p>
-          <p class="small text-muted">Full application journey support including interviews</p>
+<!-- Main Content Container -->
+<main class="main-container">
+  <!-- Services Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h1 class="fw-bold mb-4">Professional Services</h1>
+          <p class="lead">Delivered by Dr. Sultan Shaikh – Sustainability Expert, Safety Trainer & Technical Consultant</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Why Tekgen -->
-    <div class="mt-5">
-      <h4 class="fw-bold text-center mb-3">Why Choose Tekgen Technical Institute?</h4>
-      <ul class="list-unstyled text-center">
-        <li><i class="fas fa-user-graduate text-primary me-2"></i> Expert Guidance by Dr. Sultan Shaikh</li>
-        <li><i class="fas fa-sliders-h text-primary me-2"></i> Tailored Services Based on Your Goals</li>
-        <li><i class="fas fa-hands-helping text-primary me-2"></i> End-to-End Support for Your Application Process</li>
-      </ul>
+  <!-- Consultancy Services Section -->
+  <section>
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Foreign Admission & Scholarship Consultancy</h2>
+      <p class="lead text-center mb-5">Bachelor's | Master's | PhD</p>
+
+      <div class="row mb-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <p>At <strong class="text-primary">Tekgen Technical Institute</strong>, we offer professional consultancy services for students aspiring to study abroad. Our team, led by <strong>Dr. Sultan Shaikh</strong> (Ph.D. in Sustainable Environment, Qatar), helps guide students through the complex process of admissions and scholarships for Bachelor's, Master's, and Ph.D. programs in top international universities.</p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <ul class="feature-list">
+            <li><i class="fas fa-user-clock"></i><strong>One-on-One Online Sessions:</strong> Personalized 30-minute guidance</li>
+            <li><i class="fas fa-chart-line"></i><strong>Profile Evaluation:</strong> Tailored review of academic background</li>
+            <li><i class="fas fa-university"></i><strong>Country & University Match:</strong> Help selecting best-fit options</li>
+            <li><i class="fas fa-hand-holding-usd"></i><strong>Scholarship Planning:</strong> Strategy to secure funding</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Packages -->
+      <h3 class="fw-bold text-center mb-4" data-aos="fade-up">Consultancy Packages</h3>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="package-card">
+            <h5 class="fw-bold text-primary">Basic Guidance</h5>
+            <div class="price">PKR 4,999</div>
+            <p class="small text-muted">Includes one-time session & overview guidance</p>
+            <a href="https://tekgenti.com/consultancy-form/" class="btn btn-outline-primary mt-3">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-card">
+            <span class="popular">Popular</span>
+            <h5 class="fw-bold text-primary">Standard Review</h5>
+            <div class="price">PKR 14,999</div>
+            <p class="small text-muted">Profile review, session + 1 document edit</p>
+            <a href="https://tekgenti.com/consultancy-form/" class="btn btn-primary mt-3">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="package-card">
+            <h5 class="fw-bold text-primary">Premium Package</h5>
+            <div class="price">PKR 29,999</div>
+            <p class="small text-muted">Multiple document reviews + full strategy</p>
+            <a href="https://tekgenti.com/consultancy-form/" class="btn btn-outline-primary mt-3">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="package-card">
+            <h5 class="fw-bold text-primary">Silver Package</h5>
+            <div class="price">PKR 39,999</div>
+            <p class="small text-muted">Complete guidance, draft emails, SOP help</p>
+            <a href="https://tekgenti.com/consultancy-form/" class="btn btn-outline-primary mt-3">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-card">
+            <h5 class="fw-bold text-primary">Gold Package</h5>
+            <div class="price">PKR 49,999</div>
+            <p class="small text-muted">Full application journey support including interviews</p>
+            <a href="https://tekgenti.com/consultancy-form/" class="btn btn-outline-primary mt-3">Get Started</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Tekgen -->
+      <div class="mt-5 text-center" data-aos="fade-up">
+        <h4 class="fw-bold mb-4">Why Choose Tekgen Technical Institute?</h4>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="service-card">
+              <i class="fas fa-user-graduate"></i>
+              <h5 class="fw-bold">Expert Guidance</h5>
+              <p class="text-muted">By Dr. Sultan Shaikh with international experience</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <i class="fas fa-sliders-h"></i>
+              <h5 class="fw-bold">Tailored Services</h5>
+              <p class="text-muted">Customized based on your goals and background</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card">
+              <i class="fas fa-hands-helping"></i>
+              <h5 class="fw-bold">End-to-End Support</h5>
+              <p class="text-muted">Comprehensive assistance throughout your application process</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-5" data-aos="fade-up">
+        <a href="https://tekgenti.com/consultancy-form/" class="btn btn-primary px-4 py-2 me-3">Register Now</a>
+        <a href="https://tekgenti.com/contact-us/" class="btn btn-outline-primary px-4 py-2">Contact Us</a>
+      </div>
     </div>
+  </section>
 
-    <!-- CTA -->
-    <div class="text-center mt-4">
-      <a href="https://tekgenti.com/consultancy-form/" class="btn btn-success px-4 py-2 me-2">Register Now</a>
-      <a href="https://tekgenti.com/contact-us/" class="btn btn-outline-dark px-4 py-2">Contact Us</a>
+  <!-- Additional Services Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Additional Professional Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-card">
+            <i class="fas fa-shield-alt"></i>
+            <h5 class="fw-bold">Safety Training</h5>
+            <p class="text-muted">Globally accredited certifications (NEBOSH, IOSH, OSHA, IASP) and fire safety programs</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <i class="fas fa-leaf"></i>
+            <h5 class="fw-bold">Environmental Consulting</h5>
+            <p class="text-muted">ISO 14001, LEED & GSAS guidance, audits, policy development, and sustainability reports</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <i class="fas fa-user-graduate"></i>
+            <h5 class="fw-bold">Academic Mentoring</h5>
+            <p class="text-muted">Support for MS/PhD students, thesis development, publications, and proposal writing</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-
+  </section>
+</main>
 
 <!-- Footer -->
-<footer class="bg-black text-white py-3 text-center">
-  <p>&copy; 2025 Dr Sultan | Tekgen Technical Institute</p>
-  <div>
-    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h4 class="text-white mb-4">Dr. Sultan Shaikh</h4>
+        <p>Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute, dedicated to advancing sustainability and safety through research and education.</p>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Quick Links</h5>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="qualification.html">Qualifications</a>
+          <a href="research.html">Research</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Resources</h5>
+        <div class="footer-links">
+          <a href="publication.html">Publications</a>
+          <a href="service.html">Services</a>
+          <a href="tekgen.html">Tekgen</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-4">
+        <h5 class="text-white mb-4">Connect</h5>
+        <div class="social-icons mb-4">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mb-0">© 2025 Dr Sultan. All rights reserved.</p>
+      </div>
+    </div>
   </div>
 </footer>
 
-<!-- Contact Modal -->
-<div id="contactModal" class="modal fade" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4 shadow-lg">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form class="modal-body">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" required />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required />
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <div class="text-end">
-          <button type="submit" class="btn btn-success px-4">Send</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize AOS animation
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Loader
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("site-loader");
+    if (loader) {
+      loader.style.transition = "opacity 0.4s ease";
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 400);
+    }
+  });
+
+  // Active link highlighting
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+      if (linkPage === currentPage || (currentPage === "" && linkPage.includes("index"))) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  });
+</script>
 </body>
 </html>
