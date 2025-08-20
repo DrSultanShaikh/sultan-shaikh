@@ -1,47 +1,850 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>YouTube — Dr. Sultan</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="YouTube Channel - Dr. Sultan Shaikh - Educational Videos on Scholarships, Research, and Academic Guidance">
+  <meta name="keywords" content="Dr Sultan, YouTube, Scholarships, Research, Academic Guidance, Educational Videos">
+  <meta name="author" content="Dr. Sultan Shaikh">
 
-  <!-- Bootstrap & Icons (same as site) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+  <title>YouTube | Dr Sultan</title>
+  
+  <!-- Google Fonts - Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
   <style>
-    /* Basic styling consistent with your site */
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#fff; color:#222; }
-    .video-thumb { cursor:pointer; transition:transform .15s ease; }
-    .video-thumb:hover { transform: scale(1.02); }
-    .playlist-card { cursor: pointer; transition: box-shadow .15s ease; }
-    .playlist-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,.12); transform: translateY(-3px); }
-    .featured-player { aspect-ratio: 16/9; max-height: 560px; overflow:hidden; }
-    .loader-inline { width:36px;height:36px;border:4px solid #eee;border-top-color:#198754;border-radius:50%; animation:spin .9s linear infinite; display:inline-block; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    /* .page-section { padding-top: 3.5rem; padding-bottom: 3.5rem; } */
-  </style>
+    :root {
+      --primary: #2a7f62;
+      --primary-light: rgba(42, 127, 98, 0.1);
+      --secondary: #3a5169;
+      --light: #f8f9fa;
+      --lighter: #fcfcfc;
+      --dark: #212529;
+      --text: #4a4a4a;
+      --text-light: #6c757d;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --section-padding: 100px;
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--lighter);
+      overflow-x: hidden;
+      padding-top: 80px; /* For fixed navbar */
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+    
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    
+    .text-primary { color: var(--primary) !important; }
+    .bg-primary { background-color: var(--primary) !important; }
+    .bg-primary-light { background-color: var(--primary-light) !important; }
+    
+    /* Navbar Styles */
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 10px 15px;
+      transition: var(--transition);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      display: flex;
+      align-items: center;
+    }
 
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      color: var(--primary) !important;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: var(--secondary) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 8px 12px !important;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover:before,
+    .nav-link.active:before {
+      width: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    /* Mobile Menu Styling */
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      display: block;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      left: 0;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before {
+      top: -6px;
+    }
+
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-color: transparent;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .main-container {
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+      padding: 8px 20px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      border-width: 2px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    .btn-outline-primary {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    /* Hero Section */
+    .youtube-hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    /* Section Styling */
+    section {
+      padding: var(--section-padding) 0;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Video Cards */
+    .video-card {
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      overflow: hidden;
+      height: 100%;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .video-thumb {
+      position: relative;
+      overflow: hidden;
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+    
+    .video-thumb img {
+      transition: var(--transition);
+      width: 100%;
+      height: auto;
+    }
+    
+    .video-card:hover .video-thumb img {
+      transform: scale(1.05);
+    }
+    
+    .video-thumb:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .video-card:hover .video-thumb:after {
+      opacity: 1;
+    }
+    
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 3rem;
+      opacity: 0.8;
+      transition: var(--transition);
+      z-index: 2;
+    }
+    
+    .video-card:hover .play-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    /* Playlist Cards */
+    .playlist-card {
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      overflow: hidden;
+      height: 100%;
+    }
+    
+    .playlist-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    /* Loader */
+    #site-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--primary-light);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Animated Underline */
+    .underline-animation {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .underline-animation:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .underline-animation:hover:after {
+      width: 100%;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1199.98px) {
+      :root {
+        --section-padding: 80px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.7rem;
+      }
+      
+      .nav-link {
+        margin: 0 8px;
+        padding: 8px 10px !important;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      :root {
+        --section-padding: 70px;
+      }
+      
+      .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+      
+      .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px !important;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      :root {
+        --section-padding: 60px;
+      }
+      
+      body {
+        padding-top: 70px;
+      }
+      
+      .section-title.center:after {
+        left: 0;
+        transform: none;
+      }
+      
+      .section-title {
+        margin-bottom: 40px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 575.98px) {
+      :root {
+        --section-padding: 50px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .video-card,
+      .playlist-card {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="loading">
+
+<!-- Loader -->
+<div id="site-loader">
+  <div class="loader"></div>
+</div>
+
+<!-- Navbar with Mobile Toggle -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <!-- Logo on left -->
+    <a class="navbar-brand" href="index.html">Dr Sultan</a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="research.html">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="publication.html">Publications</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+            <li><a class="dropdown-item" href="qualification.html">Qualifications</a></li>
+            <li><a class="dropdown-item" href="service.html">Services</a></li>
+            <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
+            <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Main Content Container -->
+<main class="main-container">
+  <!-- YouTube Hero Section -->
+  <section class="youtube-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h1 class="fw-bold mb-4">YouTube Channel</h1>
+          <p class="lead">AccelerateToAchieve - Educational Videos on Scholarships, Research, and Academic Guidance</p>
+          <a href="https://www.youtube.com/@Acceleratetoachieve" target="_blank" class="btn btn-primary mt-3">
+            <i class="fab fa-youtube me-2"></i> Visit Channel
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Videos Section -->
+  <section>
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Featured Videos</h2>
+      <div class="row g-4">
+        <!-- Video 1 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="videos thumbnails/FULLY FUNDED Swansea University - UK Scholarship for Ph.D. - 480x360.jpg" alt="FULLY FUNDED Swansea University - UK Scholarship for Ph.D.">
+              <div class="play-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+            </div>
+            <div class="p-4">
+              <h6 class="fw-bold">FULLY FUNDED Swansea University - UK Scholarship for Ph.D.</h6>
+              <p class="text-muted small">FULLY FUNDED Swansea University - UK Scholarship for Ph.D. In this video you will know about the Ph.D scholarships open in Swansea University.</p>
+              <a href="https://youtu.be/1TcUhW73lFo?si=1BFqIsMjVUocgvcU" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Watch Video</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="videos thumbnails/Fully Funded MS and PhD Scholarships in Turkey  Stipend up to 960 USDmonth - 640x480.jpg" alt="Fully Funded MS and PhD Scholarships in Turkey">
+              <div class="play-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+            </div>
+            <div class="p-4">
+              <h6 class="fw-bold">Fully Funded MS and PhD Scholarships in Turkey</h6>
+              <p class="text-muted small">Sabancı University is offering an incredible opportunity for international students to study in Turkey with a scholarship of up to 960 USD/month.</p>
+              <a href="https://youtu.be/bPj6CwIjd5Y?si=5MRmxF7IQjZkF9Gf" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Watch Video</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="videos thumbnails/Kyung Hee University Scholarships PhD & Integrated MS-PhD in South Korea.jpg" alt="Kyung Hee University Scholarships">
+              <div class="play-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+            </div>
+            <div class="p-4">
+              <h6 class="fw-bold">Kyung Hee University Scholarships: PhD & Integrated MS-PhD</h6>
+              <p class="text-muted small">Unlock the door to your academic future with Kyung Hee University's exclusive scholarships for PhD and MS leading to PhD programs in South Korea.</p>
+              <a href="https://youtu.be/ulVFh_8xte4?si=PbXmkFBRCcdmkDti" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Watch Video</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Video 4 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="video-card">
+            <div class="video-thumb">
+              <img src="videos thumbnails/Fully Funded KAUST - Saudi Arabia (M.S & Ph.D. Scholarships) 2023.jpg" alt="Fully Funded KAUST - Saudi Arabia">
+              <div class="play-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+            </div>
+            <div class="p-4">
+              <h6 class="fw-bold">Fully Funded KAUST - Saudi Arabia (M.S & Ph.D. Scholarships)</h6>
+              <p class="text-muted small">KAUST is top ranked university in Saudi Arabia. In this video you will know about the procedure for applying in KAUST for Masters and Ph.D. program.</p>
+              <a href="https://youtu.be/DCVoS8hDBfU?si=gGU5wUiiQvg77KLt" target="_blank" class="btn btn-sm btn-outline-primary mt-2">Watch Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- More Videos Button -->
+      <div class="text-center mt-5" data-aos="fade-up">
+        <a href="https://www.youtube.com/@Acceleratetoachieve/videos" target="_blank" class="btn btn-primary">
+          <i class="fab fa-youtube me-2"></i> View All Videos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playlists Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Featured Playlists</h2>
+      <div class="row g-4">
+        <!-- Playlist 1 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="playlist-card p-4">
+            <div class="row align-items-center">
+              <div class="col-4">
+                <img src="videos thumbnails/FULLY FUNDED Swansea University - UK Scholarship for Ph.D. - 480x360.jpg" alt="Scholarships Playlist" class="img-fluid rounded">
+              </div>
+              <div class="col-8">
+                <h5 class="fw-bold">Scholarships & Funding Opportunities</h5>
+                <p class="text-muted small">Complete guide to finding and applying for scholarships worldwide.</p>
+                <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd" target="_blank" class="btn btn-sm btn-outline-primary">View Playlist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Playlist 2 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="playlist-card p-4">
+            <div class="row align-items-center">
+              <div class="col-4">
+                <img src="videos thumbnails/Academic IELTS Exam Pattern, modules, fees, score band and validity.jpg" alt="IELTS Playlist" class="img-fluid rounded">
+              </div>
+              <div class="col-8">
+                <h5 class="fw-bold">IELTS Preparation Guide</h5>
+                <p class="text-muted small">Complete IELTS preparation with tips, strategies, and practice tests.</p>
+                <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YQOxriMh4IUJ2TqwJVvSuZ" target="_blank" class="btn btn-sm btn-outline-primary">View Playlist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Playlist 3 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="playlist-card p-4">
+            <div class="row align-items-center">
+              <div class="col-4">
+                <img src="videos thumbnails/Italy PhD Scholarships  Polytechnic University of Turin  Politecnico di Torino  Study in Italy.jpg" alt="Study Abroad Playlist" class="img-fluid rounded">
+              </div>
+              <div class="col-8">
+                <h5 class="fw-bold">Study Abroad Guidance</h5>
+                <p class="text-muted small">Complete process for studying abroad from application to visa process.</p>
+                <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ZmO9II0kQ12WWzbVS_MNvl" target="_blank" class="btn btn-sm btn-outline-primary">View Playlist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Playlist 4 -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="playlist-card p-4">
+            <div class="row align-items-center">
+              <div class="col-4">
+                <img src="videos thumbnails/Canadian Global Research Internship for Undergraduate Students 2022  Study in Canada for 12 weeks.jpg" alt="Research Playlist" class="img-fluid rounded">
+              </div>
+              <div class="col-8">
+                <h5 class="fw-bold">Research & Academic Tips</h5>
+                <p class="text-muted small">Research methodology, paper writing, and academic success strategies.</p>
+                <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YEIaqpLu41HN1Ic8anhHdI" target="_blank" class="btn btn-sm btn-outline-primary">View Playlist</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channel CTA Section -->
+  <section class="bg-primary text-white">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="fw-bold mb-4">Subscribe to My Channel</h2>
+          <p class="lead mb-4">Get regular updates on scholarships, research opportunities, and academic guidance to accelerate your career.</p>
+          <a href="https://www.youtube.com/@Acceleratetoachieve?sub_confirmation=1" target="_blank" class="btn btn-light px-4 py-2">
+            <i class="fab fa-youtube me-2"></i> Subscribe Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h4 class="text-white mb-4">Dr. Sultan Shaikh</h4>
+        <p>Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute, dedicated to advancing sustainability and safety through research and education.</p>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Quick Links</h5>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="qualification.html">Qualifications</a>
+          <a href="research.html">Research</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Resources</h5>
+        <div class="footer-links">
+          <a href="publication.html">Publications</a>
+          <a href="service.html">Services</a>
+          <a href="tekgen.html">Tekgen</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-4">
+        <h5 class="text-white mb-4">Connect</h5>
+        <div class="social-icons mb-4">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.youtube.com/@Acceleratetoachieve" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mb-0">© 2025 Dr Sultan. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Highlight active nav-link
-  const current = location.pathname.split("/").pop();
-  document.querySelectorAll(".nav-link").forEach(link => {
-    if (link.getAttribute("href") === current || (current === "" && link.getAttribute("href").includes("index"))) {
-      link.classList.add("active");
+  // Initialize AOS animation
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Loader
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("site-loader");
+    if (loader) {
+      loader.style.transition = "opacity 0.4s ease";
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 400);
     }
   });
 
-  // Smooth scroll to contact section
-  function scrollToContact() {
-    const contact = document.getElementById("contact-section");
-    if (contact) {
-      contact.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-</script>
-
-
-  <script>
+  // Active link highlighting
   document.addEventListener("DOMContentLoaded", function () {
     const currentPage = location.pathname.split("/").pop();
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
@@ -54,750 +857,5 @@
     });
   });
 </script>
-
-<style>
-  .navbar-nav .nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #00ff6a;
-  transition: width 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after {
-  width: 100%;
-}
-
-.navbar-nav .nav-link.active {
-  color: #00ff6a !important;
-}
-</style>
-</head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow px-3">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">Dr Sultan</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
-        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
-        <li class="nav-item"><a class="nav-link" href="service.html">Consultancy Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="tekgen.html">Tekgen Institute</a></li>
-        <li class="nav-item"><a class="nav-link active" href="youtube.html">YouTube</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Picture Gallery</a></li>
-        <li class="nav-item">
-          <button class="btn btn-outline-success ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Contact
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-
-
-  <!-- Hero / Featured -->
-  <header class="bg-dark text-white text-center page-section">
-    <div class="container">
-      <h1 class="display-6 fw-bold mb-2">Latest from My YouTube Channel</h1>
-      <p class="mb-4">AccelerateToAchieve — curated playlists, and highlighted videos.</p>
-
-
-
-
-
-
- <!-- Latest Videos Grid -->
-<section class="page-section py-5 bg-light">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-between mb-3">
-      <h3 class="mb-0 fw-bold" style="color: black;">Videos</h3>
-      <!-- <div class="text-muted small">8 recent uploads</div> -->
-    </div>
-
-    <div id="videosGrid" class="row g-4">
-      <!-- Video Card 1 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/1TcUhW73lFo?si=1BFqIsMjVUocgvcU" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_1">
-            <img src="videos thumbnails/FULLY FUNDED Swansea University - UK Scholarship for Ph.D. - 480x360.jpg" class="card-img-top" alt="Video Title 1">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">FULLY FUNDED Swansea University - UK Scholarship for Ph.D.</h6>
-            <p class="card-text text-muted small">FULLY FUNDED Swansea University - UK Scholarship for Ph.D.
-
-In this video you will know about the Ph.D scholarships open in Swansea University.
-
-Swansea University is a research-led university in UK that has been making a difference since 1920. 
-...</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video Card 2 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/bPj6CwIjd5Y?si=5MRmxF7IQjZkF9Gf" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Fully Funded MS and PhD Scholarships in Turkey  Stipend up to 960 USDmonth - 640x480.jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Fully Funded MS and PhD Scholarships in Turkey | Stipend up to 960 USD/month</h6>
-            <p class="card-text text-muted small">Are you looking for a fully funded Master's or PhD scholarship in Turkey?
-Sabancı University is offering an incredible opportunity for international students to study in Turkey with a scholarship of up to 960 USD/month, along with free accommodation and a tuition fee waiver!</p>
-          </div>
-        </div>
-      </div>
-
-         <!-- Video Card 3 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/ulVFh_8xte4?si=PbXmkFBRCcdmkDti" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Kyung Hee University Scholarships PhD & Integrated MS-PhD in South Korea.jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Kyung Hee University Scholarships: PhD & Integrated MS-PhD in South Korea</h6>
-            <p class="card-text text-muted small">Unlock the door to your academic future with Kyung Hee University's exclusive scholarships for PhD and MS leading to PhD programs in South Korea for 2024.</p>
-          </div>
-        </div>
-      </div>
-      
-         <!-- Video Card 4-->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/DCVoS8hDBfU?si=gGU5wUiiQvg77KLt" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Fully Funded KAUST - Saudi Arabia (M.S & Ph.D. Scholarships) 2023.jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Fully Funded KAUST - Saudi Arabia (M.S & Ph.D. Scholarships) 2023</h6>
-            <p class="card-text text-muted small">Fully Funded KAUST - Saudi Arabia (M.S & Ph.D. Scholarships) 2023
-
-KAUST is top ranked university in Saudi Arabia. In this video you will know about the procedure for applying in KAUST for Masters and Ph.D. program.</p>
-          </div>
-        </div>
-      </div>
-
-         <!-- Video Card 5 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/PmyeaGsyKd0?si=J5frd9CK4NvVD-wB" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Master's degree Scholarship in Malaysia  MALAYSIAN TECHNICAL COOPERATION PROGRAMME (MTCP).jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Master's degree Scholarship in Malaysia | MALAYSIAN TECHNICAL COOPERATION PROGRAMME (MTCP)</h6>
-            <p class="card-text text-muted small">Master's degree Scholarship in Malaysia | MALAYSIAN TECHNICAL COOPERATION PROGRAMME (MTCP).
-In this video you will know about the MALAYSIAN TECHNICAL COOPERATION PROGRAMME (MTCP). MTCP is two year's fully funded master degree program offered in Malaysia.</p>
-          </div>
-        </div>
-      </div>
-
-         <!-- Video Card 6 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/x2c-Bw0vHCU?si=CQj2Wz9WvNSdR5Ym" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Italy PhD Scholarships  Polytechnic University of Turin  Politecnico di Torino  Study in Italy.jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Italy PhD Scholarships | Polytechnic University of Turin | Politecnico di Torino | Study in Italy</h6>
-            <p class="card-text text-muted small">Italy PhD Scholarships | Polytechnic University of Turin | Politecnico di Torino | Study in Italy
-
-In this video you will know about the PhD scholarships currently open at the  Polytechnic University of Turin, Italy.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video Card 7 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/bW2S7em-I7Y?si=c0e1z97mx3DSyyQs" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Academic IELTS Exam Pattern, modules, fees, score band and validity.jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Academic IELTS Exam Pattern, modules, fees, score band and validity</h6>
-            <p class="card-text text-muted small">Academic IELTS Pattern, modules, fees, score band and validity.In this video you will know about the academic IELTS.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video Card 8 -->
-      <div class="col-sm-6 col-lg-3">
-        <div class="card shadow-sm border-0 h-100">
-          <a href="https://youtu.be/GVliJGTWyFQ?si=He04z76nATHj-HM9" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="videos thumbnails/Canadian Global Research Internship for Undergraduate Students 2022  Study in Canada for 12 weeks.jpg" class="card-img-top" alt="Video Title 2">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title fw-bold">Canadian Global Research Internship for Undergraduate Students 2022 | Study in Canada for 12 weeks</h6>
-            <p class="card-text text-muted small">Canadian Global Research Internship for Undergraduate Students 2022 | Study in Canada for 12 weeks.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Repeat for all 8 videos -->
-       <div class="text-center mt-4">
-        <a id="openChannelBtn" class="btn btn-success" target="_blank" rel="noopener" href="https://www.youtube.com/@Acceleratetoachieve">For More Videos Visit Our Channel</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Video Modal -->
-<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content bg-dark border-0">
-      <div class="ratio ratio-16x9">
-        <iframe id="videoPlayer" src="" title="YouTube video" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Styles -->
-<style>
-.card-img-top {
-  transition: transform 0.3s ease;
-  object-fit: cover;
-}
-.card-img-top:hover {
-  transform: scale(1.05);
-}
-</style>
-
-<!-- Script -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const videoModal = document.getElementById('videoModal');
-  const videoPlayer = document.getElementById('videoPlayer');
-
-  document.querySelectorAll('[data-bs-target="#videoModal"]').forEach(link => {
-    link.addEventListener('click', function () {
-      const videoSrc = this.getAttribute('data-video');
-      videoPlayer.src = videoSrc + "?autoplay=1";
-    });
-  });
-
-  videoModal.addEventListener('hidden.bs.modal', function () {
-    videoPlayer.src = "";
-  });
-});
-</script>
-
-
-<!-- Playlist Slider Section -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="fw-bold text-center text-dark mb-4">Our Playlists</h2>
-    <div id="playlistSlider" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-
-      <!-- Playlist Item -->
-<div class="carousel-item active">
-  <div class="text-center">
-    <!-- Responsive Wrapper -->
-    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=IbvZQ9mj6zob_hqi&amp;list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-    <!-- Button -->
-    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ao_Dj-4Y4B9r5lYtedKpgd&si=IbvZQ9mj6zob_hqi" 
-       target="_blank" 
-       class="btn btn-success mt-3">
-      View More on YouTube
-    </a>
-  </div>
-</div>
-
-
-       <!-- Playlist Item -->
-<div class="carousel-item">
-  <div class="text-center">
-    <!-- Responsive Wrapper -->
-    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
-      <iframe 
-        src="https://www.youtube.com/embed/videoseries?si=F_aayh4VvDaU-qso&amp;list=PLyHWJsKQGO5YQOxriMh4IUJ2TqwJVvSuZ" 
-        title="YouTube Playlist"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <!-- Button -->
-    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YQOxriMh4IUJ2TqwJVvSuZ&si=F_aayh4VvDaU-qso" 
-       target="_blank" 
-       class="btn btn-success mt-3">
-      View More on YouTube
-    </a>
-  </div>
-</div>
-
-
-       <!-- Playlist Item -->
-<div class="carousel-item">
-  <div class="text-center">
-    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
-      <iframe 
-        src="https://www.youtube.com/embed/videoseries?si=RA4dTgxpn6Bu4NVY&amp;list=PLyHWJsKQGO5ZmO9II0kQ12WWzbVS_MNvl" 
-        title="YouTube playlist"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5ZmO9II0kQ12WWzbVS_MNvl&si=RA4dTgxpn6Bu4NVY" 
-       target="_blank" 
-       class="btn btn-success mt-3">
-      View More on YouTube
-    </a>
-  </div>
-</div>
-
-
-        <!-- Playlist Item -->
-<div class="carousel-item">
-  <div class="text-center">
-    <div class="ratio ratio-16x9" style="max-width: 900px; margin: auto;">
-      <iframe 
-        src="https://www.youtube.com/embed/videoseries?si=YsSMQ1VdAqgZ2Q-y&amp;list=PLyHWJsKQGO5YEIaqpLu41HN1Ic8anhHdI" 
-        title="YouTube playlist"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <a href="https://youtube.com/playlist?list=PLyHWJsKQGO5YEIaqpLu41HN1Ic8anhHdI&si=1bTCtyN1Gb90EGtd" 
-       target="_blank"
-       class="btn btn-success mt-3">
-      View More on YouTube
-    </a>
-  </div>
-</div>
-
-
-      </div>
-
-      <!-- Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#playlistSlider" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#playlistSlider" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- Auto Slide Speed -->
-<script>
-  var myCarousel = document.querySelector('#playlistSlider');
-  var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 3000, // 3 seconds per slide
-    ride: 'carousel',
-    wrap: true // continuous loop
-  });
-</script>
-
-
-<!-- Font Awesome (for icons) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-
-
-  <!-- Playlists
-  <section class="page-section bg-light">
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-between mb-3">
-        <h3 class="mb-0">Playlists</h3>
-        <div class="text-muted small">All playlists from the channel</div>
-      </div> -->
-
-     
-
-
-  <!-- Player Modal (for playlist or single video) -->
-  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body p-0">
-          <div id="modalPlayerWrapper" style="position:relative;padding-top:56.25%;">
-            <!-- iframe inserted by JS -->
-          </div>
-        </div>
-        <div class="modal-footer">
-          <div id="modalMeta" class="me-auto text-start"></div>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a id="watchOnYT" target="_blank" class="btn btn-danger">Watch on YouTube</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Playlist Modal (shows videos of a playlist) -->
-  <div class="modal fade" id="playlistModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 id="playlistModalTitle" class="modal-title"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <div id="playlistVideosGrid" class="row g-3"></div>
-          <div class="text-center mt-3"><button id="playlistLoadMore" class="btn btn-outline-success" data-next="">Load more</button></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <!-- Contact Modal (copied from your site) -->
-  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title">Get in Touch</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form onsubmit="event.preventDefault(); alert('Message sent!');">
-            <div class="mb-3"><label class="form-label">Name</label><input class="form-control" required></div>
-            <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" required></div>
-            <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" rows="4" required></textarea></div>
-            <button class="btn btn-success w-100">Send</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- Footer (same style) -->
-  <footer class="bg-black text-white py-3 text-center">
-    <p class="mb-0">&copy; 2025 Dr Sultan | Tekgen Technical Institute</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-/*******************************
- *  CONFIG - replace these
- *******************************/
-/*******************************
- *  CONFIG - replace these
- *******************************/
-const API_KEY = 'AIzaSyAT8AkqIQWjtKEtU3--0Asrig4VZCKTsrw'; // Your YouTube Data API v3 key
-const CHANNEL_ID = 'UCI5CnBI0OVxdhUYMmQJXBeA'; 
-const MAX_RESULTS = 12;
-const CACHE_EXPIRY_HOURS = 6;
-
-async function fetchYouTubeData(endpoint, params) {
-  try {
-    const url = `https://www.googleapis.com/youtube/v3/${endpoint}?${new URLSearchParams({...params, key: API_KEY})}`;
-    const response = await fetch(url);
-    return response.json();
-  } catch (error) {
-    console.error('YouTube API Error:', error);
-    throw error;
-  }
-}
-
-
-function escapeHtml(s) { return (s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
-function truncate(s, n){ return s.length>n? s.slice(0,n-1)+'…': s; }
-
-/*******************************
- *  Caching System
- *******************************/
-async function loadWithCache(endpoint, params, cacheKey) {
-  const cached = localStorage.getItem(cacheKey);
-  if (cached) {
-    const { data, timestamp } = JSON.parse(cached);
-    if (Date.now() - timestamp < CACHE_EXPIRY_HOURS * 60 * 60 * 1000) {
-      return data;
-    }
-  }
-
-  const freshData = await fetchYouTubeData(endpoint, params);
-  localStorage.setItem(cacheKey, JSON.stringify({
-    data: freshData,
-    timestamp: Date.now()
-  }));
-  return freshData;
-}
-
-/*******************************
- *  Error Handling
- *******************************/
-function showError(element, message, retryFn = null) {
-  element.innerHTML = `
-    <div class="alert alert-danger d-flex align-items-center">
-      <i class="fas fa-exclamation-circle me-2"></i>
-      <div>${message}</div>
-      ${retryFn ? `<button class="btn btn-sm btn-outline-danger ms-2" onclick="${retryFn}">Retry</button>` : ''}
-    </div>
-  `;
-}
-
-/*******************************
- *  Video Card
- *******************************/
-function createVideoCard(video) {
-  const col = document.createElement('div'); 
-  col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
-  
-  const thumb = video.snippet?.thumbnails?.medium?.url || '';
-  const title = video.snippet?.title || '';
-  const vid = video.id?.videoId || video.contentDetails?.videoId || video.id;
-  
-  col.innerHTML = `
-    <div class="card h-100 border-0 shadow-sm">
-      <div class="ratio ratio-16x9 bg-light">
-        <img loading="lazy" src="${thumb}" alt="${escapeHtml(title)}" 
-             class="card-img-top video-thumb object-fit-cover" data-video-id="${vid}">
-      </div>
-      <div class="card-body">
-        <h6 class="card-title mb-1">${escapeHtml(truncate(title, 70))}</h6>
-        <p class="small text-muted mb-0">${video.snippet?.channelTitle || ''}</p>
-      </div>
-    </div>
-  `;
-  
-  col.querySelector('.video-thumb').addEventListener('click', () => openVideoModal(vid, title));
-  return col;
-}
-
-/*******************************
- *  Featured video (latest)
- *******************************/
-async function loadFeatured() {
-  try {
-    const data = await loadWithCache(
-      'search',
-      {
-        channelId: CHANNEL_ID,
-        part: 'snippet,id',
-        order: 'date',
-        maxResults: 1,
-        type: 'video'
-      },
-      'yt_featured'
-    );
-
-    if (data.items?.length) {
-      const it = data.items[0];
-      renderFeatured(it.id.videoId, it.snippet);
-    } else {
-      featuredWrapper.innerHTML = '<div class="text-center p-4 text-white">No featured video available.</div>';
-    }
-  } catch (e) {
-    showError(featuredWrapper, 'Failed to load featured video. ' + e.message, 'loadFeatured()');
-  } finally {
-    featuredLoading.style.display = 'none';
-  }
-}
-
-function renderFeatured(videoId, snippet) {
-  // Lazy-load iframe only when needed
-  featuredWrapper.innerHTML = `
-    <div class="ratio ratio-16x9">
-      <iframe class="w-100 h-100" 
-              data-src="https://www.youtube.com/embed/${videoId}?autoplay=0" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              loading="lazy"></iframe>
-    </div>
-  `;
-  
-  // Load iframe only when visible
-  const iframe = featuredWrapper.querySelector('iframe');
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      iframe.src = iframe.dataset.src;
-      observer.unobserve(iframe);
-    }
-  });
-  observer.observe(iframe);
-
-  featuredMeta.innerHTML = `
-    <h4 class="mt-3">${escapeHtml(snippet.title)}</h4>
-    <p class="text-muted mb-0">${escapeHtml(snippet.channelTitle)} • ${new Date(snippet.publishedAt).toLocaleDateString()}</p>
-    <p class="mt-2">${escapeHtml(truncate(snippet.description, 300))}</p>
-  `;
-}
-
-/*******************************
- *  Latest uploads
- *******************************/
-async function loadLatest(pageToken = '') {
-  loadMoreBtn.disabled = true;
-  loadMoreBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Loading';
-  
-  try {
-    const data = await fetchYouTubeData('search', {
-      channelId: CHANNEL_ID,
-      part: 'snippet,id',
-      order: 'date',
-      maxResults: MAX_RESULTS,
-      type: 'video',
-      pageToken: pageToken || undefined
-    });
-
-    if (data.items?.length) {
-      data.items.forEach(item => {
-        videosGrid.appendChild(createVideoCard(item));
-      });
-      
-      searchNextPageToken = data.nextPageToken || '';
-      loadMoreBtn.dataset.nextPageToken = searchNextPageToken;
-      loadMoreBtn.style.display = searchNextPageToken ? 'inline-block' : 'none';
-    } else if (!videosGrid.children.length) {
-      videosGrid.innerHTML = '<div class="col-12 text-muted">No videos found.</div>';
-    }
-  } catch (e) {
-    showError(videosGrid, 'Failed to load videos. ' + e.message, `loadLatest('${pageToken}')`);
-  } finally {
-    loadMoreBtn.disabled = false;
-    loadMoreBtn.innerHTML = 'Load more';
-  }
-}
-
-/*******************************
- *  Playlists
- *******************************/
-async function loadPlaylists() {
-  try {
-    const data = await loadWithCache(
-      'playlists',
-      {
-        channelId: CHANNEL_ID,
-        part: 'snippet,contentDetails',
-        maxResults: 50
-      },
-      'yt_playlists'
-    );
-
-    if (data.items?.length) {
-      playlistsGrid.innerHTML = ''; // Clear loading state
-      data.items.forEach(pl => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-6 col-lg-4';
-        const thumb = pl.snippet.thumbnails?.medium?.url || '';
-        
-        col.innerHTML = `
-          <div class="card playlist-card h-100 border-0 shadow-sm">
-            <div class="row g-0 align-items-center">
-              <div class="col-4">
-                <img loading="lazy" src="${thumb}" class="img-fluid rounded-start" alt="${escapeHtml(pl.snippet.title)}">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <h6 class="card-title mb-1">${escapeHtml(pl.snippet.title)}</h6>
-                  <p class="small text-muted mb-0">${pl.contentDetails.itemCount} videos</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-        
-        col.querySelector('.playlist-card').addEventListener('click', 
-          () => openPlaylistModal(pl.id, pl.snippet.title));
-        playlistsGrid.appendChild(col);
-      });
-    } else {
-      playlistsGrid.innerHTML = '<div class="col-12 text-muted">No playlists found.</div>';
-    }
-  } catch (e) {
-    showError(playlistsGrid, 'Failed to load playlists. ' + e.message, 'loadPlaylists()');
-  }
-}
-
-/*******************************
- *  Video Modal
- *******************************/
-function openVideoModal(videoId, title) {
-  const wrapper = document.getElementById('modalPlayerWrapper');
-  wrapper.innerHTML = `
-    <div class="ratio ratio-16x9">
-      <iframe class="position-absolute top-0 start-0 w-100 h-100" 
-              src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen></iframe>
-    </div>
-    `;
-  
-  document.getElementById('modalMeta').innerHTML = `<strong>${escapeHtml(title)}</strong>`;
-  document.getElementById('watchOnYT').href = `https://youtube.com/watch?v=${videoId}`;
-  
-  const modal = new bootstrap.Modal(document.getElementById('videoModal'));
-  modal.show();
-  
-  // Cleanup on modal close
-  document.getElementById('videoModal').addEventListener('hidden.bs.modal', () => {
-    wrapper.innerHTML = '';
-  }, { once: true });
-}
-
-/*******************************
- *  Playlist Modal (placeholder - implement similarly to video modal)
- *******************************/
-function openPlaylistModal(playlistId, title) {
-  // Implement similar to video modal with playlist items
-  console.log("Open playlist:", playlistId, title);
-  // You would fetch playlist items here and display them
-}
-
-/*******************************
- *  Init
- *******************************/
-(async function init() {
-  if (!CHANNEL_ID) {
-    showError(videosGrid, 'YouTube channel configuration missing');
-    return;
-  }
-
-  // Load content in priority order
-  try {
-    await loadFeatured();
-    await loadLatest();
-    
-    // Delay less critical content
-    setTimeout(loadPlaylists, 500);
-  } catch (e) {
-    console.error('Initialization error:', e);
-  }
-})();
-
-// Event listeners
-loadMoreBtn.addEventListener('click', () => {
-  loadLatest(loadMoreBtn.dataset.nextPageToken || '');
-});
-</script>
-
 </body>
 </html>
