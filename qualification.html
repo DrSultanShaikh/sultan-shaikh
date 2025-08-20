@@ -3,42 +3,845 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <!-- SEO -->
-  <meta name="description" content="Official website of Dr. Sultan Shaikh - Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute.">
-<meta name="keywords" content="Dr Sultan, Environmental Engineer, Tekgen, Sustainability, Research, Civil Engineering">
-<meta name="author" content="Dr. Sultan Shaikh">
+  <meta name="description" content="Qualifications of Dr. Sultan Shaikh - Academic Credentials, Professional Certifications, and Achievements">
+  <meta name="keywords" content="Dr Sultan, Qualifications, Education, Certifications, Environmental Engineering, PhD">
+  <meta name="author" content="Dr. Sultan Shaikh">
 
-  <title>Qualifications - Dr Sultan | Tekgen Technical Institute</title>
+  <title>Qualifications | Dr Sultan</title>
+  
+  <!-- Google Fonts - Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <link rel="stylesheet" href="home.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
   <style>
-    .img-cert {
-      max-height: 200px;
-      object-fit: contain;
+    :root {
+      --primary: #2a7f62;
+      --primary-light: rgba(42, 127, 98, 0.1);
+      --secondary: #3a5169;
+      --light: #f8f9fa;
+      --lighter: #fcfcfc;
+      --dark: #212529;
+      --text: #4a4a4a;
+      --text-light: #6c757d;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --section-padding: 100px;
     }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--lighter);
+      overflow-x: hidden;
+      padding-top: 80px; /* For fixed navbar */
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+    
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    
+    .text-primary { color: var(--primary) !important; }
+    .bg-primary { background-color: var(--primary) !important; }
+    .bg-primary-light { background-color: var(--primary-light) !important; }
+    
+    /* Navbar Styles */
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 10px 15px;
+      transition: var(--transition);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      color: var(--primary) !important;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: var(--secondary) !important;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 8px 12px !important;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover:before,
+    .nav-link.active:before {
+      width: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    /* Mobile Menu Styling */
+    .navbar-toggler {
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      display: block;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      left: 0;
+      transition: var(--transition);
+    }
+
+    .navbar-toggler-icon::before {
+      top: -6px;
+    }
+
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-color: transparent;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .main-container {
+      width: 100%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+      padding: 8px 20px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      border-width: 2px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    .btn-outline-primary {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(42, 127, 98, 0.2);
+    }
+    
+    /* Hero Section */
+    .qualifications-hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    /* Section Styling */
+    section {
+      padding: var(--section-padding) 0;
+      position: relative;
+    }
+    
     .section-title {
-      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Card Styles */
+    .card {
+      border: none;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      overflow: hidden;
+      background-color: white;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    /* Education Cards */
+    .education-card {
+      padding: 30px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+    }
+    
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .education-card img {
+      max-height: 80px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+    
+    /* Achievement Cards */
+    .achievement-card {
+      padding: 25px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .achievement-card i {
       font-size: 2rem;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    /* Certification Cards */
+    .certification-category {
+      margin-bottom: 40px;
+    }
+    
+    .certification-item {
+      padding: 15px 20px;
+      border-radius: var(--border-radius);
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      margin-bottom: 15px;
+    }
+    
+    .certification-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    /* Loader */
+    #site-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--primary-light);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Animated Underline */
+    .underline-animation {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .underline-animation:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .underline-animation:hover:after {
+      width: 100%;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1199.98px) {
+      :root {
+        --section-padding: 80px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.7rem;
+      }
+      
+      .nav-link {
+        margin: 0 8px;
+        padding: 8px 10px !important;
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      :root {
+        --section-padding: 70px;
+      }
+      
+      .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+      
+      .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px !important;
+      }
+      
+      .achievement-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .achievement-card i {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      :root {
+        --section-padding: 60px;
+      }
+      
+      body {
+        padding-top: 70px;
+      }
+      
+      .section-title.center:after {
+        left: 0;
+        transform: none;
+      }
+      
+      .section-title {
+        margin-bottom: 40px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 575.98px) {
+      :root {
+        --section-padding: 50px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .education-card,
+      .achievement-card {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
     }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const currentPage = location.pathname.split("/").pop();
-      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+</head>
 
-      navLinks.forEach(link => {
-        const linkPage = link.getAttribute("href");
-        if (linkPage === currentPage) {
-          link.classList.add("active");
-          link.setAttribute("aria-current", "page");
-        }
-      });
-    });
-  </script>
+<body class="loading">
 
+<!-- Loader -->
+<div id="site-loader">
+  <div class="loader"></div>
+</div>
+
+<!-- Navbar with Mobile Toggle -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <!-- Logo on left -->
+    <a class="navbar-brand" href="index.html">Dr Sultan</a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="research.html">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="publication.html">Publications</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+            <li><a class="dropdown-item" href="qualification.html">Qualifications</a></li>
+            <li><a class="dropdown-item" href="service.html">Services</a></li>
+            <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
+            <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Container -->
+<main class="main-container">
+  <!-- Qualifications Hero Section -->
+  <section class="qualifications-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h1 class="fw-bold mb-4">Qualifications & Credentials</h1>
+          <p class="lead">Academic Excellence, Global Certifications & Professional Achievements</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center" data-aos="fade-up">
+          <h2 class="fw-bold mb-4">My Academic & Professional Journey</h2>
+          <p class="fs-5">
+            From civil engineering foundations to pioneering research in sustainable environments, my academic path has been driven by innovation and purpose. I've developed a strong foundation in environmental biotechnology, wastewater treatment, and resource recovery through rigorous academic training and international research experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section>
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Education</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="education-card">
+            <img src="qatar foundation.png" alt="HBKU" class="img-fluid">
+            <h5 class="fw-bold">PhD in Sustainable Environment</h5>
+            <p class="text-muted mb-2">2019–2023 | Hamad Bin Khalifa University, Qatar</p>
+            <p class="fw-bold text-primary">CGPA: 3.78 / 4.00</p>
+            <p class="small">Thesis: PHAs production from fuel synthesis wastewater using PNSB in biofilm photobioreactors.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="education-card">
+            <img src="USPCAS-W.png" alt="USPCAS-W" class="img-fluid">
+            <h5 class="fw-bold">MS in Environmental Engineering</h5>
+            <p class="text-muted mb-2">2015–2017 | USPCAS-W, MUET Jamshoro</p>
+            <p class="fw-bold text-primary">CGPA: 3.89 / 4.00</p>
+            <p class="small">Thesis: Groundwater quality assessment near Manchar Lake using VES and IX1D.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="education-card">
+            <img src="mute1.png" alt="MUET" class="img-fluid">
+            <h5 class="fw-bold">BE in Civil Engineering</h5>
+            <p class="text-muted mb-2">2011–2014 | MUET, Jamshoro</p>
+            <p class="fw-bold text-primary">CGPA: 3.85 / 4.00</p>
+            <p class="small">Final Year Project: Coefficient of friction analysis using Pendulum Skid Resistance Tester.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Achievements</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="achievement-card">
+            <i class="fas fa-graduation-cap text-success"></i>
+            <div>
+              <h5 class="fw-bold">Fully Funded PhD Scholarship</h5>
+              <p class="text-muted mb-0">Awarded by Qatar Foundation to pursue doctoral research at HBKU.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="achievement-card">
+            <i class="fas fa-globe text-primary"></i>
+            <div>
+              <h5 class="fw-bold">Exchange Scholar – USA</h5>
+              <p class="text-muted mb-0">Research visit at University of Utah under USAID program.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="achievement-card">
+            <i class="fas fa-laptop-code text-warning"></i>
+            <div>
+              <h5 class="fw-bold">PM Laptop Scheme</h5>
+              <p class="text-muted mb-0">Merit-based award from Government of Pakistan for academic excellence.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="achievement-card">
+            <i class="fas fa-award text-danger"></i>
+            <div>
+              <h5 class="fw-bold">Academic Excellence Award</h5>
+              <p class="text-muted mb-0">Presented by MUET for top performance and research output.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section>
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Professional Certifications</h2>
+      
+      <!-- Environmental & Sustainability -->
+      <div class="certification-category" data-aos="fade-up">
+        <h4 class="fw-bold mb-4 text-success"><i class="fas fa-leaf me-2"></i>Environmental & Sustainability</h4>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">ProQual Level 3 Award</h6>
+          <p class="text-muted mb-0 small">ProQual, UK</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">NEBOSH Environmental Management</h6>
+          <p class="text-muted mb-0 small">NEBOSH, UK</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">LEED Green Associate</h6>
+          <p class="text-muted mb-0 small">USGBC, USA</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">GSAS-CGP</h6>
+          <p class="text-muted mb-0 small">GORD, Qatar</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">Envision Sustainability Professional</h6>
+          <p class="text-muted mb-0 small">USA</p>
+        </div>
+      </div>
+      
+      <!-- Health & Safety -->
+      <div class="certification-category" data-aos="fade-up" data-aos-delay="100">
+        <h4 class="fw-bold mb-4 text-danger"><i class="fas fa-shield-alt me-2"></i>Health & Safety Certifications</h4>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">IOSH Managing Safely</h6>
+          <p class="text-muted mb-0 small">IOSH, UK</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">IRCA ISO 14001 Lead Auditor</h6>
+          <p class="text-muted mb-0 small">IRCA, UK</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">IASP Certified Fire Safety</h6>
+          <p class="text-muted mb-0 small">IASP, USA</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">OSHA 48-Hour, 30-Hour, and multiple 6-Hour Certificates</h6>
+          <p class="text-muted mb-0 small">OSHA, USA</p>
+        </div>
+      </div>
+      
+      <!-- Training & Leadership -->
+      <div class="certification-category" data-aos="fade-up" data-aos-delay="200">
+        <h4 class="fw-bold mb-4 text-primary"><i class="fas fa-users-cog me-2"></i>Training & Leadership</h4>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">AOSH Certified Master Trainer</h6>
+          <p class="text-muted mb-0 small">AOSH, UK</p>
+        </div>
+        <div class="certification-item">
+          <h6 class="fw-bold mb-1">Shell NXplorers Pro Facilitator</h6>
+          <p class="text-muted mb-0 small">Shell, UK</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h4 class="text-white mb-4">Dr. Sultan Shaikh</h4>
+        <p>Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute, dedicated to advancing sustainability and safety through research and education.</p>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Quick Links</h5>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="qualification.html">Qualifications</a>
+          <a href="research.html">Research</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Resources</h5>
+        <div class="footer-links">
+          <a href="publication.html">Publications</a>
+          <a href="service.html">Services</a>
+          <a href="tekgen.html">Tekgen</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-4">
+        <h5 class="text-white mb-4">Connect</h5>
+        <div class="social-icons mb-4">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mb-0">© 2025 Dr Sultan. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // Initialize AOS animation
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Loader
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("site-loader");
+    if (loader) {
+      loader.style.transition = "opacity 0.4s ease";
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 400);
+    }
+  });
+
+  // Active link highlighting
   document.addEventListener("DOMContentLoaded", function () {
     const currentPage = location.pathname.split("/").pop();
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
@@ -51,246 +854,5 @@
     });
   });
 </script>
-
-
-</head>
-<body>
-
-<!-- Navbar -->
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top shadow px-3">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">Dr Sultan</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
-        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
-        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-        <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
-        <li class="nav-item"><a class="nav-link" href="service.html">Consultancy Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="tekgen.html">Tekgen Institute</a></li>
-        <li class="nav-item"><a class="nav-link" href="youtube.html">YouTube</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Picture Gallery</a></li>
-        <li class="nav-item">
-          <button class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Contact
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<!-- Qualification Page Header -->
-<section class="bg-dark text-white text-center d-flex align-items-center" style="min-height: 40vh;">
-  <div class="container">
-    <h1 class="fw-bold display-5">Qualifications</h1>
-    <p class="lead">Academic Excellence, Global Certifications & Professional Affiliations</p>
-  </div>
-</section>
-
-<!-- Intro -->
-<section class="py-4 bg-light text-center">
-  <div class="container">
-    <h3 class="fw-bold">My Academic & Professional Journey</h3>
-    <p class="lead">
-      From civil engineering foundations to pioneering research in sustainable environments, my academic path has been driven by innovation and purpose. I’ve developed a strong foundation in environmental biotechnology, wastewater treatment, and resource recovery through rigorous academic training and international research experience.
-    </p>
-  </div>
-</section>
-
-<!-- Education Section -->
-<section class="py-5 bg-white text-dark">
-  <div class="container">
-    <h2 class="section-title text-center fw-bold mb-5">Education</h2>
-    <div class="row g-4 justify-content-center text-center">
-
-      <!-- PhD -->
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded shadow-sm h-100 card-hover">
-          <img src="qatar foundation.png" class="img-fluid mb-3" style="max-height: 80px;" alt="HBKU">
-          <h5 class="fw-bold">PhD in Sustainable Environment</h5>
-          <p class="mb-1 text-muted"><small>2019–2023 | Hamad Bin Khalifa University, Qatar</small></p>
-          <p><strong>CGPA:</strong> 3.78 / 4.00</p>
-          <p><strong>Thesis:</strong> PHAs production from fuel synthesis wastewater using PNSB in biofilm photobioreactors.</p>
-        </div>
-      </div>
-
-      <!-- MS -->
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded shadow-sm h-100 card-hover">
-          <img src="USPCAS-W.png" class="img-fluid mb-3" style="max-height: 80px;" alt="USPCAS-W">
-          <h5 class="fw-bold">MS in Environmental Engineering</h5>
-          <p class="mb-1 text-muted"><small>2015–2017 | USPCAS-W, MUET Jamshoro</small></p>
-          <p><strong>CGPA:</strong> 3.89 / 4.00</p>
-          <p><strong>Thesis:</strong> Groundwater quality assessment near Manchar Lake using VES and IX1D.</p>
-        </div>
-      </div>
-
-      <!-- BE -->
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded shadow-sm h-100 card-hover">
-          <img src="mute1.png" class="img-fluid mb-3" style="max-height: 80px;" alt="MUET">
-          <h5 class="fw-bold">BE in Civil Engineering</h5>
-          <p class="mb-1 text-muted"><small>2011–2014 | MUET, Jamshoro</small></p>
-          <p><strong>CGPA:</strong> 3.85 / 4.00</p>
-          <p><strong>Final Year Project:</strong> Coefficient of friction analysis using Pendulum Skid Resistance Tester.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Achievements Section -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="section-title fw-bold text-center mb-5">Achievements</h2>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-
-      <div class="col">
-        <div class="bg-white p-4 rounded shadow-sm d-flex align-items-start card-hover h-100">
-          <i class="fas fa-graduation-cap fa-2x text-success me-3"></i>
-          <div>
-            <h6 class="fw-semibold">Fully Funded PhD Scholarship</h6>
-            <p class="text-muted small mb-0">Awarded by Qatar Foundation to pursue doctoral research at HBKU.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="bg-white p-4 rounded shadow-sm d-flex align-items-start card-hover h-100">
-          <i class="fas fa-globe fa-2x text-primary me-3"></i>
-          <div>
-            <h6 class="fw-semibold">Exchange Scholar – USA</h6>
-            <p class="text-muted small mb-0">Research visit at University of Utah under USAID program.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="bg-white p-4 rounded shadow-sm d-flex align-items-start card-hover h-100">
-          <i class="fas fa-laptop-code fa-2x text-warning me-3"></i>
-          <div>
-            <h6 class="fw-semibold">PM Laptop Scheme</h6>
-            <p class="text-muted small mb-0">Merit-based award from Government of Pakistan for academic excellence.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="bg-white p-4 rounded shadow-sm d-flex align-items-start card-hover h-100">
-          <i class="fas fa-award fa-2x text-danger me-3"></i>
-          <div>
-            <h6 class="fw-semibold">Academic Excellence Award</h6>
-            <p class="text-muted small mb-0">Presented by MUET for top performance and research output.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Professional Certifications -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5">Professional Certifications</h2>
-
-    <!-- Environmental & Sustainability -->
-    <div class="mb-4">
-      <h5 class="text-success fw-bold mb-3"><i class="fas fa-leaf me-2"></i>Environmental & Sustainability</h5>
-      <ul class="list-unstyled ps-3">
-        <li><i class="fas fa-certificate text-success me-2"></i>ProQual Level 3 Award – ProQual, UK</li>
-        <li><i class="fas fa-certificate text-success me-2"></i>NEBOSH Environmental Management – NEBOSH, UK</li>
-        <li><i class="fas fa-certificate text-success me-2"></i>LEED Green Associate – USGBC, USA</li>
-        <li><i class="fas fa-certificate text-success me-2"></i>GSAS-CGP – GORD, Qatar</li>
-        <li><i class="fas fa-certificate text-success me-2"></i>Envision Sustainability Professional – USA</li>
-      </ul>
-    </div>
-
-    <!-- Health & Safety -->
-    <div class="mb-4">
-      <h5 class="text-danger fw-bold mb-3"><i class="fas fa-shield-alt me-2"></i>Health & Safety Certifications</h5>
-      <ul class="list-unstyled ps-3">
-        <li><i class="fas fa-certificate text-danger me-2"></i>IOSH Managing Safely – IOSH, UK</li>
-        <li><i class="fas fa-certificate text-danger me-2"></i>IRCA ISO 14001 Lead Auditor – IRCA, UK</li>
-        <li><i class="fas fa-certificate text-danger me-2"></i>IASP Certified Fire Safety – IASP, USA</li>
-        <li><i class="fas fa-certificate text-danger me-2"></i>OSHA 48-Hour, 30-Hour, and multiple 6-Hour Certificates – OSHA, USA</li>
-      </ul>
-    </div>
-
-    <!-- Training & Leadership -->
-    <div class="mb-4">
-      <h5 class="text-primary fw-bold mb-3"><i class="fas fa-users-cog me-2"></i>Training & Leadership</h5>
-      <ul class="list-unstyled ps-3">
-        <li><i class="fas fa-certificate text-primary me-2"></i>AOSH Certified Master Trainer – AOSH, UK</li>
-        <li><i class="fas fa-certificate text-primary me-2"></i>Shell NXplorers Pro Facilitator – Shell, UK</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-<!-- Footer -->
-<footer class="bg-black text-white py-3 text-center">
-  <p>&copy; 2025 Dr Sultan | Tekgen Technical Institute</p>
-  <div class="social-icons">
-    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  function toggleContactModal(show) {
-    const contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
-    if (show) {
-      contactModal.show();
-    }
-  }
-</script>
-
-
-<!-- Contact Modal -->
-<div id="contactModal" class="modal fade" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4 shadow-lg">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form class="modal-body">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" required />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required />
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <div class="text-end">
-          <button type="submit" class="btn btn-success px-4">Send</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
