@@ -43,7 +43,6 @@
       color: var(--text);
       line-height: 1.7;
       background-color: var(--lighter);
-      overflow-x: hidden;
       padding-top: 80px; /* For fixed navbar */
     }
     
@@ -63,19 +62,18 @@
     
     /* Navbar Styles */
     .navbar {
-  background-color: white !important;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  padding: 10px 15px; /* keep it smaller for mobile */
-  transition: var(--transition);
-  position: fixed;  /* instead of absolute */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1030; /* stays on top */
-  display: flex;   /* FIXED */
-  align-items: center;
-}
-
+      background-color: white !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      padding: 10px 15px;
+      transition: var(--transition);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      display: flex;
+      align-items: center;
+    }
 
     .navbar.scrolled {
       padding: 15px 0;
@@ -175,19 +173,15 @@
       top: 0;
     }
 
+    /* FIXED: Removed overflow-x: hidden from html and body */
+    html, body {
+      max-width: 100%;
+    }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden; /* prevent sideways scrolling */
-}
-
-.main-container {
-  width: 100%;
-  margin: 0 auto;
-  overflow-x: hidden; /* makes sure no child causes extra width */
-}
-
-
+    .main-container {
+      width: 100%;
+      margin: 0 auto;
+    }
 
     /* Dropdown styling */
     .dropdown-menu {
@@ -287,14 +281,14 @@ html, body {
     }
 
     .hero .container {
-  overflow: hidden;  /* prevent child overflow */
-}
-
-.hero img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+      overflow: hidden;
+    }
+    
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
     
     .hero-img:hover {
       transform: perspective(1000px) rotateY(0deg);
@@ -622,22 +616,21 @@ html, body {
     }
 
     @media (max-width: 767.98px) {
-  body {
-    padding-top: 70px;
-  }
-}
+      body {
+        padding-top: 70px;
+      }
+    }
 
     /* Fix navbar spacing */
-.navbar {
-  padding: 10px 15px !important;
-}
+    .navbar {
+      padding: 10px 15px !important;
+    }
 
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   </style>
 </head>
 
@@ -1004,6 +997,44 @@ html, body {
           </ul>
           <a href="tekgen.html" class="btn btn-primary">Learn More About Tekgen</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlighted Achievements Section -->
+  <section class="bg-primary-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5 section-title center">Highlighted Achievements</h2>
+      <div class="row g-4 justify-content-center">
+
+        <!-- ProQual Level 6 NVQ Diploma -->
+        <div class="col-md-6" data-aos="fade-up">
+          <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3">
+            <i class="fas fa-certificate fa-2x text-primary"></i>
+            <div>
+              <h5 class="fw-bold">ProQual Level 6 NVQ Diploma in Occupational Health and Safety</h5>
+              <p class="text-muted mb-2">ProQual, UK</p>
+              <a href="Sultan_Shaikh_ProQual Level 6.pdf" target="_blank" class="btn btn-outline-primary btn-sm">
+                View Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ProQual Level 3 Award -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3">
+            <i class="fas fa-award fa-2x text-success"></i>
+            <div>
+              <h5 class="fw-bold">ProQual Level 3 Award in Health & Safety</h5>
+              <p class="text-muted mb-2">ProQual, UK</p>
+              <a href="Sultan_Shaikh_ProQual Level 3.pdf" target="_blank" class="btn btn-outline-success btn-sm">
+                View Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
