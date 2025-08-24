@@ -43,6 +43,7 @@
       color: var(--text);
       line-height: 1.7;
       background-color: var(--lighter);
+      overflow-x: hidden;
       padding-top: 80px; /* For fixed navbar */
     }
     
@@ -62,18 +63,19 @@
     
     /* Navbar Styles */
     .navbar {
-      background-color: white !important;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      padding: 10px 15px;
-      transition: var(--transition);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1030;
-      display: flex;
-      align-items: center;
-    }
+  background-color: white !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 10px 15px; /* keep it smaller for mobile */
+  transition: var(--transition);
+  position: fixed;  /* instead of absolute */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* stays on top */
+  display: flex;   /* FIXED */
+  align-items: center;
+}
+
 
     .navbar.scrolled {
       padding: 15px 0;
@@ -173,15 +175,19 @@
       top: 0;
     }
 
-    /* FIXED: Removed overflow-x: hidden from html and body */
-    html, body {
-      max-width: 100%;
-    }
 
-    .main-container {
-      width: 100%;
-      margin: 0 auto;
-    }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* prevent sideways scrolling */
+}
+
+.main-container {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden; /* makes sure no child causes extra width */
+}
+
+
 
     /* Dropdown styling */
     .dropdown-menu {
@@ -281,14 +287,14 @@
     }
 
     .hero .container {
-      overflow: hidden;
-    }
-    
-    .hero img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  overflow: hidden;  /* prevent child overflow */
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
     
     .hero-img:hover {
       transform: perspective(1000px) rotateY(0deg);
@@ -616,21 +622,22 @@
     }
 
     @media (max-width: 767.98px) {
-      body {
-        padding-top: 70px;
-      }
-    }
+  body {
+    padding-top: 70px;
+  }
+}
 
     /* Fix navbar spacing */
-    .navbar {
-      padding: 10px 15px !important;
-    }
+.navbar {
+  padding: 10px 15px !important;
+}
 
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
   </style>
 </head>
 
