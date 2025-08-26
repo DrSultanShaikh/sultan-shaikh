@@ -627,6 +627,99 @@ html, body {
   }
 }
 
+      /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .bg-primary-light {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                text-align: center;
+                width: 100%;
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .order-lg-1, .order-lg-2 {
+                order: 0;
+            }
+            
+            .pe-lg-5 {
+                padding-right: 0 !important;
+            }
+            
+            .hover-effect {
+                margin: 30px 0;
+            }
+            
+            .text-center-mobile {
+                text-align: center;
+            }
+        }
+        
+        /* Additional adjustment for very small devices */
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .lead {
+                font-size: 18px;
+            }
+        }
+
+                /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .lead {
+                font-size: 1.2rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-content .d-flex {
+                justify-content: center !important;
+                flex-wrap: wrap;
+            }
+            
+            .hero-content .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 10px 0;
+            }
+        }
+        
+        /* Additional adjustment for very small devices */
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content .lead {
+                font-size: 1.1rem;
+            }
+            
+            .hero-content .btn {
+                padding: 10px 20px;
+            }
+        }
+        
+
     /* Fix navbar spacing */
 .navbar {
   padding: 10px 15px !important;
