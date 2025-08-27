@@ -9,8 +9,10 @@
 
   <title>Dr Sultan - CEO | Tekgen Technical Institute</title>
   
-  <!-- Google Fonts - Manrope -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <!-- Google Fonts - Roboto+Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -758,11 +760,11 @@ html, body {
     text-align: center;
   }
   
-  .feature-box .icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
+    .feature-box .icon {
+        display: contents;
+        align-items: center;
+        margin-bottom: 15px;
+    }
   
   .feature-box .icon img {
     max-height: 50px !important;
@@ -816,20 +818,21 @@ html, body {
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
         </li>
+        <li class="nav-item"><a class="nav-link" href="qualification.html">Qualifications</a></li>
         <li class="nav-item">
           <a class="nav-link" href="research.html">Research</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="publication.html">Publications</a>
-        </li>
+        
 
         <!-- Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More
+            Menu
           </a>
           <ul class="dropdown-menu" aria-labelledby="moreDropdown">
-            <li><a class="dropdown-item" href="qualification.html">Qualifications</a></li>
+            <li>
+          <a class="dropdown-item" href="publication.html">Publications</a>
+        </li>
             <li><a class="dropdown-item" href="service.html">Services</a></li>
             <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
             <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
@@ -942,7 +945,7 @@ html, body {
             </div>
             <h5 class="fw-bold">Ph.D. in Sustainable Environment</h5>
             <p class="mb-1">Hamad Bin Khalifa University, Qatar Foundation</p>
-            <small class="text-primary fw-bold">CGPA: 3.96 / 4.00</small>
+            <small class="text-primary fw-bold">CGPA: 3.78 / 4.00 </small>
           </div>
         </div>
 
@@ -954,7 +957,7 @@ html, body {
             </div>
             <h5 class="fw-bold">M.S. in Environmental Engineering</h5>
             <p class="mb-1">U.S.-Pakistan Center for Advanced Studies in Water, MUET</p>
-            <small class="text-primary fw-bold">CGPA: 3.91 / 4.00</small>
+            <small class="text-primary fw-bold">CGPA: 3.89 / 4.00 </small>
           </div>
         </div>
 
@@ -966,7 +969,7 @@ html, body {
             </div>
             <h5 class="fw-bold">B.E. in Civil Engineering</h5>
             <p class="mb-1">Mehran University of Engineering & Technology</p>
-            <small class="text-primary fw-bold">CGPA: 3.80 / 4.00</small>
+            <small class="text-primary fw-bold">CGPA: 3.85 / 4.00</small>
           </div>
         </div>
       </div>
@@ -1044,7 +1047,7 @@ html, body {
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
           <div class="card">
             <div class="card-body p-4">
-              <h5 class="fw-bold">Effects of Temperature on Biofilm Formation</h5>
+              <h5 class="fw-bold">Effects of temperature on biofilm formation and resource recovery during anoxyphototrophic treatment of fuel-synthesis wastewater</h5>
               <p class="mb-3 text-muted"><i class="fas fa-book-open text-primary me-2"></i><strong>Journal:</strong> J. Chem. Tech. & Biotech (2024)</p>
               <a href="https://doi.org/10.1002/jctb.7919" class="btn btn-sm btn-outline-primary" target="_blank">
                 <i class="fas fa-external-link-alt me-2"></i> Read Publication
@@ -1057,7 +1060,7 @@ html, body {
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card">
             <div class="card-body p-4">
-              <h5 class="fw-bold">Bioplastics from Fuel Synthesis Wastewater</h5>
+              <h5 class="fw-bold">Photobioreactor design for polyhydroxyalkanoates production using anoxygenic photoheterotrophs: a review</h5>
               <p class="mb-3 text-muted"><i class="fas fa-book-open text-primary me-2"></i><strong>Journal:</strong> Fermentation (2023)</p>
               <a href="https://doi.org/10.3390/fermentation9080778" class="btn btn-sm btn-outline-primary" target="_blank">
                 <i class="fas fa-external-link-alt me-2"></i> Read Publication
@@ -1239,47 +1242,122 @@ html, body {
 </main>
 
 <!-- Footer -->
-<footer>
+<footer class="bg-dark py-5">
   <div class="container">
     <div class="row">
+      <!-- Brand Section -->
       <div class="col-lg-4 mb-4 mb-lg-0">
-        <h4 class="text-white mb-4">Dr. Sultan Shaikh</h4>
-        <p>Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute, dedicated to advancing sustainability and safety through research and education.</p>
-      </div>
-      
-      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-        <h5 class="text-white mb-4">Quick Links</h5>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="research.html">Research</a>
-          <a href="publication.html">Publications</a>
+        <div class="footer-brand">
+          <h4 class="text-white mb-3">Dr. Sultan Shaikh</h4>
+          <p class="text-light opacity-75 mb-4">Environmental Engineer, Researcher, and CEO at Tekgen Technical Institute, dedicated to advancing sustainability and safety through research and education.</p>
         </div>
       </div>
       
+      <!-- Quick Links -->
       <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-        <h5 class="text-white mb-4">Resources</h5>
+        <h5 class="text-white mb-3">Quick Links</h5>
         <div class="footer-links">
-          <a href="qualification.html">Qualifications</a>
-          <a href="service.html">Services</a>
-          <a href="tekgen.html">Tekgen</a>
-          <a href="gallery.html">Gallery</a>
+          <a href="index.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Home</a>
+          <a href="about.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">About</a>
+          <a href="research.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Research</a>
+          <a href="publication.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Publications</a>
         </div>
       </div>
       
+      <!-- Resources -->
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-3">Resources</h5>
+        <div class="footer-links">
+          <a href="qualification.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Qualifications</a>
+          <a href="service.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Services</a>
+          <a href="tekgen.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Tekgen</a>
+          <a href="gallery.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Gallery</a>
+        </div>
+      </div>
+      
+      <!-- Connect -->
       <div class="col-lg-4 col-md-4">
-        <h5 class="text-white mb-4">Connect</h5>
+        <h5 class="text-white mb-3">Connect</h5>
         <div class="social-icons mb-4">
-          <a href="https://www.facebook.com/prince.sultan.77" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.linkedin.com/in/sultan-shaikhh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.youtube.com/acceleratetoachieve" target="_blank"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.instagram.com/engr2207/#" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/prince.sultan.77" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sultan-shaikhh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/acceleratetoachieve" target="_blank" class="social-icon">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.instagram.com/engr2207/#" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
-        <p class="mb-0">© 2025 Dr Sultan. All rights reserved.</p>
+        <p class="text-light opacity-75 mb-0">© 2025 Dr Sultan. All rights reserved.</p>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+  border-top: 3px solid #2a7f62;
+}
+
+.footer-brand p {
+  line-height: 1.6;
+}
+
+.footer-links a {
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #2a7f62 !important;
+  transform: translateX(5px);
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #2a7f62;
+  transform: translateY(-3px);
+}
+
+.hover-text-primary:hover {
+  color: #2a7f62 !important;
+}
+
+@media (max-width: 767.98px) {
+  footer {
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .footer-links a {
+    justify-content: center;
+  }
+}
+</style>
 
 <!-- Contact Modal -->
 <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
