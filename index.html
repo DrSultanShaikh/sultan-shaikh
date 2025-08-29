@@ -850,34 +850,101 @@ html, body {
 
 <!-- Main Content Container -->
 <main class="main-container">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Text Content -->
-        <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="800">
-          <h1 class="fw-bold mb-4">Dr. Sultan Shaikh</h1>
-          <p class="lead mb-4">CEO, Researcher & Sustainability Consultant with a decade of experience in sustainability, research, and education.</p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="Sultan Shaikh - CV.pdf" class="btn btn-primary" target="_blank">
-              <i class="fas fa-download me-2"></i> Download Resume
-            </a>
-            <a href="#contact" class="btn btn-outline-primary">
-              <i class="fas fa-envelope me-2"></i> Contact Me
-            </a>
-          </div>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Text Content -->
+      <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="800">
+        <h1 class="fw-bold mb-3">Dr. Sultan Shaikh</h1>
+        <h4 class="text-primary mb-4">Environmental Engineer | Researcher | CEO at Tekgen</h4>
+        <p class="lead mb-4">A dedicated professional with a decade of experience in sustainability, research, and education. Passionate about advancing environmental solutions and empowering industries through innovative research and comprehensive HSE training programs.</p>
+        
+        <!-- Social Media Icons -->
+        <div class="social-icons-hero mb-4">
+          <a href="https://www.linkedin.com/in/sultan-shaikhh" target="_blank" class="social-icon-hero">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/acceleratetoachieve" target="_blank" class="social-icon-hero">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/prince.sultan.77" target="_blank" class="social-icon-hero">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/engr2207" target="_blank" class="social-icon-hero">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
+        
+        <div class="d-flex flex-wrap gap-3">
+          <a href="Sultan Shaikh - CV.pdf" class="btn btn-primary" target="_blank">
+            <i class="fas fa-download me-2"></i> Download Resume
+          </a>
+          <a href="#contact" class="btn btn-outline-primary">
+            <i class="fas fa-envelope me-2"></i> Contact Me
+          </a>
+        </div>
+      </div>
 
-        <!-- Image -->
-        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-          <div class="hero-img">
-            <img src="1.jpeg" alt="Dr Sultan - CEO" class="img-fluid">
-          </div>
+      <!-- Image -->
+      <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+        <div class="hero-img">
+          <img src="1.jpeg" alt="Dr Sultan - CEO" class="img-fluid">
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<style>
+.social-icons-hero {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.social-icon-hero {
+  width: 45px;
+  height: 45px;
+  background: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+  border: 2px solid var(--primary);
+}
+
+.social-icon-hero:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(42, 127, 98, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .social-icons-hero {
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .social-icon-hero {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .d-flex.flex-wrap {
+    justify-content: center;
+  }
+}
+</style>
   <!-- Welcome Section -->
   <section>
     <div class="container">
