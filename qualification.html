@@ -805,42 +805,119 @@
     </div>
   </section>
     <!-- Highlighted Achievements Section -->
-  <section class="bg-primary-light">
-    <div class="container">
-      <h2 class="fw-bold text-center mb-5 section-title center">Highlighted Achievements</h2>
-      <div class="row g-4 justify-content-center">
+<section class="bg-primary-light py-5">
+    <div class="container py-4">
+        <h2 class="fw-bold text-center mb-5 section-title">Highlighted Achievements</h2>
+        <div class="row g-4 justify-content-center">
 
-        <!-- ProQual Level 6 NVQ Diploma -->
-        <div class="col-md-6" data-aos="fade-up">
-          <div class="achievement-card">
-            <i class="fas fa-certificate text-primary"></i>
-            <div>
-              <h5 class="fw-bold">ProQual Level 6 NVQ Diploma in Occupational Health and Safety</h5>
-              <p class="text-muted mb-2">ProQual, UK</p>
-              <a href="Sultan_Shaikh_ProQual Level 3.pdf" target="_blank" class="btn btn-outline-primary btn-sm">
-                View Certificate
-              </a>
+            <!-- Research Leadership -->
+            <div class="col-md-6" data-aos="fade-up">
+                <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+                    <div class="icon-container">
+                        <i class="fas fa-flask fa-2x text-success"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Cutting-edge Research Leadership</h5>
+                        <p class="text-muted mb-2">Led innovative research on bioplastics and single-cell protein production</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- ProQual Level 3 Award -->
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="achievement-card">
-            <i class="fas fa-award text-success"></i>
-            <div>
-              <h5 class="fw-bold">ProQual Level 3 Award in Assessing Competence in the Work Environment</h5>
-              <p class="text-muted mb-2">ProQual, UK</p>
-              <a href="your_previous_certificate.pdf" target="_blank" class="btn btn-outline-success btn-sm">
-                View Certificate
-              </a>
+            <!-- CEO of Tekgen -->
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+                    <div class="icon-container">
+                        <i class="fas fa-briefcase fa-2x text-success"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">CEO of Tekgen Technical Institute</h5>
+                        <p class="text-muted mb-2">Expanding HSE training globally with innovative educational approaches</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-      </div>
+            <!-- PhD Scholarship -->
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+                    <div class="icon-container">
+                        <i class="fas fa-graduation-cap fa-2x text-success"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Ph.D. Scholarship Winner</h5>
+                        <p class="text-muted mb-2">Awarded prestigious scholarship from HBKU Qatar Foundation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exchange Scholar -->
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+                    <div class="icon-container">
+                        <i class="fas fa-globe-americas fa-2x text-success"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">International Exchange Scholar</h5>
+                        <p class="text-muted mb-2">Selected as exchange scholar at the University of Utah, USA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master's Scholarship -->
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+                    <div class="icon-container">
+                        <i class="fas fa-award fa-2x text-success"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Master's Scholarship Winner</h5>
+                        <p class="text-muted mb-2">Awarded competitive scholarship from USPCAS-W by USAID</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </section>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    });
+</script>
+    <style>
+        .bg-primary-light {
+            background-color: #e8f5e9;
+        }
+        .section-title {
+            color: #000000;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .achievement-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #4caf50;
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        .icon-container {
+            min-width: 50px;
+        }
+        .btn-outline-success {
+            border-width: 2px;
+            font-weight: 500;
+        }
+        .btn-outline-success:hover {
+            transform: scale(1.05);
+        }
+    </style>
 
 </main>
 
