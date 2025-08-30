@@ -618,13 +618,32 @@
             <li><a class="dropdown-item" href="service.html">Services</a></li>
             <li><a class="dropdown-item" href="tekgen.html">Tekgen</a></li>
             <li><a class="dropdown-item" href="youtube.html">YouTube</a></li>
-            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+            <!-- <li><a class="dropdown-item" href="gallery.html">Gallery</a></li> -->
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownToggle = document.getElementById("moreDropdown");
+    const dropdownMenu = dropdownToggle.nextElementSibling;
+
+    // Toggle dropdown on click
+    dropdownToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      dropdownMenu.classList.toggle("show");
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener("click", function (e) {
+      if (!dropdownToggle.parentElement.contains(e.target)) {
+        dropdownMenu.classList.remove("show");
+      }
+    });
+  });
+</script>
 
 <!-- Main Content Container -->
 <main class="main-container">
@@ -804,6 +823,7 @@
       </div>
     </div>
   </section>
+
     <!-- Highlighted Achievements Section -->
 <section class="bg-primary-light py-5">
     <div class="container py-4">
@@ -878,6 +898,7 @@
         </div>
     </div>
 </section>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -951,7 +972,7 @@
           <a href="qualification.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Qualifications</a>
           <a href="service.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Services</a>
           <a href="tekgen.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Tekgen</a>
-          <a href="gallery.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Gallery</a>
+          <!-- <a href="gallery.html" class="d-block mb-2 text-light opacity-75 text-decoration-none hover-text-primary">Gallery</a> -->
         </div>
       </div>
       
