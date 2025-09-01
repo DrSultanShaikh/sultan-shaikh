@@ -23,6 +23,7 @@
   
   <!-- Custom CSS -->
   <style>
+
     :root {
       --primary: #2a7f62;
       --primary-light: rgba(42, 127, 98, 0.1);
@@ -70,7 +71,7 @@
     .bg-primary { background-color: var(--primary) !important; }
     .bg-primary-light { background-color: var(--primary-light) !important; }
     
-    /* Navbar Styles */
+/* Navbar Styles */
     .navbar {
       background-color: white !important;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -81,6 +82,8 @@
       left: 0;
       right: 0;
       z-index: 1030;
+      display: flex;
+      align-items: center;
     }
 
     .navbar.scrolled {
@@ -126,43 +129,61 @@
       color: var(--primary) !important;
     }
 
-    /* Dropdown styling */
-    .dropdown-menu {
+    /* Mobile Menu Styling */
+    .navbar-toggler {
       border: none;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem;
+      font-size: 1.25rem;
     }
 
-    .dropdown-item {
-      padding: 8px 20px;
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: none;
+      position: relative;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      display: block;
       transition: var(--transition);
     }
 
-    .dropdown-item:hover {
-      background-color: var(--primary-light);
-      color: var(--primary);
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      background-color: var(--primary);
+      left: 0;
+      transition: var(--transition);
     }
 
-    /* Mobile responsiveness */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background-color: white;
-        padding: 20px;
-        margin-top: 15px;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-      }
-      
-      .nav-link {
-        margin: 5px 0;
-        padding: 10px 15px !important;
-      }
-      
-      .dropdown-menu {
-        box-shadow: none;
-        border-left: 3px solid var(--primary);
-        margin-left: 20px;
-      }
+    .navbar-toggler-icon::before {
+      top: -6px;
     }
+
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background-color: transparent;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
 
 
 html, body {
@@ -804,7 +825,7 @@ html, body {
     </div>
   </div>
 </nav>
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     const dropdownToggle = document.getElementById("moreDropdown");
     const dropdownMenu = dropdownToggle.nextElementSibling;
@@ -822,7 +843,7 @@ html, body {
       }
     });
   });
-</script>
+</script> -->
 
 <!-- Main Content Container -->
 <main class="main-container">
