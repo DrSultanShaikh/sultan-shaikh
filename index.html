@@ -130,61 +130,60 @@
     }
 
     /* Mobile Menu Styling */
-    .navbar-toggler {
-      border: none;
-      padding: 0.5rem;
-      font-size: 1.25rem;
-    }
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
 
-    .navbar-toggler:focus {
-      box-shadow: none;
-      outline: none;
-    }
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
 
-    .navbar-toggler-icon {
-      background-image: none;
-      position: relative;
-      height: 2px;
-      width: 24px;
-      background-color: var(--primary);
-      display: block;
-      transition: var(--transition);
-    }
+.navbar-toggler-icon {
+  background-image: none;
+  position: relative;
+  height: 2px;
+  width: 24px;
+  background-color: var(--primary);
+  display: block;
+  transition: var(--transition);
+}
 
-    .navbar-toggler-icon::before,
-    .navbar-toggler-icon::after {
-      content: '';
-      position: absolute;
-      height: 2px;
-      width: 24px;
-      background-color: var(--primary);
-      left: 0;
-      transition: var(--transition);
-    }
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 24px;
+  background-color: var(--primary);
+  left: 0;
+  transition: var(--transition);
+}
 
-    .navbar-toggler-icon::before {
-      top: -6px;
-    }
+.navbar-toggler-icon::before {
+  top: -6px;
+}
 
-    .navbar-toggler-icon::after {
-      top: 6px;
-    }
+.navbar-toggler-icon::after {
+  top: 6px;
+}
 
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-      background-color: transparent;
-    }
+/* When expanded: turn hamburger → X */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background: none; /* instead of transparent, ensures no middle line leftover */
+}
 
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
-      transform: rotate(45deg);
-      top: 0;
-    }
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
 
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
-      transform: rotate(-45deg);
-      top: 0;
-    }
-
-
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
 
 html, body {
   max-width: 100%;
