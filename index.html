@@ -231,82 +231,102 @@ html, body {
     }
     
     /* Hero Section */
-    .hero {
-      padding: 180px 0 120px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero:after {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      left: -100px;
-      width: 300px;
-      height: 300px;
-      background-color: var(--primary-light);
-      border-radius: 50%;
-      z-index: 0;
-    }
-    
-    .hero:before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      background-color: var(--primary-light);
-      border-radius: 50%;
-      z-index: 0;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .hero-img {
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      transform: perspective(1000px) rotateY(-10deg);
-      transition: var(--transition);
-      border: 10px solid white;
-      position: relative;
-      overflow: hidden;
-    }
+.hero {
+  padding: 150px 0 100px; /* slightly reduced so image doesn't float too far */
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px; /* section border to match image softness */
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
 
-    .hero .container {
-  overflow: hidden;  /* prevent child overflow */
+.hero:after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero:before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-img {
+  border-radius: 20px; /* consistent with hero border */
+  box-shadow: var(--box-shadow, 0 6px 18px rgba(0,0,0,0.15));
+  transform: perspective(1000px) rotateY(-8deg);
+  transition: var(--transition, all 0.4s ease);
+  border: 8px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  width: 80%;   /* 🔹 image scaled to 80% */
+  margin: 0 auto;
+}
+
+.hero .container {
+  overflow: hidden; /* prevent child overflow */
 }
 
 .hero img {
   max-width: 100%;
   height: auto;
   display: block;
+  border-radius: inherit;
 }
-    
-    .hero-img:hover {
-      transform: perspective(1000px) rotateY(0deg);
-      box-shadow: var(--box-shadow-hover);
-    }
-    
-    .hero-img:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(42, 127, 98, 0.1), rgba(42, 127, 98, 0.3));
-      opacity: 0;
-      transition: var(--transition);
-    }
-    
-    .hero-img:hover:after {
-      opacity: 1;
-    }
+
+.hero-img:hover {
+  transform: perspective(1000px) rotateY(0deg);
+  box-shadow: var(--box-shadow-hover, 0 8px 25px rgba(0,0,0,0.25));
+}
+
+.hero-img:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(42, 127, 98, 0.1), rgba(42, 127, 98, 0.3));
+  opacity: 0;
+  transition: var(--transition, all 0.4s ease);
+}
+
+.hero-img:hover:after {
+  opacity: 1;
+}
+
+/* Responsive: keep image centered */
+@media (max-width: 991px) {
+  .hero-img {
+    width: 85%;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-img {
+    width: 95%;
+  }
+}
+
     
     /* Section Styling */
     section {
@@ -837,46 +857,56 @@ html, body {
 <!-- Main Content Container -->
 <main class="main-container">
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero py-5">
   <div class="container">
     <div class="row align-items-center">
+      
       <!-- Text Content -->
-      <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="800">
-        <h1 class="fw-bold mb-3">Dr. Sultan Shaikh</h1>
-        <h4 class="text-primary mb-4">Environmental Engineer | Researcher | CEO at Tekgen</h4>
-        <p class="lead mb-4">A dedicated professional with a decade of experience in sustainability, research, and education. Passionate about advancing environmental solutions and empowering industries through innovative research and comprehensive HSE training programs.</p>
+      <div class="col-lg-6 hero-content mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="800">
+        <h1 class="fw-bold mb-3 display-5 text-dark">Dr. Sultan Shaikh</h1>
+        <h4 class="text-primary fw-semibold mb-4">Environmental Engineer | Researcher | CEO at Tekgen</h4>
+        
+        <p class="lead text-muted mb-4">
+          With over a decade of expertise in sustainability, environmental biotechnology, and HSE training, I am committed to advancing innovative solutions for industries and communities. My work focuses on water reuse, environmental research, and empowering organizations with cutting-edge sustainability strategies.
+        </p>
         
         <!-- Social Media Icons -->
         <div class="social-icons-hero mb-4">
-          <a href="https://www.linkedin.com/in/sultan-shaikhh" target="_blank" class="social-icon-hero">
+          <a href="https://www.linkedin.com/in/sultan-shaikhh" target="_blank" class="social-icon-hero" title="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://www.youtube.com/acceleratetoachieve" target="_blank" class="social-icon-hero">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="https://www.facebook.com/prince.sultan.77" target="_blank" class="social-icon-hero">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/engr2207" target="_blank" class="social-icon-hero">
-            <i class="fab fa-instagram"></i>
+
+          <!-- Google Scholar -->
+          <a href="https://scholar.google.com/citations?user=3DWXN9MAAAAJ&hl=en" target="_blank" class="social-icon-hero" title="Google Scholar">
+            <i class="fas fa-graduation-cap"></i>
           </a>
 
+          <a href="https://www.youtube.com/acceleratetoachieve" target="_blank" class="social-icon-hero" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/prince.sultan.77" target="_blank" class="social-icon-hero" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/engr2207" target="_blank" class="social-icon-hero" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
-        
+
+        <!-- Action Buttons -->
         <div class="d-flex flex-wrap gap-3">
-          <a href="Sultan Shaikh - CV.pdf" class="btn btn-primary" target="_blank">
+          <a href="Sultan Shaikh - CV.pdf" class="btn btn-primary shadow-sm" target="_blank">
             <i class="fas fa-download me-2"></i> Download Resume
           </a>
-          <a href="#contact" class="btn btn-outline-primary">
+          <a href="#contact" class="btn btn-outline-primary shadow-sm">
             <i class="fas fa-envelope me-2"></i> Contact Me
           </a>
         </div>
       </div>
 
       <!-- Image -->
-      <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-        <div class="hero-img">
-          <img src="1.jpeg" alt="Dr Sultan - CEO" class="img-fluid">
+      <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+        <div class="hero-img position-relative">
+          <img src="1.jpeg" alt="Dr Sultan - CEO" class="img-fluid rounded-3 shadow-lg">
         </div>
       </div>
     </div>
@@ -884,6 +914,13 @@ html, body {
 </section>
 
 <style>
+/* Hero Styling */
+.hero {
+  background: linear-gradient(135deg, #f8fdfb, #ffffff);
+  color: #333;
+}
+
+/* Social Icons */
 .social-icons-hero {
   display: flex;
   gap: 15px;
@@ -891,27 +928,28 @@ html, body {
 }
 
 .social-icon-hero {
-  width: 45px;
-  height: 45px;
-  background: var(--primary-light);
+  width: 48px;
+  height: 48px;
+  background: var(--primary-light, #eaf6f2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: var(--primary, #2a7f62);
   text-decoration: none;
-  transition: var(--transition);
-  border: 2px solid var(--primary);
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary, #2a7f62);
+  font-size: 18px;
 }
 
 .social-icon-hero:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(42, 127, 98, 0.3);
+  background: var(--primary, #2a7f62);
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(42, 127, 98, 0.3);
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (max-width: 767.98px) {
   .social-icons-hero {
     justify-content: center;
@@ -919,8 +957,9 @@ html, body {
   }
   
   .social-icon-hero {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
   }
   
   .hero-content {
@@ -932,7 +971,8 @@ html, body {
   }
 }
 </style>
-  <!-- Welcome Section -->
+
+<!-- Welcome Section -->
   <section>
     <div class="container">
       <div class="row justify-content-center">
