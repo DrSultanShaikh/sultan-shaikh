@@ -1020,17 +1020,47 @@
 
 <!-- Main Content Container -->
 <main class="main-container">
-  <!-- Research Hero Section -->
-  <section class="research-hero">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8" data-aos="fade-up">
-          <h1 class="fw-bold mb-4">Research & Innovation</h1>
-          <p class="lead">Advancing environmental sustainability through cutting-edge research in biotechnology, wastewater treatment, and resource recovery</p>
-        </div>
+<!-- Research Hero Section -->
+<section class="research-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up">
+        <h1 class="fw-bold mb-4">Research & Innovation</h1>
+        <p class="lead">
+          Advancing environmental sustainability through cutting-edge research in biotechnology, wastewater treatment, and resource recovery
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.research-hero {
+  background: url('texture.jpg') no-repeat center center/cover; /* replace with your image */
+  min-height: 60vh;
+  position: relative;
+}
+
+.research-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.05); /* dark overlay */
+}
+
+.research-hero .container {
+  position: relative;
+  z-index: 2;
+}
+p.lead {
+    color: black;
+}
+</style>
+
 
   <!-- Research Areas Section -->
   <section>
@@ -1138,7 +1168,7 @@
                     <div class="stats-box">
                         <div class="row">
                             <div class="col-4">
-                                <p class="stats-number">151</p>
+                                <p class="stats-number">160</p>
                                 <p class="stats-label">Total Citations</p>
                             </div>
                             <div class="col-4">
