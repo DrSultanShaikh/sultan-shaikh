@@ -649,16 +649,47 @@
 <!-- Main Content Container -->
 <main class="main-container">
   <!-- Qualifications Hero Section -->
-  <section class="qualifications-hero">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8" data-aos="fade-up">
-          <h1 class="fw-bold mb-4">Qualifications & Credentials</h1>
-          <p class="lead">Academic Excellence, Global Certifications & Professional Achievements</p>
-        </div>
+<!-- Qualifications Hero Section -->
+<section class="qualifications-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up">
+        <h1 class="fw-bold mb-4">Qualifications & Credentials</h1>
+        <p class="lead">Academic Excellence, Global Certifications & Professional Achievements</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.qualifications-hero {
+  background: url('texture.jpg') no-repeat center center/cover; /* replace with your image */
+  min-height: 60vh;
+  position: relative;
+}
+
+.qualifications-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.05); /* dark overlay for readability */
+}
+
+.qualifications-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+p.lead {
+    color: black;
+}
+
+</style>
+
 
   <!-- Intro Section -->
   <section class="bg-primary-light">
@@ -755,75 +786,69 @@
     </div>
   </section>
 
-  <!-- Certifications Section -->
-  <section>
-    <div class="container">
-      <h2 class="fw-bold text-center mb-5 section-title center">Professional Certifications</h2>
-      
+<!-- Certifications Section -->
+<section class="bg-primary-light py-5">
+  <div class="container py-4">
+    <h2 class="fw-bold text-center mb-5 section-title">Professional Certifications</h2>
+    <div class="row g-4 justify-content-center">
+
       <!-- Environmental & Sustainability -->
-      <div class="certification-category" data-aos="fade-up">
-        <h4 class="fw-bold mb-4 text-success"><i class="fas fa-leaf me-2"></i>Environmental & Sustainability</h4>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">NEBOSH Environmental Management</h6>
-          <p class="text-muted mb-0 small">NEBOSH, UK</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">LEED Green Associate</h6>
-          <p class="text-muted mb-0 small">USGBC, USA</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">GSAS-CGP</h6>
-          <p class="text-muted mb-0 small">GORD, Qatar</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">Envision Sustainability Professional</h6>
-          <p class="text-muted mb-0 small">USA</p>
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+          <div class="icon-container">
+            <i class="fas fa-leaf fa-2x text-success"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">Environmental & Sustainability Certifications</h5>
+            <ol class="text-muted small mb-0 ps-3">
+              <li>NEBOSH Environmental Management – NEBOSH, UK</li>
+              <li>LEED Green Associate – USGBC, USA</li>
+              <li>GSAS-CGP – GORD, Qatar</li>
+              <li>Envision Sustainability Professional – USA</li>
+            </ol>
+          </div>
         </div>
       </div>
-      
+
       <!-- Health & Safety -->
-      <div class="certification-category" data-aos="fade-up" data-aos-delay="100">
-        <h4 class="fw-bold mb-4 text-danger"><i class="fas fa-shield-alt me-2"></i>Health & Safety Certifications</h4>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">ProQual Level 6 NVQ Diploma in Occupational Health and Safety</h6>
-          <p class="text-muted mb-0 small">ProQual, UK</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">ProQual Level 3 Award in Assessing Competence in the Work Environment</h6>
-          <p class="text-muted mb-0 small">ProQual, UK</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">IOSH Managing Safely</h6>
-          <p class="text-muted mb-0 small">IOSH, UK</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">IRCA ISO 14001 Lead Auditor</h6>
-          <p class="text-muted mb-0 small">IRCA, UK</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">IASP Certified Fire Safety</h6>
-          <p class="text-muted mb-0 small">IASP, USA</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">OSHA 48-Hour, 30-Hour, and multiple 6-Hour Certificates</h6>
-          <p class="text-muted mb-0 small">OSHA, USA</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+          <div class="icon-container">
+            <i class="fas fa-shield-alt fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">Health & Safety Certifications</h5>
+            <ol class="text-muted small mb-0 ps-3">
+              <li>ProQual Level 6 NVQ Diploma – ProQual, UK</li>
+              <li>ProQual Level 3 Award – ProQual, UK</li>
+              <li>IOSH Managing Safely – IOSH, UK</li>
+              <li>IRCA ISO 14001 Lead Auditor – IRCA, UK</li>
+              <li>IASP Certified Fire Safety – IASP, USA</li>
+              <li>OSHA 48-Hour, 30-Hour & multiple 6-Hour – OSHA, USA</li>
+            </ol>
+          </div>
         </div>
       </div>
-      
+
       <!-- Training & Leadership -->
-      <div class="certification-category" data-aos="fade-up" data-aos-delay="200">
-        <h4 class="fw-bold mb-4 text-primary"><i class="fas fa-users-cog me-2"></i>Training & Leadership</h4>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">AOSH Certified Master Trainer</h6>
-          <p class="text-muted mb-0 small">AOSH, UK</p>
-        </div>
-        <div class="certification-item">
-          <h6 class="fw-bold mb-1">Shell NXplorers Pro Facilitator</h6>
-          <p class="text-muted mb-0 small">Shell, UK</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="p-4 bg-white shadow-sm rounded h-100 d-flex align-items-start gap-3 achievement-card">
+          <div class="icon-container">
+            <i class="fas fa-users-cog fa-2x text-primary"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">Training & Leadership Certifications</h5>
+            <ol class="text-muted small mb-0 ps-3">
+              <li>AOSH Certified Master Trainer – AOSH, UK</li>
+              <li>Shell NXplorers Pro Facilitator – Shell, UK</li>
+            </ol>
+          </div>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
     <!-- Highlighted Achievements Section -->
 <section class="bg-primary-light py-5">
