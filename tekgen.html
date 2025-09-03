@@ -590,17 +590,44 @@
 
 <!-- Main Content Container -->
 <main class="main-container">
-  <!-- Tekgen Hero Section -->
-  <section class="tekgen-hero">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8" data-aos="fade-up">
-          <h1 class="fw-bold mb-4">Tekgen Technical Institute</h1>
-          <p class="lead">Internationally Certified HSE & Technical Training Provider | Empowering Futures Since 2023</p>
-        </div>
+<!-- Tekgen Hero Section -->
+<section class="tekgen-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up">
+        <h1 class="fw-bold mb-4">Tekgen Technical Institute</h1>
+        <p class="lead">
+          Internationally Certified HSE & Technical Training Provider | Empowering Futures Since 2023
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.tekgen-hero {
+  background: url('texture.jpg') no-repeat center center/cover; /* replace with your image */
+  min-height: 60vh;
+  position: relative;
+}
+
+.tekgen-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.05); /* overlay for readability */
+}
+
+.tekgen-hero .container {
+  position: relative;
+  z-index: 2;
+}
+p.lead {
+    color: black;
+}
+</style>
+
 
 <!-- About Tekgen Section -->
 <section style="background: #f9f9f9; padding: 60px 0;">

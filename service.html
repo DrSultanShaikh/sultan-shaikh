@@ -593,17 +593,47 @@
 
 <!-- Main Content Container -->
 <main class="main-container">
-  <!-- Services Hero Section -->
-  <section class="services-hero">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8" data-aos="fade-up">
-          <h1 class="fw-bold mb-4">Professional Services</h1>
-          <p class="lead">Delivered by Dr. Sultan Shaikh – Sustainability Expert, Safety Trainer & Technical Consultant</p>
-        </div>
+<!-- Services Hero Section -->
+<section class="services-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up">
+        <h1 class="fw-bold mb-4">Professional Services</h1>
+        <p class="lead">
+          Delivered by Dr. Sultan Shaikh – Sustainability Expert, Safety Trainer & Technical Consultant
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.services-hero {
+  background: url('texture.jpg') no-repeat center center/cover; /* replace with your image */
+  min-height: 60vh;
+  position: relative;
+}
+
+.services-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.05); /* dark overlay */
+}
+
+.services-hero .container {
+  position: relative;
+  z-index: 2;
+}
+p.lead {
+    color: black;
+}
+</style>
+
 
   <!-- Consultancy Services Section -->
   <section>
