@@ -1623,18 +1623,30 @@ footer {
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form action="#" onsubmit="event.preventDefault(); alert('Message sent!');">
+        <!-- Connect with Web3Forms -->
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          
+          <!-- 🔑 Your Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="dfb498b1-a3b1-453e-91a5-a26094207376">
+
+          <!-- ✅ Add Subject & From Name (Helps avoid Spam) -->
+          <input type="hidden" name="from_name" value="Portfolio Website">
+          <input type="hidden" name="subject" value="New Contact Message from Website">
+
+          <!-- Email where the message will be sent -->
+          <input type="hidden" name="to_email" value="sultanshaikhdadu@gmail.com">
+
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" required>
+            <input type="text" class="form-control" id="name" name="name" required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
+            <input type="email" class="form-control" id="email" name="email" required>
           </div>
           <div class="mb-3">
             <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="4" required></textarea>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary w-100 py-2">
             <i class="fas fa-paper-plane me-2"></i> Send Message
@@ -1644,6 +1656,31 @@ footer {
     </div>
   </div>
 </div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // Stop normal form submit
+
+  let form = this;
+  let formData = new FormData(form);
+
+  fetch(form.action, {
+    method: form.method,
+    body: formData
+  })
+  .then(async (response) => {
+    let result = await response.json();
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      form.reset();
+    } else {
+      alert("❌ Failed to send: " + (result.message || "Try again."));
+    }
+  })
+  .catch(() => alert("⚠️ Error sending message. Please try again."));
+});
+</script>
+
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
