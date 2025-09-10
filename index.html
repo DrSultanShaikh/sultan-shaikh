@@ -1137,7 +1137,7 @@ html, body {
       <div class="text-center mb-5" data-aos="fade-up">
         <h2 class="fw-bold section-title center">Research Publications</h2>
         <p class="lead mb-1">Contributions to environmental sustainability, wastewater treatment, and circular economy.</p>
-        <p class="text-muted">151+ citations | h-index: 6 | i10-index: 5</p>
+        <p class="text-muted">164 citations | h-index: 6 | i10-index: 6</p>
       </div>
 
       <div class="row g-4">
@@ -1545,7 +1545,7 @@ footer {
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form action="#" onsubmit="event.preventDefault(); alert('Message sent!');">
+        <form id="contactForm">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" required>
@@ -1566,6 +1566,34 @@ footer {
     </div>
   </div>
 </div>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // ✅ Initialize EmailJS
+  (function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // replace with your EmailJS Public Key
+  })();
+
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
+      to_email: "sultanshaikhdadu@gmail.com" // CEO’s email
+    })
+    .then(() => {
+      alert("Message sent!");
+      document.getElementById("contactForm").reset();
+    })
+    .catch(() => {
+      alert("Failed to send. Try again.");
+    });
+  });
+</script>
+
 
 <!-- Scripts -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
