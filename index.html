@@ -1547,8 +1547,13 @@ footer {
       <div class="modal-body">
         <!-- Connect with Web3Forms -->
         <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          
           <!-- 🔑 Your Web3Forms Access Key -->
           <input type="hidden" name="access_key" value="dfb498b1-a3b1-453e-91a5-a26094207376">
+
+          <!-- ✅ Add Subject & From Name (Helps avoid Spam) -->
+          <input type="hidden" name="from_name" value="Portfolio Website">
+          <input type="hidden" name="subject" value="New Contact Message from Website">
 
           <!-- Email where the message will be sent -->
           <input type="hidden" name="to_email" value="sultanshaikhdadu@gmail.com">
@@ -1576,23 +1581,25 @@ footer {
 
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // stop normal form submit
+  e.preventDefault(); // Stop normal form submit
 
-  let formData = new FormData(this);
+  let form = this;
+  let formData = new FormData(form);
 
-  fetch(this.action, {
-    method: this.method,
+  fetch(form.action, {
+    method: form.method,
     body: formData
   })
-  .then(response => {
+  .then(async (response) => {
+    let result = await response.json();
     if (response.ok) {
-      alert("Message sent!");
-      this.reset();
+      alert("✅ Message sent successfully!");
+      form.reset();
     } else {
-      alert("Failed to send. Try again.");
+      alert("❌ Failed to send: " + (result.message || "Try again."));
     }
   })
-  .catch(() => alert("Error sending message."));
+  .catch(() => alert("⚠️ Error sending message. Please try again."));
 });
 </script>
 
